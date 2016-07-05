@@ -1,6 +1,5 @@
-<div class="row">
+<div class="row" ng-bind-html>
   <div class="col s12 z-depth-6 card-panel">
-
     <div class="row">
       <div class="input-field col s12 center">
         <h4 class="center tt-blue-text">Alterar Cadastro</h4>
@@ -18,7 +17,7 @@
           <div class="form-group">
 
             <label>Nome completo</label>
-            <input class="form-control validate" type="text" name="nome" placeholder="Nome completo" required></input>
+            <input class="form-control validate" type="text" name="nome" placeholder="Nome completo" value="{{ Customer.result }}" required></input>
 
             <!-- Validation messages -->
             <div class="tt-error-text">

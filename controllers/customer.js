@@ -3,7 +3,7 @@ angular
   .controller('CustomerSignupController', ['$scope', '$http', '$window',
 	 	'$location', 'helperService', CustomerSignupController])
 	.controller('CustomerManageController', ['$scope', '$http', '$window',
-		 	'$location', 'helperService', CustomerManageController])
+		 	'$location', 'helperService','$cookies', CustomerManageController])
   .controller('CustomerController', ['$cookies', '$location', 'authService', CustomerController])
   .config(['$routeProvider', routes]);
 
@@ -93,6 +93,19 @@ function CustomerSignupController($scope, $http, $window, $location, helperServi
 
 }
 
-function CustomerManageController() {
+function CustomerManageController($scope, $http, $window, $location, helperService, $cookies) {
+var vm = this;
+	url = 'http://titi.net.br/_homolog/cadastro/usuario.php';
+	globals = $cookies.getObject('globals');
+	data = {"usuariosID": globals.currentUser.usuariosID};
+		$http.post(url, data)
+			.then(function (res) {
+				console.log('succeess', res);
 
+				console.log('res',res);
+			}, function (err) {
+				console.log('error', err);
+			}
+		);
+		vm.result = "abc";
 }
