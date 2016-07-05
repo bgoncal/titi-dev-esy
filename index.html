@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="titi" ng-cloak >
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>Titi</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="assets/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="assets/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+
+  <!-- <base href="/src" /> -->
+</head>
+<body data-ng-controller="HomeController as Home" class="tt-light-blue-background">
+  <div id="nav-bar" class="tt-blue-background" z-depth-1>
+    <nav class="tt-nav-bar" role="navigation">
+      <div class="nav-wrapper">
+
+        <a id="logo-container" href="#/" class="brand-logo" >
+          <img src="assets/images/titi-logo4.png" alt="Titi - Conectando pacientes e profissionais"
+            class="tt-logo"/>
+        </a>
+
+        <ul class="right hide-on-med-and-down">
+          <li data-ng-repeat="link in Home.links"><a href="{{link.href}}">{{link.title}}</a></li>
+        </ul>
+
+        <ul id="nav-mobile" class="side-nav">
+          <li data-ng-repeat="link in Home.links"><a href="{{link.href}}">{{link.title}}</a></li>
+        </ul>
+
+        <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+      </div>
+    </nav>
+  </div>
+
+  <div data-ng-view></div>
+
+  <footer class="tt-footer-background">
+    <div class="footer-copyright">
+      <div class="center">
+      Copyright © 2016 TITI - Todos os direitos reservados
+      </div>
+    </div>
+  </footer>
+
+  <!--  Scripts-->
+  <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="assets/js/materialize.min.js"></script>
+  <script src="assets/js/init.js"></script>
+  <script src="//code.angularjs.org/1.5.5/angular.min.js"></script>
+  <script src="//code.angularjs.org/1.5.5/angular-route.min.js"></script>
+  <script src="//code.angularjs.org/1.5.5/angular-messages.min.js"></script>
+  <script src="//code.angularjs.org/1.5.5/angular-cookies.min.js"></script>
+  <script src="assets/js/ngMask.min.js"></script>
+  <script src="bower_components/cpf_cnpj/build/cpf.js"></script>
+  <script src="bower_components/cpf_cnpj/build/cnpj.js"></script>
+  <script src="bower_components/ng-cpf-cnpj/lib/ngCpfCnpj.js"></script>
+  <script src="./app.js"></script>
+  <script src="./controllers/partner.js"></script>
+  <script src="./controllers/home.js"></script>
+  <script src="./controllers/util.js"></script>
+  <script src="./controllers/user.js"></script>
+  <script src="./controllers/customer.js"></script>
+  <script src="./services/auth.js"></script>
+  <script src="./services/helper.js"></script>
+  </body>
+</html>

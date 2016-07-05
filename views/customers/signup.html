@@ -1,0 +1,330 @@
+<div class="row">
+  <div class="col s12 z-depth-6 card-panel">
+
+    <div class="row">
+      <div class="input-field col s12 center">
+        <h4 class="center tt-blue-text">Cadastro de Clientes</h4>
+      </div>
+    </div>
+
+    <form name="Customer.signupForm"
+      data-ng-submit="Customer.submitSignupForm(Customer.form)">
+
+      <div class="row margin">
+        <div class="col s12 offset-l3 l6">
+          <h5 class="tt-title-bottom">Informações pessoais</h5>
+
+          <br>
+
+          <div class="form-group"
+            data-ng-class="{ 'card-panel' : Customer.signupForm.nome.$invalid
+							&& Customer.signupForm.nome.$touched }">
+
+            <label>Nome completo</label>
+            <input class="form-control validate"
+              data-ng-model="Customer.form.nome"
+              type="text" name="nome" placeholder="Nome completo" required></input>
+
+            <!-- Validation messages -->
+            <div class="tt-error-text"
+              data-ng-show="Customer.signupForm.nome.$invalid && Customer.signupForm.nome.$touched"
+              data-ng-messages="Customer.signupForm.nome.$error">
+              <p class="help-block" data-ng-message="required">Campo obrigatório</p>
+            </div>
+          </div>
+
+          <div class="form-group"
+            data-ng-class="{ 'card-panel' : Customer.signupForm.nascimento.$invalid
+							&& Customer.signupForm.nascimento.$touched }">
+
+            <label>Data de nascimento</label>
+            <input class="form-control validate"
+              data-ng-model="Customer.form.nascimento"
+              type="date" name="nascimento" required></input>
+
+            <!-- Validation messages -->
+            <div class="tt-error-text"
+              data-ng-show="Customer.signupForm.nascimento.$invalid && Customer.signupForm.nascimento.$touched"
+              data-ng-messages="Customer.signupForm.nascimento.$error">
+              <p class="help-block" data-ng-message="required">Campo obrigatório</p>
+            </div>
+          </div>
+
+          <div class="form-group"
+            data-ng-class="{ 'card-panel' : Customer.signupForm.sexo.$invalid
+							&& Customer.signupForm.sexo.$touched }">
+
+            <label for="sexo" class="">Sexo</label>
+            <select data-ng-model="Customer.form.selectedGender" required
+              class="form-control tt-no-border validate" name="sexo">
+              <option value="">Selecione...</option>
+              <option value="F">Feminino</option>
+              <option value="M">Masculino</option>
+            </select>
+
+            <!-- Validation messages -->
+            <div class="tt-error-text"
+              data-ng-show="Customer.signupForm.sexo.$invalid && Customer.signupForm.sexo.$touched"
+              data-ng-messages="Customer.signupForm.sexo.$error">
+              <p class="help-block" data-ng-message="required">Selecione sexo</p>
+            </div>
+          </div>
+
+          <div class="form-group">
+
+            <label>Telefone fixo</label>
+            <input class="form-control validate"
+              data-ng-model="Customer.form.tel" data-ng-pattern="Customer.regexPhone"
+              type="text" mask="(99) 9999-9999" placeholder="(99) 9999-9999"></input>
+          </div>
+
+          <div class="form-group"
+
+            <label>Telefone celular</label>
+            <input class="form-control validate"
+              data-ng-model="Customer.form.cel" data-ng-pattern="Customer.regexPhone"
+              type="text" name="cel" mask="(99) 9?9999-9999"
+              placeholder="(99) 99999-9999"></input>
+          </div>
+
+          <div class="form-group"
+            data-ng-class="{ 'card-panel' : Customer.signupForm.cpf_cnpj.$invalid
+							&& Customer.signupForm.cpf_cnpj.$touched }">
+
+            <label>CPF</label>
+            <input class="form-control validate"
+              data-ng-model="Customer.form.cpf_cnpj" mask="999.999.999-99" ng-cpf_cnpj
+              type="text" name="cpf_cnpj" placeholder="999.999.999-99" required ></input>
+
+            <!-- Validation messages -->
+            <div class="tt-error-text"
+              data-ng-show="Customer.signupForm.cpf_cnpj.$invalid && Customer.signupForm.cpf_cnpj.$touched"
+              data-ng-messages="Customer.signupForm.cpf_cnpj.$error">
+              <p data-ng-message="required">Campo obrigatório</p>
+              <p data-ng-message="cpf_cnpj">CPF inválido</p>
+            </div>
+          </div>
+
+          <div class="form-group"
+            data-ng-class="{ 'card-panel' : Customer.signupForm.rg.$invalid
+							&& Customer.signupForm.rg.$touched }">
+
+            <label>RG</label>
+            <input class="form-control validate"
+              data-ng-model="Customer.form.rg"
+              type="text" name="rg" placeholder="RG" required></input>
+
+            <!-- Validation messages -->
+            <div class="tt-error-text"
+              data-ng-show="Customer.signupForm.rg.$invalid && Customer.signupForm.rg.$touched"
+              data-ng-messages="Customer.signupForm.rg.$error">
+              <p class="help-block" data-ng-message="required">Campo obrigatório</p>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="col s12 offset-l3 l6">
+          <h5 class="tt-title-bottom">Informações residenciais</h5>
+
+          <br>
+
+          <div class="form-group"
+            data-ng-class="{ 'card-panel' : Customer.signupForm.endereco.$invalid
+							&& Customer.signupForm.endereco.$touched }">
+
+            <label>Endereço completo</label>
+            <input class="form-control validate"
+              data-ng-model="Customer.form.endereco"
+              type="text" name="endereco" placeholder="Endereço completo" required></input>
+
+            <!-- Validation messages -->
+            <div class="tt-error-text"
+              data-ng-show="Customer.signupForm.endereco.$invalid && Customer.signupForm.endereco.$touched"
+              data-ng-messages="Customer.signupForm.endereco.$error">
+              <p class="help-block" data-ng-message="required">Campo obrigatório</p>
+            </div>
+          </div>
+
+          <div class="form-group"
+            data-ng-class="{ 'card-panel' : Customer.signupForm.bairro.$invalid
+							&& Customer.signupForm.bairro.$touched }">
+
+            <label>Bairro</label>
+
+            <input class="form-control validate"
+              data-ng-model="Customer.form.bairro"
+              type="text" placeholder="Bairro" required name="bairro"></input>
+
+            <!-- Validation messages -->
+            <div class="tt-error-text"
+              data-ng-show="Customer.signupForm.bairro.$invalid && Customer.signupForm.bairro.$touched"
+              data-ng-messages="Customer.signupForm.bairro.$error">
+              <p class="help-block" data-ng-message="required">Campo obrigatório</p>
+            </div>
+          </div>
+
+          <div class="form-group"
+            data-ng-class="{ 'card-panel' : Customer.signupForm.cep.$invalid && Customer.signupForm.cep.$touched }">
+
+            <label>CEP</label>
+            <input class="form-control validate"
+              data-ng-model="Customer.form.cep" mask="99999-999"
+              data-ng-pattern="Customer.regexCEP"
+              type="text" placeholder="99999-999" required name="cep"></input>
+
+            <!-- Validation messages -->
+            <div class="tt-error-text"
+              data-ng-show="Customer.signupForm.cep.$invalid && Customer.signupForm.cep.$touched"
+              data-ng-messages="Customer.signupForm.cep.$error">
+              <p data-ng-message="required">Campo obrigatório</p>
+              <p data-ng-message="pattern">CEP inválido</p>
+            </div>
+          </div>
+
+          <div class="form-group"
+            data-ng-class="{ 'card-panel' : Customer.signupForm.cidade.$invalid
+							&& Customer.signupForm.cidade.$touched }">
+
+            <label>Cidade</label>
+            <input class="form-control validate"
+              data-ng-model="Customer.form.cidade"
+              type="text" placeholder="Cidade" required name="cidade"></input>
+
+            <!-- Validation messages -->
+            <div class="tt-error-text"
+              data-ng-show="Customer.signupForm.cidade.$invalid && Customer.signupForm.cidade.$touched"
+              data-ng-messages="Customer.signupForm.cidade.$error">
+              <p class="help-block" data-ng-message="required">Campo obrigatório</p>
+            </div>
+          </div>
+
+          <div class="form-group"
+            data-ng-class="{ 'card-panel' : Customer.signupForm.estado.$invalid
+							&& Customer.signupForm.estado.$touched }">
+
+            <label>Estado</label>
+            <select class="form-control tt-no-border"
+              data-ng-model="Customer.form.selectedState"
+              data-ng-options="state.name for state in Customer.states" required name="estado" >
+              <option value="">Selecione...</option>
+            </select>
+
+            <!-- Validation messages -->
+            <div class="tt-error-text"
+              data-ng-show="Customer.signupForm.estado.$invalid && Customer.signupForm.estado.$touched"
+              data-ng-messages="Customer.signupForm.city.$error">
+              <p class="help-block" data-ng-message="required">Campo obrigatório</p>
+            </div>
+          </div>
+
+        </div>
+
+
+        <div class="col s12 offset-l3 l6">
+          <h5 class="tt-title-bottom">Informações de login</h5>
+
+          <br>
+
+          <div class="form-group"
+            data-ng-class="{ 'card-panel' : Customer.signupForm.email.$invalid && Customer.signupForm.email.$touched }">
+
+            <label>Email</label>
+            <input class="form-control validate"
+              data-ng-model="Customer.form.email" id="email"
+              type="email" placeholder="Email" required name="email"></input>
+
+            <!-- Validation messages -->
+            <div class="tt-error-text"
+              data-ng-show="Customer.signupForm.email.$invalid && Customer.signupForm.email.$touched"
+              data-ng-messages="Customer.signupForm.email.$error">
+              <p class="help-block" data-ng-message="required">Campo obrigatório</p>
+              <p class="help-block" data-ng-message="email">Digite um e-mail válido</p>
+            </div>
+          </div>
+
+          <div class="form-group"
+            data-ng-class="{ 'card-panel' : Customer.signupForm.confirmEmail.$invalid && Customer.signupForm.confirmEmail.$touched }">
+
+            <label>Confirme seu Email</label>
+            <input class="form-control validate"
+              data-ng-model="confirmEmail"
+              match-fields="email"
+              type="email" placeholder="Confirme seu Email" required name="confirmEmail"></input>
+
+            <!-- Validation messages -->
+            <div class="tt-error-text"
+              data-ng-show="Customer.signupForm.confirmEmail.$invalid && Customer.signupForm.confirmEmail.$touched"
+              data-ng-messages="Customer.signupForm.confirmEmail.$error">
+              <p class="help-block" data-ng-message="required">Confirme seu e-mail</p>
+              <p class="help-block" data-ng-message="email">Digite um e-mail válido</p>
+              <p class="help-block" data-ng-message="matchFields">Os e-mails não coincidem</p>
+            </div>
+          </div>
+
+          <div class="form-group"
+            data-ng-class="{ 'card-panel' : Customer.signupForm.senha.$invalid
+							&& Customer.signupForm.senha.$touched }">
+
+            <label>Senha</label>
+            <input class="form-control validate"
+              data-ng-model="Customer.form.senha" id="senha"
+              type="password" placeholder="Senha" required name="senha"></input>
+
+            <!-- Validation messages -->
+            <div class="tt-error-text"
+              data-ng-show="Customer.signupForm.senha.$invalid && Customer.signupForm.senha.$touched"
+              data-ng-messages="Customer.signupForm.senha.$error">
+              <p class="help-block" data-ng-message="required">Campo obrigatório</p>
+            </div>
+          </div>
+
+          <div class="form-group"
+            data-ng-class="{ 'card-panel' : Customer.signupForm.confirmPassword.$invalid
+							&& Customer.signupForm.confirmPassword.$touched }">
+
+            <label>Confirme sua Senha</label>
+            <input class="form-control validate"
+              data-ng-model="confirmPassword"
+              match-fields="senha"
+              type="password" placeholder="Confirme sua Senha" required name="confirmPassword"></input>
+
+            <!-- Validation messages -->
+            <div class="tt-error-text"
+              data-ng-show="Customer.signupForm.confirmPassword.$invalid && Customer.signupForm.confirmPassword.$touched"
+              data-ng-messages="Customer.signupForm.confirmPassword.$error">
+              <p class="help-block" data-ng-message="required">Confirme sua senha</p>
+              <p class="help-block" data-ng-message="matchFields">As senhas não coincidem</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- {{Customer.signupForm}} -->
+      <div class="col s12 offset-l3 l6">
+        <div class="row card-panel"
+          data-ng-show="Customer.signupForm.$invalid">
+          <label>
+            Formulário inválido. Verifique o preenchimento dos campos.
+          </label>
+        </div>
+      </div>
+
+      <div class="col s12 offset-l3 l6">
+        <div class="row">
+          <div class="input-field col s12">
+            <button class="btn green waves-effect waves-light col l4 s12
+              tt-blue-background" type="submit" name="action"
+              data-ng-disabled="Customer.signupForm.$invalid">Cadastrar</button>
+
+            <button class="btn green waves-effect waves-light col offset-l4 col l4 s12
+              tt-blue-background" type="reset" name="reset"
+              data-ng-click="Customer.reset(Customer.signupForm)">Limpar</button>
+
+          </div>
+        </div>
+      </div>
+
+    </form>
+  </div>
+</div>

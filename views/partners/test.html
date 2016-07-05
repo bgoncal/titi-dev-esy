@@ -1,0 +1,42 @@
+<div class="row card-panel">
+  <form name="myForm">
+
+       <label for="password">Password</label>
+       <input type="password" id="password" name="password" ng-model="formData.password" ng-minlength="8" ng-maxlength="20" ng-pattern="/(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z])/" required  />
+       <span ng-show="myForm.password.$error.required && myForm.password.$dirty">required</span>
+       <span ng-show="!myForm.password.$error.required && (myForm.password.$error.minlength || myForm.password.$error.maxlength) && myForm.password.$dirty">Passwords must be between 8 and 20 characters.</span>
+       <span ng-show="!myForm.password.$error.required && !myForm.password.$error.minlength && !myForm.password.$error.maxlength && myForm.password.$error.pattern && myForm.password.$dirty">Must contain one lower &amp; uppercase letter, and one non-alpha character (a number or a symbol.)</span>
+       <br />
+
+
+       <label for="password_c">Confirm Password</label>
+       <input type="password" id="password_c" name="password_c" ng-model="formData.password_c"
+       match-fields="password"
+       required  />
+       <span ng-show="myForm.password_c.$error.required && myForm.password_c.$dirty">Please confirm your password.</span>
+       <span ng-show="!myForm.password_c.$error.required && myForm.password_c.$error.matchFields && myForm.password.$dirty">Passwords do not match.</span>
+
+       <br>
+       <br>
+       <br>
+       <p>
+         password=
+         {{formData.password}}
+       </p>
+       <p>
+         confirm=
+         {{formData.password_c}}
+       </p>
+       <p>
+         verif=
+         {{formData.password_c === formData.password}}
+       </p>
+       <p data-ng-show="formData.password_c !== formData.password">
+         TEM QUE DAR ERRO PORR
+       </p>
+
+       <br />
+
+   <button type="submit" class="btn" ng-disabled="!myForm.$valid">Submit</button>
+	</form>
+</div>
