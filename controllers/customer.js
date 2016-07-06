@@ -100,12 +100,11 @@ var vm = this;
 	data = {"usuariosID": globals.currentUser.usuariosID};
 		$http.post(url, data)
 			.then(function (res) {
-				console.log('succeess', res);
-
-				console.log('res',res);
+				console.log(res);
+				vm.result = res.data[0];
 			}, function (err) {
 				console.log('error', err);
 			}
 		);
-		vm.result = "abc";
+
 }
