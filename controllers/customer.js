@@ -95,6 +95,7 @@ function CustomerSignupController($scope, $http, $window, $location, helperServi
 
 function CustomerManageController($scope, $http, $window, $location, helperService, $cookies) {
 var vm = this;
+vm.states = helperService.UFOptions;
 	url = 'http://titi.net.br/_homolog/cadastro/usuario.php';
 	globals = $cookies.getObject('globals');
 	data = {"usuariosID": globals.currentUser.usuariosID};
