@@ -31,6 +31,7 @@ function CustomerController($cookies, $location, authService) {
 
   var cookies = $cookies.getObject('globals');
   var loginLink = '/users/login/customers';
+	var managelink = '/customers/manage';
 
   if (!cookies) {
     $location.path(loginLink);
@@ -40,10 +41,14 @@ function CustomerController($cookies, $location, authService) {
   vm.username = cookies.currentUser.username;
 
   vm.logout = logout;
+	vm.manage = manage;
   function logout() {
     authService.clearCredentials();
     $location.path(loginLink);
   };
+	function manage() {
+		$location.path(managelink);
+	};
 }
 
 function CustomerSignupController($scope, $http, $window, $location, helperService) {
@@ -107,5 +112,4 @@ vm.states = helperService.UFOptions;
 				console.log('error', err);
 			}
 		);
-
 }
