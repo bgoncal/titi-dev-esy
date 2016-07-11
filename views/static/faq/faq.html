@@ -1,0 +1,713 @@
+
+<link href="https://cdn.jotfor.ms/static/formCss.css?3.3.14048" rel="stylesheet" type="text/css" />
+<link type="text/css" rel="stylesheet" href="https://cdn.jotfor.ms/css/styles/nova.css?3.3.14048" />
+<link type="text/css" media="print" rel="stylesheet" href="https://cdn.jotfor.ms/css/printForm.css?3.3.14048" />
+<link type="text/css" rel="stylesheet" href="https://cdn.jotfor.ms/themes/CSS/566a91c2977cdfcd478b4567.css?"/>
+<style type="text/css">
+    .form-label-left{
+        width:150px !important;
+    }
+    .form-line{
+        padding-top:12px;
+        padding-bottom:12px;
+    }
+    .form-label-right{
+        width:150px !important;
+    }
+    body, html{
+        margin:0;
+        padding:0;
+        background:rgb(204, 204, 204);
+    }
+
+    .form-all{
+        margin:0px auto;
+        padding-top:20px;
+        width:690px;
+        color:#555 !important;
+        font-family:'Helvetica';
+        font-size:14px;
+    }
+    .form-radio-item label, .form-checkbox-item label, .form-grading-label, .form-header{
+        color: #555;
+    }
+
+</style>
+
+<style type="text/css" id="form-designer-style">
+    /* Injected CSS Code */
+.form-all {
+  font-family: "Helvetica", sans-serif;
+}
+.form-all {
+  width: 690px;
+  width: 100%;
+  max-width: 690px;
+}
+.form-label-left,
+.form-label-right {
+  width: 150px;
+}
+.form-label {
+  white-space: normal;
+}
+.form-label.form-label-auto {
+  display: inline-block;
+  float: left;
+  text-align: left;
+  width: 150px;
+}
+.form-label-left {
+  display: inline-block;
+  white-space: normal;
+  float: left;
+  text-align: left;
+}
+.form-label-right {
+  display: inline-block;
+  white-space: normal;
+  float: left;
+  text-align: right;
+}
+.form-label-top {
+  white-space: normal;
+  display: block;
+  float: none;
+  text-align: left;
+}
+.form-all {
+  font-size: 14px;
+}
+.form-label {
+  font-weight: bold;
+}
+.form-checkbox-item label,
+.form-radio-item label {
+  font-weight: normal;
+}
+.supernova {
+  background-color: #cccccc;
+  background-color: #f5f5f5;
+}
+.supernova body {
+  background-color: transparent;
+}
+/*
+@width30: (unit(@formWidth, px) + 60px);
+@width60: (unit(@formWidth, px)+ 120px);
+@width90: (unit(@formWidth, px)+ 180px);
+*/
+/* | */
+@media screen and (min-width: 480px) {
+  .supernova .form-all {
+    border: 1px solid #dcdcdc;
+    -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 3px 9px rgba(0, 0, 0, 0.1);
+  }
+}
+/* | */
+/* | */
+@media screen and (max-width: 480px) {
+  .jotform-form {
+    padding: 10px 0;
+  }
+}
+/* | */
+/* | */
+@media screen and (min-width: 480px) and (max-width: 768px) {
+  .jotform-form {
+    padding: 30px 0;
+  }
+}
+/* | */
+/* | */
+@media screen and (min-width: 480px) and (max-width: 689px) {
+  .jotform-form {
+    padding: 30px 0;
+  }
+}
+/* | */
+/* | */
+@media screen and (min-width: 768px) {
+  .jotform-form {
+    padding: 60px 0;
+  }
+}
+/* | */
+/* | */
+@media screen and (max-width: 689px) {
+  .jotform-form {
+    padding: 0;
+  }
+}
+/* | */
+.supernova .form-all,
+.form-all {
+  background-color: #cccccc;
+  border: 1px solid transparent;
+}
+.form-header-group {
+  border-color: #b3b3b3;
+}
+.form-matrix-table tr {
+  border-color: #b3b3b3;
+}
+.form-matrix-table tr:nth-child(2n) {
+  background-color: #bfbfbf;
+}
+.form-all {
+  color: #555555;
+}
+.form-header-group .form-header {
+  color: #555555;
+}
+.form-header-group .form-subHeader {
+  color: #6f6f6f;
+}
+.form-sub-label {
+  color: #6f6f6f;
+}
+.form-label-top,
+.form-label-left,
+.form-label-right,
+.form-html {
+  color: #555555;
+}
+.form-checkbox-item label,
+.form-radio-item label {
+  color: #6f6f6f;
+}
+.form-line.form-line-active {
+  -webkit-transition-property: all;
+  -moz-transition-property: all;
+  -ms-transition-property: all;
+  -o-transition-property: all;
+  transition-property: all;
+  -webkit-transition-duration: 0.3s;
+  -moz-transition-duration: 0.3s;
+  -ms-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease;
+  -moz-transition-timing-function: ease;
+  -ms-transition-timing-function: ease;
+  -o-transition-timing-function: ease;
+  transition-timing-function: ease;
+  background-color: #ffffe0;
+}
+/* ömer */
+.form-radio-item,
+.form-checkbox-item {
+  padding-bottom: 0px !important;
+}
+.form-radio-item:last-child,
+.form-checkbox-item:last-child {
+  padding-bottom: 0;
+}
+/* ömer */
+.form-single-column .form-checkbox-item,
+.form-single-column .form-radio-item {
+  width: 100%;
+}
+.supernova {
+  height: 100%;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: center top;
+  background-repeat: repeat;
+}
+.supernova {
+  background-image: none;
+}
+#stage {
+  background-image: none;
+}
+/* | */
+.form-all {
+  background-image: url("https://www.jotform.com/themes/css/|nobackground|");
+  background-image: none;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: center top;
+  background-size: cover;
+}
+.form-header-group {
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: center top;
+}
+.form-line {
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+.form-line {
+  padding: 12px 36px;
+}
+.form-all .qq-upload-button,
+.form-all .form-submit-button,
+.form-all .form-submit-reset,
+.form-all .form-submit-print {
+  font-size: 1em;
+  padding: 9px 15px;
+  font-family: "Helvetica", sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+}
+.form-all .form-pagebreak-back,
+.form-all .form-pagebreak-next {
+  font-size: 1em;
+  padding: 9px 15px;
+  font-family: "Helvetica", sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+}
+/*
+& when ( @buttonFontType = google ) {
+	@import (css) "@{buttonFontLink}";
+}
+*/
+h2.form-header {
+  line-height: 1.618em;
+  font-size: 1.714em;
+}
+h2 ~ .form-subHeader {
+  line-height: 1.5em;
+  font-size: 1.071em;
+}
+.form-header-group {
+  text-align: left;
+}
+/*.form-dropdown,
+.form-radio-item,
+.form-checkbox-item,
+.form-radio-other-input,
+.form-checkbox-other-input,*/
+.form-captcha input,
+.form-spinner input,
+.form-error-message {
+  padding: 4px 3px 2px 3px;
+}
+.form-header-group {
+  font-family: "Helvetica", sans-serif;
+}
+.form-section {
+  padding: 0px 0px 0px 0px;
+}
+.form-header-group {
+  margin: 12px 36px 12px 36px;
+}
+.form-header-group {
+  padding: 24px 0px 24px 0px;
+}
+.form-textbox,
+.form-textarea {
+  padding: 4px 3px 2px 3px;
+}
+.form-textbox,
+.form-textarea,
+.form-radio-other-input,
+.form-checkbox-other-input,
+.form-captcha input,
+.form-spinner input {
+  background-color: #ffffff;
+}
+[data-type="control_dropdown"] .form-input,
+[data-type="control_dropdown"] .form-input-wide {
+  width: 150px;
+}
+.form-label {
+  font-family: "Helvetica", sans-serif;
+}
+li[data-type="control_image"] div {
+  text-align: left;
+}
+li[data-type="control_image"] img {
+  border: none;
+  border-width: 0px !important;
+  border-style: solid !important;
+  border-color: false !important;
+}
+.form-line-column {
+  width: auto;
+}
+.form-line-error {
+  overflow: hidden;
+  -webkit-transition-property: none;
+  -moz-transition-property: none;
+  -ms-transition-property: none;
+  -o-transition-property: none;
+  transition-property: none;
+  -webkit-transition-duration: 0.3s;
+  -moz-transition-duration: 0.3s;
+  -ms-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease;
+  -moz-transition-timing-function: ease;
+  -ms-transition-timing-function: ease;
+  -o-transition-timing-function: ease;
+  transition-timing-function: ease;
+  background-color: #fff4f4;
+}
+.form-line-error .form-error-message {
+  background-color: #ff3200;
+  clear: both;
+  float: none;
+}
+.form-line-error .form-error-message .form-error-arrow {
+  border-bottom-color: #ff3200;
+}
+.form-line-error input:not(#coupon-input),
+.form-line-error textarea,
+.form-line-error .form-validation-error {
+  border: 1px solid #ff3200;
+  -webkit-box-shadow: 0 0 3px #ff3200;
+  -moz-box-shadow: 0 0 3px #ff3200;
+  box-shadow: 0 0 3px #ff3200;
+}
+.form-collapse-table {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding;
+  background-clip: padding -box;
+  background-color: #e6e6e6;
+  background: -webkit-gradient(linear, left top, left bottom, from(#e6e6e6), to(#cccccc));
+  background: -webkit-linear-gradient(top, #e6e6e6, #cccccc);
+  background: -moz-linear-gradient(top, #e6e6e6, #cccccc);
+  background: -ms-linear-gradient(top, #e6e6e6, #cccccc);
+  background: -o-linear-gradient(top, #e6e6e6, #cccccc);
+  -webkit-box-shadow: 0 1px 0 rgba(255,255,255,0.5) inset, 0 1px 0 rgba(0,0,0,0.2);
+  -moz-box-shadow: 0 1px 0 rgba(255,255,255,0.5) inset, 0 1px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 1px 0 rgba(255,255,255,0.5) inset, 0 1px 0 rgba(0,0,0,0.2);
+  color: #000000;
+}
+.form-collapse-table:hover {
+  background-color: #ffffff;
+  background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#e6e6e6));
+  background: -webkit-linear-gradient(top, #ffffff, #e6e6e6);
+  background: -moz-linear-gradient(top, #ffffff, #e6e6e6);
+  background: -ms-linear-gradient(top, #ffffff, #e6e6e6);
+  background: -o-linear-gradient(top, #ffffff, #e6e6e6);
+}
+.form-collapse-table:active {
+  -webkit-box-shadow: 0 1px 0 rgba(255,255,255,0.5) inset;
+  -moz-box-shadow: 0 1px 0 rgba(255,255,255,0.5) inset;
+  box-shadow: 0 1px 0 rgba(255,255,255,0.5) inset;
+  background-color: #cccccc;
+  background: -webkit-gradient(linear, left top, left bottom, from(#cccccc), to(#e6e6e6));
+  background: -webkit-linear-gradient(top, #cccccc, #e6e6e6);
+  background: -moz-linear-gradient(top, #cccccc, #e6e6e6);
+  background: -ms-linear-gradient(top, #cccccc, #e6e6e6);
+  background: -o-linear-gradient(top, #cccccc, #e6e6e6);
+}
+.form-collapse-table .form-collapse-mid {
+  text-shadow: none;
+}
+.ie-8 .form-all {
+  margin-top: auto;
+  margin-top: initial;
+}
+.ie-8 .form-all:before {
+  display: none;
+}
+/* | */
+@media screen and (max-width: 480px), screen and (max-device-width: 768px) and (orientation: portrait), screen and (max-device-width: 415px) and (orientation: landscape) {
+  .jotform-form {
+    padding: 0;
+  }
+  .form-all {
+    border: 0;
+    width: 100% !important;
+    max-width: initial;
+  }
+  .form-sub-label-container {
+    width: 100%;
+    margin: 0;
+  }
+  .form-input {
+    width: 100%;
+  }
+  .form-label {
+    width: 100%!important;
+  }
+  .form-line {
+    padding: 2% 5%;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  input[type=text],
+  input[type=email],
+  input[type=tel],
+  textarea {
+    width: 100%;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    max-width: initial !important;
+  }
+  .form-input,
+  .form-input-wide,
+  .form-textarea,
+  .form-textbox,
+  .form-dropdown {
+    max-width: initial !important;
+  }
+  div.form-header-group {
+    padding: 24px 0px !important;
+    margin: 0 12px 2% !important;
+    margin-left: 5% !important;
+    margin-right: 5% !important;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  [data-type="control_button"] {
+    margin-bottom: 0 !important;
+  }
+  .form-buttons-wrapper {
+    margin: 0!important;
+  }
+  .form-buttons-wrapper button {
+    width: 100%;
+  }
+  table {
+    width: 100%!important;
+    max-width: initial !important;
+  }
+  table td + td {
+    padding-left: 3%;
+  }
+  .form-checkbox-item input,
+  .form-radio-item input {
+    width: auto;
+  }
+  .form-collapse-table {
+    margin: 0 5%;
+  }
+}
+/* | */
+
+/*__INSPECT_SEPERATOR__*/
+.form-html {
+
+}
+
+.form-collapse-table {
+
+}
+.right {
+    right: 33px !important;
+    float: right !important;
+}
+form {
+    background-color: white !important;
+}
+
+    /* Injected CSS Code */
+</style>
+
+<link type="text/css" rel="stylesheet" href="https://cdn.jotfor.ms/css/responsive.css?3.3.14048" />
+<script src="https://cdn.jotfor.ms/static/prototype.forms.js" type="text/javascript"></script>
+<script src="https://cdn.jotfor.ms/static/jotform.forms.js?3.3.14048" type="text/javascript"></script>
+<script type="text/javascript">
+   JotForm.init(function(){
+      JotForm.alterTexts({"alphabetic":"Este campo pode conter apenas letras","alphanumeric":"Este campo só pode conter letras e números.","ccInvalidCVC":"Single Product w/ Single Choice Orders ","ccInvalidExpireDate":"Expire date is invalid.","ccInvalidNumber":"Credit Card Number is invalid.","ccMissingDetails":"Please fill up the Credit Card details.","ccMissingDonation":"Please enter numeric values for donation amount.","ccMissingProduct":"Please select at least one product.","characterLimitError":"Too many Characters.  The limit is","characterMinLimitError":"Too few characters. The minimum is","confirmClearForm":"Você tem certeza que quer limpar este formulário?","confirmEmail":"E-mail não confere","currency":"Este campo apenas admite valores monetários.","cyrillic":"Este campo aceita apenas caracteres cirilicos.","dateInvalid":"This date is not valid. The date format is {format}","dateLimited":"This date is unavailable.","disallowDecimals":"Please enter a whole number.","email":"Digite um endereço de e-mail válido.","fillMask":"Valor do campo deve preencher máscara.","freeEmailError":"Free email accounts are not allowed","generalError":"Existem alguns erros no formulário. Corrija-os antes de continuar. ","generalPageError":"Há erros nesta página. Por favor, corrija-os antes de continuar.","gradingScoreError":"Pontuação total deve ser menor ou igual a ","incompleteFields":"Há campos obrigatórios incompletos. Por favor, preencha-os.","inputCarretErrorA":"A entrada não deve ser menor do que o valor mínimo:","inputCarretErrorB":"Valor não deve ser maior do que o máximo:","lessThan":"A sua pontuação deve ser inferior ou igual a","maxDigitsError":"O numero máximo de caracteres permitidos são","maxSelectionsError":"O número máximo de seleções permitido é","minSelectionsError":"O número mínimo exigido de seleções é","multipleFileUploads_emptyError":"{file} está vazio, por favor selecione os arquivos de novo.","multipleFileUploads_fileLimitError":"Somente são permitidos {fileLimit} envios de arquivos","multipleFileUploads_minSizeError":"{file} é muito pequeno, o tamanho mínimo do arquivo é {minSizeLimit}.","multipleFileUploads_onLeave":"Os arquivos agora estão em upload, se você sair agora o upload será cancelado.","multipleFileUploads_sizeError":"{file} é muito grande, o tamanho máximo é {sizeLimit}.","multipleFileUploads_typeError":"O arquivo {file} é inválido, pois somente as extensões {extensions} são permitidas.","numeric":"Este campo pode conter apenas números","pastDatesDisallowed":"A data não pode ser passada.","pleaseWait":"Por favor aguarde...","required":"Este campo é obrigatório.","requireEveryCell":"Toda célula é requisitada.","requireEveryRow":"Todos os campos são requeridos.","requireOne":"Pelo menos um campo é requisitado","submissionLimit":"Foi mal, mas apenas um envio de dados é permitido. Múltiplas submissões estão desativadas nesse formulário.","uploadExtensions":"Só pode fazer upload dos seguintes ficheiros:","uploadFilesize":"O tamanho do arquivo não pode ser maior que:","uploadFilesizemin":"O ficheiro não pode ser menor que:","url":"This field can only contain a valid URL","wordLimitError":"Too many words. The limit is","wordMinLimitError":"Too few words.  The minimum is"});
+	JotForm.clearFieldOnHide="disable";
+	JotForm.onSubmissionError="jumpToFirstError";
+   });
+</script>
+
+<form class="jotform-form" action="https://submit.jotformz.com/submit/60797750771669/" method="post" name="form_60797750771669" id="60797750771669" accept-charset="utf-8">
+  <input type="hidden" name="formID" value="60797750771669" />
+  <div class="form-all">
+    <ul class="form-section page-section">
+      <li class="form-line" data-type="control_text" id="id_8">
+        <div id="cid_8" class="form-input-wide">
+          <div id="text_8" class="form-html">
+            <div>
+              <strong><span style="font-size:large;">PERGUNTAS E RESPOSTAS:</span></strong>
+            </div>
+          </div>
+        </div>
+      </li>
+      <ul class="form-section-closed" style="height: 60px;clear:both;" id="section_5">
+        <li id="cid_5" class="form-input-wide" data-type="control_collapse">
+          <div class="form-collapse-table" id="collapse_5">
+            <span class="form-collapse-mid" id="collapse-text_5">
+              Como funciona?
+            </span>
+            <span class="form-collapse-right form-collapse-right-hide">
+              &nbsp;
+            </span>
+          </div>
+        </li>
+        <li class="form-line" data-type="control_text" id="id_4">
+          <div id="cid_4" class="form-input-wide">
+            <div id="text_4" class="form-html">
+              <div>
+                1.Preencha o formulário on-line de pesquisa de profissional.
+              </div>
+              <div>
+                2.Receba referências das pessoas mais próximas e qualificadas. Conheça os candidatos e contrate sem intermediários.
+              </div>
+              <div>
+                3.Pague somente após encontrar o seu cuidador ou profissional.
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+      <ul class="form-section-closed" style="height: 60px;clear:both;" id="section_6">
+        <li id="cid_6" class="form-input-wide" data-type="control_collapse">
+          <div class="form-collapse-table" id="collapse_6">
+            <span class="form-collapse-mid" id="collapse-text_6">
+              O que seria o serviço de pesquisa de profissionais e cuidadores?
+            </span>
+            <span class="form-collapse-right form-collapse-right-hide">
+              &nbsp;
+            </span>
+          </div>
+        </li>
+        <li class="form-line" data-type="control_text" id="id_7">
+          <div id="cid_7" class="form-input-wide">
+            <div id="text_7" class="form-html">
+              <div>
+                Este é um serviço que pré-qualifica os candidatos. Os familiares ou o consumidor contrata diretamente o profissional pagando apenas uma taxa de referência. Você poderá tomar decisões diretamente com seus cuidadores, sem nenhuma interferência ou agenciadores.
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+      <ul class="form-section-closed" style="height: 60px;clear:both;" id="section_11">
+        <li id="cid_11" class="form-input-wide" data-type="control_collapse">
+          <div class="form-collapse-table" id="collapse_11">
+            <span class="form-collapse-mid" id="collapse-text_11">
+              Quem supervisiona os cuidadores ou profissionais?
+            </span>
+            <span class="form-collapse-right form-collapse-right-hide">
+              &nbsp;
+            </span>
+          </div>
+        </li>
+        <li class="form-line" data-type="control_text" id="id_12">
+          <div id="cid_12" class="form-input-wide">
+            <div id="text_12" class="form-html">
+              <p>Você está no comando! Você pode considerar a busca e contratação de um enfermeiro através das nossas referências para o serviço de supervisão de enfermagem, principalmente quando existir um auxiliar ou técnico de enfermagem conforme orientações do Cofen (conselho federal de enfermagem).</p>
+            </div>
+          </div>
+        </li>
+      </ul>
+      <ul class="form-section-closed" style="height: 60px;clear:both;" id="section_13">
+        <li id="cid_13" class="form-input-wide" data-type="control_collapse">
+          <div class="form-collapse-table" id="collapse_13">
+            <span class="form-collapse-mid" id="collapse-text_13">
+              Quem determina as condições de trabalho, remuneração, programação, etc.?
+            </span>
+            <span class="form-collapse-right form-collapse-right-hide">
+              &nbsp;
+            </span>
+          </div>
+        </li>
+        <li class="form-line" data-type="control_text" id="id_14">
+          <div id="cid_14" class="form-input-wide">
+            <div id="text_14" class="form-html">
+              <div>
+                Os familiares ou consumidores determinam os detalhes diretamente com seus cuidadores. Sugerimos que você discuta os seguintes temas com a pessoa que irá contratar (independente do tempo de duração):
+              </div>
+              <div>
+                Deveres do cuidador
+              </div>
+              <div>
+                Compensação de dias de trabalho
+              </div>
+              <div>
+                Refeições
+              </div>
+              <div>
+                Serviço de limpeza
+              </div>
+              <div>
+                Utensílios par dormir no local
+              </div>
+              <div>
+                Quilometragem ou Transporte
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+      <ul class="form-section-closed" style="height: 60px;clear:both;" id="section_15">
+        <li id="cid_15" class="form-input-wide" data-type="control_collapse">
+          <div class="form-collapse-table" id="collapse_15">
+            <span class="form-collapse-mid" id="collapse-text_15">
+              Existem outras recomendações?
+            </span>
+            <span class="form-collapse-right form-collapse-right-hide">
+              &nbsp;
+            </span>
+          </div>
+        </li>
+        <li class="form-line" data-type="control_text" id="id_16">
+          <div id="cid_16" class="form-input-wide">
+            <div id="text_16" class="form-html">
+              <p>Os cuidadores são geralmente vistos como empregados de clientes. Nós não acompanhamos ou recolhemos impostos ao governo referente ao salário do cuidador contratado diretamente pela família. Recomendamos consultar um profissional de contabilidade ou utilizar um serviço gratuito de cálculos de folha de pagamento, como por exemplo:<a href="http://calculoexato.com.br/" target="_blank" rel="nofollow">http://calculoexato.<wbr>com.br</wbr></a> .Recomendamos de maneira expressa a consulta e utilização do portal federal e-Social <a href="https://www.esocial.gov.br/" target="_blank" rel="nofollow">https://www.esocial.gov.br</a> para o correto cadastramento e recolhimento de impostos.</p>
+            </div>
+          </div>
+        </li>
+      </ul>
+      <ul class="form-section-closed" style="height: 60px;clear:both;" id="section_17">
+        <li id="cid_17" class="form-input-wide" data-type="control_collapse">
+          <div class="form-collapse-table" id="collapse_17">
+            <span class="form-collapse-mid" id="collapse-text_17">
+              E se um cuidador fica doente?
+            </span>
+            <span class="form-collapse-right form-collapse-right-hide">
+              &nbsp;
+            </span>
+          </div>
+        </li>
+        <li class="form-line" data-type="control_text" id="id_18">
+          <div id="cid_18" class="form-input-wide">
+            <div id="text_18" class="form-html">
+              <div class="adn ads">
+                <div class="gs">
+                  <div class="ii gt m153ce6c3f41af2d6 adP adO">
+                    <div class="a3s">
+                      <div dir="ltr">
+                        <div>
+                          Se o seu cuidador fica doente ou necessita de uma substituição, vamos fazer o nosso melhor para oferecer uma substituição o quanto antes.
+                        </div>
+                      </div>
+                      <div class="yj6qo">
+                         
+                      </div>
+                    </div>
+                  </div>
+                  <div class="hi">
+                     
+                  </div>
+                </div>
+                <div class="ajx">
+                   
+                </div>
+              </div>
+              <div class="gA gt acV">
+                 
+              </div>
+            </div>
+          </div>
+        </li>
+        <li style="display:none">
+          Should be Empty:
+          <input type="text" name="website" value="" />
+        </li>
+      </ul>
+  </div>
+  <input type="hidden" id="simple_spc" name="simple_spc" value="60797750771669" />
+  <script type="text/javascript">
+  document.getElementById("si" + "mple" + "_spc").value = "60797750771669-60797750771669";
+  </script>
+</form>
+<script type="text/javascript">JotForm.ownerView=true;</script>
