@@ -17,7 +17,7 @@ function routesConfig($routeProvider) {
       templateUrl: 'views/static/contact/contact.html'
     })
     .when('/faq', {
-      templateUrl: 'views/static/faq/faq.html'
+      templateUrl: 'views/static/faq.html'
     })
     .when('/terms-of-use', {
       templateUrl: 'views/static/terms-of-use.html'
