@@ -1,0 +1,455 @@
+<div class="row">
+  <div class="col s12 z-depth-6 card-panel tt-card-main">
+
+    <div class="row">
+      <div class="input-field col s12 center">
+        <h4 class="center tt-blue-text">Alterar Cadastro</h4>
+      </div>
+    </div>
+
+    <form name="Partner.submitManageProfileForm"
+      data-ng-submit="Partner.submitManageForm(Partner.data)">
+
+      <div class="row margin">
+        <div class="col s12 offset-l3 l6">
+          <h5 class="tt-title-bottom">Informações pessoais</h5>
+
+          <br>
+
+          <div class="form-group"
+            <label>Foto de perfil</label>
+            <input class="form-control validate"
+              data-ng-model="Partner.data.profilePicture"
+              type="file" name="profilePicture"></input>
+          </div>
+
+          <div class="form-group"
+            data-ng-class="{ 'card-panel' : Partner.submitManageForm.nome.$invalid
+							&& Partner.submitManageForm.nome.$touched }">
+
+            <label>Nome completo</label>
+            <input class="form-control validate"
+              data-ng-model="Partner.data.nome"
+              type="text" name="nome" placeholder="Nome completo" required></input>
+
+            <!-- Validation messages -->
+            <div class="tt-error-text"
+              data-ng-show="Partner.submitManageForm.nome.$invalid && Partner.submitManageForm.nome.$touched"
+              data-ng-messages="Partner.submitManageForm.nome.$error">
+              <p class="help-block" data-ng-message="required">Campo obrigatório</p>
+            </div>
+          </div>
+
+          <div class="form-group"
+            data-ng-class="{ 'card-panel' : Partner.submitManageForm.nascimento.$invalid
+							&& Partner.submitManageForm.nascimento.$touched }">
+
+            <label>Data de nascimento</label>
+            <input class="form-control validate"
+              data-ng-model="Partner.data.nascimento"
+              name="nascimento" required></input>
+
+            <!-- Validation messages -->
+            <div class="tt-error-text"
+              data-ng-show="Partner.submitManageForm.nascimento.$invalid && Partner.submitManageForm.nascimento.$touched"
+              data-ng-messages="Partner.submitManageForm.nascimento.$error">
+              <p class="help-block" data-ng-message="required">Campo obrigatório</p>
+            </div>
+          </div>
+
+          <div class="form-group"
+            data-ng-class="{ 'card-panel' : Partner.submitManageForm.sexo.$invalid
+							&& Partner.submitManageForm.sexo.$touched }">
+
+            <label for="sexo" class="">Sexo</label>
+            <select data-ng-model="Partner.data.sexo" required
+              class="form-control tt-no-border validate" name="sexo">
+              <option value="">Selecione...</option>
+              <option value="F">Feminino</option>
+              <option value="M">Masculino</option>
+            </select>
+
+            <!-- Validation messages -->
+            <div class="tt-error-text"
+              data-ng-show="Partner.submitManageForm.sexo.$invalid && Partner.submitManageForm.sexo.$touched"
+              data-ng-messages="Partner.submitManageForm.sexo.$error">
+              <p class="help-block" data-ng-message="required">Selecione sexo</p>
+            </div>
+          </div>
+
+          <div class="form-group">
+
+            <label>Telefone fixo</label>
+            <input class="form-control validate"
+              data-ng-model="Partner.data.tel" data-ng-pattern="Partner.regexPhone"
+              type="text" mask="(99) 9999-9999" placeholder="(99) 9999-9999"></input>
+          </div>
+
+          <div class="form-group"
+            data-ng-class="{ 'card-panel' : Partner.submitManageForm.cel.$invalid
+							&& Partner.submitManageForm.cel.$touched }">
+
+            <label>Telefone celular</label>
+            <input class="form-control validate"
+              data-ng-model="Partner.data.cel" data-ng-pattern="Partner.regexPhone"
+              type="text" name="cel" mask="(99) 9?9999-9999"
+              placeholder="(99) 99999-9999" required></input>
+
+            <!-- Validation messages -->
+            <div class="tt-error-text"
+              data-ng-show="Partner.submitManageForm.cel.$invalid && Partner.submitManageForm.cel.$touched"
+              data-ng-messages="Partner.submitManageForm.cel.$error">
+              <p class="help-block" data-ng-message="required">Campo obrigatório</p>
+              <p class="help-block" data-ng-message="pattern">Celular inválido</p>
+            </div>
+          </div>
+
+          <div class="form-group"
+            data-ng-class="{ 'card-panel' : Partner.submitManageForm.cpf_cnpj.$invalid
+							&& Partner.submitManageForm.cpf_cnpj.$touched }">
+
+            <label>CPF</label>
+            <input class="form-control validate"
+              data-ng-model="Partner.data.cpf_cnpj" mask="999.999.999-99" ng-cpf
+              type="text" name="cpf_cnpj" placeholder="999.999.999-99" required ></input>
+
+            <!-- Validation messages -->
+            <div class="tt-error-text"
+              data-ng-show="Partner.submitManageForm.cpf_cnpj.$invalid && Partner.submitManageForm.cpf_cnpj.$touched"
+              data-ng-messages="Partner.submitManageForm.cpf_cnpj.$error">
+              <p data-ng-message="required">Campo obrigatório</p>
+              <p data-ng-message="cpf_cnpj">CPF inválido</p>
+            </div>
+          </div>
+
+          <div class="form-group"
+            data-ng-class="{ 'card-panel' : Partner.submitManageForm.rg.$invalid && Partner.submitManageForm.rg.$touched }">
+
+            <label>RG</label>
+            <input class="form-control validate"
+              data-ng-model="Partner.data.rg"
+              type="text" name="rg" placeholder="RG" required></input>
+
+            <!-- Validation messages -->
+            <div class="tt-error-text"
+              data-ng-show="Partner.submitManageForm.rg.$invalid && Partner.submitManageForm.rg.$touched"
+              data-ng-messages="Partner.submitManageForm.rg.$error">
+              <p class="help-block" data-ng-message="required">Campo obrigatório</p>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="col s12 offset-l3 l6">
+          <h5 class="tt-title-bottom">Informações residenciais</h5>
+
+          <br>
+
+          <div class="form-group"
+            data-ng-class="{ 'card-panel' : Partner.submitManageForm.endereco.$invalid
+							&& Partner.submitManageForm.endereco.$touched }">
+
+            <label>Endereço completo</label>
+            <input class="form-control validate"
+              data-ng-model="Partner.data.endereco"
+              type="text" name="endereco" placeholder="Endereço completo" required></input>
+
+            <!-- Validation messages -->
+            <div class="tt-error-text"
+              data-ng-show="Partner.submitManageForm.endereco.$invalid && Partner.submitManageForm.endereco.$touched"
+              data-ng-messages="Partner.submitManageForm.endereco.$error">
+              <p class="help-block" data-ng-message="required">Campo obrigatório</p>
+            </div>
+          </div>
+
+          <div class="form-group"
+            data-ng-class="{ 'card-panel' : Partner.submitManageForm.bairro.$invalid
+							&& Partner.submitManageForm.bairro.$touched }">
+
+            <label>Bairro</label>
+
+            <input class="form-control validate"
+              data-ng-model="Partner.data.bairro"
+              type="text" placeholder="Bairro" required name="bairro"></input>
+
+            <!-- Validation messages -->
+            <div class="tt-error-text"
+              data-ng-show="Partner.submitManageForm.bairro.$invalid && Partner.submitManageForm.bairro.$touched"
+              data-ng-messages="Partner.submitManageForm.bairro.$error">
+              <p class="help-block" data-ng-message="required">Campo obrigatório</p>
+            </div>
+          </div>
+
+          <div class="form-group"
+            data-ng-class="{ 'card-panel' : Partner.submitManageForm.cep.$invalid
+							&& Partner.submitManageForm.cep.$touched }">
+
+            <label>CEP</label>
+            <input class="form-control validate"
+              data-ng-model="Partner.data.cep" mask="99999-999"
+              data-ng-pattern="Partner.regexCEP"
+              type="text" placeholder="99999-999" required name="cep"></input>
+
+            <!-- Validation messages -->
+            <div class="tt-error-text"
+              data-ng-show="Partner.submitManageForm.cep.$invalid && Partner.submitManageForm.cep.$touched"
+              data-ng-messages="Partner.submitManageForm.cep.$error">
+              <p data-ng-message="required">Campo obrigatório</p>
+              <p data-ng-message="pattern">CEP inválido</p>
+            </div>
+          </div>
+
+          <div class="form-group"
+            data-ng-class="{ 'card-panel' : Partner.submitManageForm.cidade.$invalid
+							&& Partner.submitManageForm.cidade.$touched }">
+
+            <label>Cidade</label>
+            <input class="form-control validate"
+              data-ng-model="Partner.data.cidade"
+              type="text" placeholder="Cidade" required name="cidade"></input>
+
+            <!-- Validation messages -->
+            <div class="tt-error-text"
+              data-ng-show="Partner.submitManageForm.cidade.$invalid && Partner.submitManageForm.cidade.$touched"
+              data-ng-messages="Partner.submitManageForm.cidade.$error">
+              <p class="help-block" data-ng-message="required">Campo obrigatório</p>
+            </div>
+          </div>
+
+          <div class="form-group"
+            data-ng-class="{ 'card-panel' : Partner.submitManageForm.estado.$invalid
+							&& Partner.submitManageForm.estado.$touched }">
+
+            <label>Estado</label>
+            <select class="form-control tt-no-border"
+              data-ng-model="Partner.data.estado"
+							required name="estado" >
+							<option value="">Selecione...</option>
+							<option data-ng-repeat="estado in Partner.estadoOptions"
+								value="{{estado.sigla}}">{{estado.name}}</option>
+            </select>
+
+            <!-- Validation messages -->
+            <div class="tt-error-text"
+              data-ng-show="Partner.submitManageForm.estado.$invalid && Partner.submitManageForm.estado.$touched"
+              data-ng-messages="Partner.submitManageForm.city.$error">
+              <p class="help-block" data-ng-message="required">Campo obrigatório</p>
+            </div>
+          </div>
+
+        </div>
+
+
+
+      </div>
+
+      <div class="col s12 offset-l3 l6">
+        <h5 class="tt-title-bottom">Experiência proffisional</h5>
+
+        <br>
+
+        <div class="form-group"
+          data-ng-class="{ 'card-panel' : Partner.submitManageForm.orgaoemissor.$invalid
+						&& Partner.submitManageForm.orgaoemissor.$touched }">
+
+          <label>Órgão emissor</label>
+          <select class="form-control validate tt-no-border"
+            data-ng-model="Partner.data.orgaoemissor"
+            required name="orgaoemissor">
+						<option value="">Selecione...</option>
+            <option data-ng-repeat="orgaoemissor in Partner.orgaoEmissorOptions"
+							value="{{orgaoemissor.id}}">{{orgaoemissor.name}}</option>
+          </select>
+
+          <!-- Validation messages -->
+          <div class="tt-error-text"
+            data-ng-show="Partner.submitManageForm.orgaoemissor.$invalid && Partner.submitManageForm.orgaoemissor.$touched"
+            data-ng-messages="Partner.submitManageForm.orgaoemissor.$error">
+            <p class="help-block" data-ng-message="required">Campo obrigatório</p>
+          </div>
+        </div>
+
+        <div class="form-group"
+          data-ng-class="{ 'card-panel' : Partner.submitManageForm.registro.$invalid
+						&& Partner.submitManageForm.registro.$touched }">
+
+          <label for="registro" class="col s5">Ano de registro</label>
+          <input class="form-control validate"
+            data-ng-model="Partner.data.registro" mask="9999" required
+            data-ng-pattern="Partner.regexYear"
+            type="text" placeholder="9999" name="registro"></input>
+
+          <!-- Validation messages -->
+          <div class="tt-error-text"
+            data-ng-show="Partner.submitManageForm.registro.$invalid && Partner.submitManageForm.registro.$touched"
+            data-ng-messages="Partner.submitManageForm.registro.$error">
+            <p class="help-block" data-ng-message="required">Campo obrigatório</p>
+            <p class="help-block" data-ng-message="pattern">Ano inválido</p>
+          </div>
+        </div>
+
+        <div class="form-group"
+          data-ng-class="{ 'card-panel' : Partner.submitManageForm.UF.$invalid
+						&& Partner.submitManageForm.UF.$touched }">
+
+          <label>Estado</label>
+          <select class="form-control validate tt-no-border"
+            data-ng-model="Partner.data.UF"
+            required name="UF">
+						<option value="">Selecione...</option>
+						<option data-ng-repeat="estado in Partner.estadoOptions"
+							value="{{estado.sigla}}">{{estado.name}}</option>
+          </select>
+
+          <!-- Validation messages -->
+          <div class="tt-error-text"
+            data-ng-show="Partner.submitManageForm.UF.$invalid && Partner.submitManageForm.UF.$touched"
+            data-ng-messages="Partner.submitManageForm.UF.$error">
+            <p class="help-block" data-ng-message="required">Selecione estado</p>
+          </div>
+        </div>
+
+
+        <div class="form-group"
+          data-ng-class="{ 'card-panel' : Partner.submitManageForm.nr_identificacao.$invalid
+						&& Partner.submitManageForm.nr_identificacao.$touched }">
+
+          <label>Número do registro</label>
+          <input class="form-control validate"
+            data-ng-model="Partner.data.nr_identificacao" required
+            type="text" placeholder="Número do registro" name="nr_identificacao"></input>
+
+          <!-- Validation messages -->
+          <div class="tt-error-text"
+            data-ng-show="Partner.submitManageForm.nr_identificacao.$invalid
+							&& Partner.submitManageForm.nr_identificacao.$touched"
+            data-ng-messages="Partner.submitManageForm.nr_identificacao.$error">
+            <p class="help-block" data-ng-message="required">Campo obrigatório</p>
+          </div>
+        </div>
+
+        <div class="form-group"
+          data-ng-class="{ 'card-panel' : Partner.submitManageForm.atuacao.$invalid
+						&& Partner.submitManageForm.atuacao.$touched }">
+
+          <label>Área de atuação</label>
+          <select class="form-control validate tt-no-border"
+            data-ng-model="Partner.data.atuacao"
+            required name="atuacao">
+						<option value="">Selecione...</option>
+						<option data-ng-repeat="atuacao in Partner.atuacaoOptions"
+							value="{{atuacao.id}}">{{atuacao.name}}</option>
+          </select>
+
+          <!-- Validation messages -->
+          <div class="tt-error-text"
+            data-ng-show="Partner.submitManageForm.atuacao.$invalid && Partner.submitManageForm.atuacao.$touched"
+            data-ng-messages="Partner.submitManageForm.atuacao.$error">
+            <p class="help-block" data-ng-message="required">Selecione área de atuação</p>
+          </div>
+        </div>
+
+
+        <div class="form-group"
+          data-ng-class="{ 'card-panel' : Partner.submitManageForm.periodo.$invalid
+						&& Partner.submitManageForm.periodo.$touched }">
+
+          <label>Período de preferência</label>
+          <select class="form-control validate tt-no-border"
+            data-ng-model="Partner.data.periodo"
+            required name="periodo">
+						<option value="">Selecione...</option>
+						<option data-ng-repeat="periodo in Partner.periodoOptions"
+							value="{{periodo.id}}">{{periodo.name}}</option>
+          </select>
+
+          <!-- Validation messages -->
+          <div class="tt-error-text"
+            data-ng-show="Partner.submitManageForm.periodo.$invalid && Partner.submitManageForm.periodo.$touched"
+            data-ng-messages="Partner.submitManageForm.periodo.$error">
+            <p class="help-block" data-ng-message="required">Selecione período de preferência</p>
+          </div>
+        </div>
+
+        <div class="form-group"
+          data-ng-class="{ 'card-panel' : Partner.submitManageForm.perfilespecialista.$invalid
+						&& Partner.submitManageForm.perfilespecialista.$touched }">
+
+          <label>Perfil preferido de pacientes</label>
+          <select class="form-control validate tt-no-border"
+            data-ng-model="Partner.data.perfilespecialista"
+            required name="perfilespecialista">
+						<option value="">Selecione...</option>
+						<option data-ng-repeat="perfilespecialista in Partner.perfilEspecialistaOptions"
+							value="{{perfilespecialista.id}}">{{perfilespecialista.name}}</option>
+          </select>
+
+          <!-- Validation messages -->
+          <div class="tt-error-text"
+            data-ng-show="Partner.submitManageForm.perfilespecialista.$invalid && Partner.submitManageForm.perfilespecialista.$touched"
+            data-ng-messages="Partner.submitManageForm.perfilespecialista.$error">
+            <p class="help-block" data-ng-message="required">Selecione perfil de pacientes</p>
+          </div>
+        </div>
+
+        <div class="form-group"
+          data-ng-class="{ 'card-panel' : Partner.submitManageForm.habilidade.$invalid
+						&& Partner.submitManageForm.habilidade.$touched }">
+
+          <label>Nível habilidade com pacientes</label>
+          <select class="form-control validate tt-no-border"
+            data-ng-model="Partner.data.habilidade"
+            required name="habilidade">
+						<option value="">Selecione...</option>
+						<option data-ng-repeat="habilidade in Partner.habilidadeOptions"
+							value="{{habilidade.id}}">{{habilidade.name}}</option>
+          </select>
+
+          <!-- Validation messages -->
+          <div class="tt-error-text"
+            data-ng-show="Partner.submitManageForm.habilidade.$invalid && Partner.submitManageForm.habilidade.$touched"
+            data-ng-messages="Partner.submitManageForm.habilidade.$error">
+            <p class="help-block" data-ng-message="required">Selecione habilidade com pacientes</p>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <input class="form-control validate"
+            data-ng-model="Partner.data.disponibilidade"
+            type="checkbox" name="disponibilidade">
+
+            <label for="disponibilidade">Disponível para início imediato</label>
+          </input>
+        </div>
+      </div>
+
+
+      <div class="col s12 offset-l3 l6">
+        <div class="row">
+          <div class="input-field col s12">
+            <button class="btn green waves-effect waves-light col l4 s12
+              tt-blue-background" type="submit" name="action"
+							data-ng-disabled="Partner.submitManageForm.$invalid || Partner.errorMessage">
+							Alterar</button>
+
+            <button class="btn green waves-effect waves-light col offset-l4 col l4 s12
+              tt-blue-background" type="reset" name="reset"
+              data-ng-click="Partner.reset(Partner.submitManageForm)">Limpar</button>
+          </div>
+        </div>
+      </div>
+
+			<div class="progress" data-ng-show="Partner.loading">
+				<div class="indeterminate"></div>
+			</div>
+
+			<div class="col s12 offset-l3 l6 card-panel tt-error-text">
+				<p class="help-block"
+					data-ng-show="Partner.errorMessage">
+					{{ Partner.errorMessage }}
+				</p>
+			</div>
+
+    </form>
+  </div>
+</div>

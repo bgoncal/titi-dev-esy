@@ -1,107 +1,250 @@
-<div class="row" ng-bind-html>
-<div class="col s12 z-depth-6 card-panel">
-   <div class="row">
+<div class="row">
+  <div class="col s12 z-depth-6 card-panel">
+
+    <div class="row">
       <div class="input-field col s12 center">
-         <h4 class="center tt-blue-text">Alterar Cadastro</h4>
+        <h4 class="center tt-blue-text">Alterar Cadastro</h4>
       </div>
-   </div>
-   <form>
+    </div>
+
+    <form name="Customer.ManageProfileForm"
+      data-ng-submit="Customer.submitManageForm(Customer.form)">
+
       <div class="row margin">
-         <div class="col s12 offset-l3 l6">
-            <h5 class="tt-title-bottom">Informações pessoais</h5>
-            <br>
-            <div class="form-group">
-               <label>Nome completo</label>
-               <input class="form-control validate" type="text" name="nome" placeholder="Nome completo" ng-model="Customer.result.nome" required></input>
-            </div>
-            <div class="form-group">
-               <label>Data de nascimento</label>
-               <input  name="nascimento" class="form-control validate"
-                  ng-model="Customer.result.nascimento" required></input>
-            </div>
-            <div class="form-group">
-               <label for="sexo" class="">Sexo</label>
-               <select  required
-                  class="form-control tt-no-border validate" name="sexo" ng-model="Customer.result.sexo">
-                  <option value="">Selecione...</option>
-                  <option value="F">Feminino</option>
-                  <option value="M">Masculino</option>
-               </select>
-            </div>
-            <div class="form-group">
-               <label>Telefone fixo</label>
-               <input  name="nascimento" class="form-control validate"
-                  ng-model="Customer.result.tel" required></input>
-            </div>
-            <div class="form-group">
-               <label>Telefone celular</label>
-               <input class="form-control validate"
-                  type="text" name="cel"
-                  placeholder="(99) 99999-9999" ng-model="Customer.result.cel"></input>
-            </div>
-            <div class="form-group">
-               <label>CPF</label>
-               <input class="form-control validate"
-                  mask="999.999.999-99" ng-cpf_cnpj
-                  type="text" name="cpf_cnpj" placeholder="999.999.999-99" required ng-model="Customer.result.cpf_cnpj"></input>
-            </div>
-            <div class="form-group">
-               <label>RG</label>
-               <input class="form-control validate"
-                  type="text" name="rg" placeholder="RG" required ng-model="Customer.result.rg"></input>
-            </div>
-            </div>
-            <div class="col s12 offset-l3 l6">
-               <h5 class="tt-title-bottom">Informações residenciais</h5>
-               <br>
-               <div class="form-group">
-                  <label>Endereço completo</label>
-                  <input class="form-control validate"
-                     type="text" name="endereco" placeholder="Endereço completo" ng-model="Customer.result.endereco" required></input>
-               </div>
-               <div class="form-group">
-                  <label>Bairro</label>
-                  <input class="form-control validate"
-                     type="text" placeholder="Bairro" required name="bairro" ng-model="Customer.result.bairro"></input>
-               </div>
-               <div class="form-group">
-                  <label>CEP</label>
-                  <input class="form-control validate" mask="99999-999"
-                  data-ng-pattern="Customer.regexCEP"
-                     type="text" placeholder="99999-999" required name="cep" ng-model="Customer.result.cep"></input>
+        <div class="col s12 offset-l3 l6">
+          <h5 class="tt-title-bottom">Informações pessoais</h5>
 
-               </div>
-               <div class="form-group">
-                  <label>Estado</label>
-                  <select class="form-control tt-no-border"
-                  data-ng-options="state.name for state in Customer.states"
-                  ng-model="Customer.result.estado"
-                  required name="estado" >
-                     <option value="">Selecione...</option>
-                  </select>
-               </div>
-               <div class="form-group">
-                  <label>Cidade</label>
-                  <input class="form-control validate"
-                     type="text" placeholder="Cidade" required name="cidade" ng-model="Customer.result.cidade"></input>
-                  <!-- Validation messages -->
-                  <div class="tt-error-text">
-                     <p class="help-block" data-ng-message="required">Campo obrigatório</p>
-                  </div>
-               </div>
+          <br>
 
-            </div>
+          <div class="form-group"
+            data-ng-class="{ 'card-panel' : Customer.ManageForm.nome.$invalid
+							&& Customer.ManageForm.nome.$touched }">
 
-         <div class="col s12 offset-l3 l6">
-            <div class="row">
-               <div class="input-field col s12">
-                  <button class="btn green waves-effect waves-light col l4 s12
-                     tt-blue-background" type="submit" name="action">Alterar</button>
-                  <button class="btn green waves-effect waves-light col offset-l4 col l4 s12
-                     tt-blue-background" type="reset" name="reset">Limpar</button>
-               </div>
+            <label>Nome completo</label>
+            <input class="form-control validate"
+              data-ng-model="Customer.form.nome"
+              type="text" name="nome" placeholder="Nome completo" required></input>
+
+            <!-- Validation messages -->
+            <div class="tt-error-text"
+              data-ng-show="Customer.ManageForm.nome.$invalid && Customer.ManageForm.nome.$touched"
+              data-ng-messages="Customer.ManageForm.nome.$error">
+              <p class="help-block" data-ng-message="required">Campo obrigatório</p>
             </div>
-         </div>
-   </form>
-   </div>
+          </div>
+
+          <div class="form-group"
+            data-ng-class="{ 'card-panel' : Customer.ManageForm.nascimento.$invalid
+							&& Customer.ManageForm.nascimento.$touched }">
+
+            <label>Data de nascimento</label>
+            <input class="form-control validate"
+              data-ng-model="Customer.form.nascimento"
+               name="nascimento" required></input>
+
+            <!-- Validation messages -->
+            <div class="tt-error-text"
+              data-ng-show="Customer.ManageForm.nascimento.$invalid && Customer.ManageForm.nascimento.$touched"
+              data-ng-messages="Customer.ManageForm.nascimento.$error">
+              <p class="help-block" data-ng-message="required">Campo obrigatório</p>
+            </div>
+          </div>
+
+          <div class="form-group"
+            data-ng-class="{ 'card-panel' : Customer.ManageForm.sexo.$invalid
+							&& Customer.ManageForm.sexo.$touched }">
+
+            <label for="sexo" class="">Sexo</label>
+            <select data-ng-model="Customer.form.sexo" required
+              class="form-control tt-no-border validate" name="sexo">
+              <option value="">Selecione...</option>
+              <option value="F">Feminino</option>
+              <option value="M">Masculino</option>
+            </select>
+
+            <!-- Validation messages -->
+            <div class="tt-error-text"
+              data-ng-show="Customer.ManageForm.sexo.$invalid && Customer.ManageForm.sexo.$touched"
+              data-ng-messages="Customer.ManageForm.sexo.$error">
+              <p class="help-block" data-ng-message="required">Selecione sexo</p>
+            </div>
+          </div>
+
+          <div class="form-group">
+
+            <label>Telefone fixo</label>
+            <input class="form-control validate"
+              data-ng-model="Customer.form.tel" data-ng-pattern="Customer.regexPhone"
+              type="text" mask="(99) 9999-9999" placeholder="(99) 9999-9999"></input>
+          </div>
+
+          <div class="form-group"
+
+            <label>Telefone celular</label>
+            <input class="form-control validate"
+              data-ng-model="Customer.form.cel" data-ng-pattern="Customer.regexPhone"
+              type="text" name="cel" mask="(99) 9?9999-9999"
+              placeholder="(99) 99999-9999"></input>
+          </div>
+
+          <div class="form-group"
+            data-ng-class="{ 'card-panel' : Customer.ManageForm.cpf_cnpj.$invalid
+							&& Customer.ManageForm.cpf_cnpj.$touched }">
+
+            <label>CPF</label>
+            <input class="form-control validate"
+              data-ng-model="Customer.form.cpf_cnpj" mask="999.999.999-99" ng-cpf_cnpj
+              type="text" name="cpf_cnpj" placeholder="999.999.999-99" required ></input>
+
+            <!-- Validation messages -->
+            <div class="tt-error-text"
+              data-ng-show="Customer.ManageForm.cpf_cnpj.$invalid && Customer.ManageForm.cpf_cnpj.$touched"
+              data-ng-messages="Customer.ManageForm.cpf_cnpj.$error">
+              <p data-ng-message="required">Campo obrigatório</p>
+              <p data-ng-message="cpf_cnpj">CPF inválido</p>
+            </div>
+          </div>
+
+          <div class="form-group"
+            data-ng-class="{ 'card-panel' : Customer.ManageForm.rg.$invalid
+							&& Customer.ManageForm.rg.$touched }">
+
+            <label>RG</label>
+            <input class="form-control validate"
+              data-ng-model="Customer.form.rg"
+              type="text" name="rg" placeholder="RG" required></input>
+
+            <!-- Validation messages -->
+            <div class="tt-error-text"
+              data-ng-show="Customer.ManageForm.rg.$invalid && Customer.ManageForm.rg.$touched"
+              data-ng-messages="Customer.ManageForm.rg.$error">
+              <p class="help-block" data-ng-message="required">Campo obrigatório</p>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="col s12 offset-l3 l6">
+          <h5 class="tt-title-bottom">Informações residenciais</h5>
+
+          <br>
+
+          <div class="form-group"
+            data-ng-class="{ 'card-panel' : Customer.ManageForm.endereco.$invalid
+							&& Customer.ManageForm.endereco.$touched }">
+
+            <label>Endereço completo</label>
+            <input class="form-control validate"
+              data-ng-model="Customer.form.endereco"
+              type="text" name="endereco" placeholder="Endereço completo" required></input>
+
+            <!-- Validation messages -->
+            <div class="tt-error-text"
+              data-ng-show="Customer.ManageForm.endereco.$invalid && Customer.ManageForm.endereco.$touched"
+              data-ng-messages="Customer.ManageForm.endereco.$error">
+              <p class="help-block" data-ng-message="required">Campo obrigatório</p>
+            </div>
+          </div>
+
+          <div class="form-group"
+            data-ng-class="{ 'card-panel' : Customer.ManageForm.bairro.$invalid
+							&& Customer.ManageForm.bairro.$touched }">
+
+            <label>Bairro</label>
+
+            <input class="form-control validate"
+              data-ng-model="Customer.form.bairro"
+              type="text" placeholder="Bairro" required name="bairro"></input>
+
+            <!-- Validation messages -->
+            <div class="tt-error-text"
+              data-ng-show="Customer.ManageForm.bairro.$invalid && Customer.ManageForm.bairro.$touched"
+              data-ng-messages="Customer.ManageForm.bairro.$error">
+              <p class="help-block" data-ng-message="required">Campo obrigatório</p>
+            </div>
+          </div>
+
+          <div class="form-group"
+            data-ng-class="{ 'card-panel' : Customer.ManageForm.cep.$invalid && Customer.ManageForm.cep.$touched }">
+
+            <label>CEP</label>
+            <input class="form-control validate"
+              data-ng-model="Customer.form.cep" mask="99999-999"
+              data-ng-pattern="Customer.regexCEP"
+              type="text" placeholder="99999-999" required name="cep"></input>
+
+            <!-- Validation messages -->
+            <div class="tt-error-text"
+              data-ng-show="Customer.ManageForm.cep.$invalid && Customer.ManageForm.cep.$touched"
+              data-ng-messages="Customer.ManageForm.cep.$error">
+              <p data-ng-message="required">Campo obrigatório</p>
+              <p data-ng-message="pattern">CEP inválido</p>
+            </div>
+          </div>
+
+          <div class="form-group"
+            data-ng-class="{ 'card-panel' : Customer.ManageForm.cidade.$invalid
+							&& Customer.ManageForm.cidade.$touched }">
+
+            <label>Cidade</label>
+            <input class="form-control validate"
+              data-ng-model="Customer.form.cidade"
+              type="text" placeholder="Cidade" required name="cidade"></input>
+
+            <!-- Validation messages -->
+            <div class="tt-error-text"
+              data-ng-show="Customer.ManageForm.cidade.$invalid && Customer.ManageForm.cidade.$touched"
+              data-ng-messages="Customer.ManageForm.cidade.$error">
+              <p class="help-block" data-ng-message="required">Campo obrigatório</p>
+            </div>
+          </div>
+
+          <div class="form-group"
+            data-ng-class="{ 'card-panel' : Customer.ManageForm.estado.$invalid
+							&& Customer.ManageForm.estado.$touched }">
+
+
+              <label>Estado</label>
+              <select class="form-control tt-no-border"
+                data-ng-model="Customer.form.estado"
+                required name="estado" >
+                <option value="">Selecione...</option>
+                <option data-ng-repeat="estado in Customer.estadoOptions"
+                  value="{{estado.sigla}}">{{estado.name}}</option>
+              </select>
+
+
+            <!-- Validation messages -->
+            <div class="tt-error-text"
+              data-ng-show="Customer.ManageForm.estado.$invalid && Customer.ManageForm.estado.$touched"
+              data-ng-messages="Customer.ManageForm.city.$error">
+              <p class="help-block" data-ng-message="required">Campo obrigatório</p>
+            </div>
+          </div>
+
+        </div>
+
+
+
+      </div>
+
+
+
+      <div class="col s12 offset-l3 l6">
+        <div class="row">
+          <div class="input-field col s12">
+            <button class="btn green waves-effect waves-light col l4 s12
+              tt-blue-background" type="submit" name="action"
+              data-ng-disabled="Customer.ManageForm.$invalid">Alterar</button>
+
+            <button class="btn green waves-effect waves-light col offset-l4 col l4 s12
+              tt-blue-background" type="reset" name="reset"
+              data-ng-click="Customer.reset(Customer.ManageForm)">Limpar</button>
+
+          </div>
+        </div>
+      </div>
+
+    </form>
+  </div>
 </div>

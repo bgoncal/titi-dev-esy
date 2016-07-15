@@ -99,17 +99,63 @@ function CustomerSignupController($scope, $http, $window, $location, helperServi
 }
 
 function CustomerManageController($scope, $http, $window, $location, helperService, $cookies) {
-var vm = this;
-vm.states = helperService.UFOptions;
+	var vm = this;
 	url = 'http://titi.net.br/_homolog/cadastro/usuario.php';
 	globals = $cookies.getObject('globals');
 	data = {"usuariosID": globals.currentUser.usuariosID};
 		$http.post(url, data)
 			.then(function (res) {
 				console.log(res);
-				vm.result = res.data[0];
+				vm.form = res.data[0];
 			}, function (err) {
 				console.log('error', err);
+				$window.location.reload();
 			}
 		);
+
+		vm.submitManageForm = submitManageForm;
+	  function submitManageForm(form) {
+	    // TODO: submit form to server
+	    console.log('Customer management', form);
+
+			var data = angular.copy(form);
+
+			data.perfilID = '3';
+			globals = $cookies.getObject('globals');
+			data.usuariosID = globals.currentUser.usuariosID;
+			var url = 'http://titi.net.br/_homolog/cadastro/paciente_update.php';
+
+			vm.loading = true;
+			$http.post(url, data)
+		    .then(function (res) {
+					console.log('succeess', res);
+		      vm.loading = false;
+					$window.alert('Dados alterados com sucesso.');
+					// Redirect to login
+					$location.path('/users/login/customers');
+		    }, function (err) {
+		      console.log('error', err);
+		      vm.errorMessage = err.statusText || 'Ocorreu um erro. Tente novamente.';
+		      vm.loading = false;
+		    }
+		  );
+	    console.log(data);
+	  }
+
+	  vm.regexCEP = helperService.regex.CEP;
+	  vm.regexPhone = helperService.regex.phone;
+	  vm.regexYear = helperService.regex.year;
+		vm.estadoOptions = helperService.UFOptions;
+		
+	  vm.reset = function(form) {
+	    console.log('reset form');
+	    if (form) {
+	      form.$setPristine();
+	      form.$setUntouched();
+	    }
+	    $scope.Customer.form = angular.copy($scope.master);
+	  };
+
+
+
 }

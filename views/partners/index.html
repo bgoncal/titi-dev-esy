@@ -7,7 +7,10 @@
       <p>
         {{ Partner.username }}
       </p>
-      <button class="btn gray waves-effect waves-light col offset-l4 col l4 s12"
+      <button class="btn gray waves-effect waves-light col offset-l2 col l4 s12"
+        type="button" name="manage"
+        data-ng-click="Partner.manage()">Alterar Dados</button>
+      <button class="btn gray waves-effect waves-light col offset-l1 col l4 s12"
         type="button" name="reset"
         data-ng-click="Partner.logout()">Logout</button>
     </div>
