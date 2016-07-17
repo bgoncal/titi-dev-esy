@@ -3,13 +3,21 @@
     <div class="col offset-m2 m8 s12">
       <h4>Profissional logado</h4>
       <hr />
-
+<div class="col card-panel m6 s12">
+  <h5> {{ Partner.data.nome }}</h5>
       <p>
-        {{ Partner.username }}
+        Email: {{ Partner.username }}
       </p>
-      <button class="btn gray waves-effect waves-light col offset-l2 col l4 s12"
+      <p>
+        Estado: {{ Partner.data.estado }}
+      </p>
+    </div>
+      <button class="btn gray waves-effect waves-light col offset-l1 col l4 s12"
         type="button" name="manage"
-        data-ng-click="Partner.manage()">Alterar Dados</button>
+        data-ng-click="Partner.manage()" style="margin-top:5px;margin-bottom:5px;">Alterar Dados</button>
+        <button class="btn gray waves-effect waves-light col offset-l1 col l4 s12"
+          type="button" name="manage"
+          data-ng-click="Partner.resetpass()" style="margin-bottom:5px;">Alterar Senha</button>
       <button class="btn gray waves-effect waves-light col offset-l1 col l4 s12"
         type="button" name="reset"
         data-ng-click="Partner.logout()">Logout</button>

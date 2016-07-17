@@ -1,0 +1,71 @@
+<div class="row">
+  <div class="col s12 z-depth-6 card-panel tt-card-main">
+
+    <div class="row">
+      <div class="input-field col s12 center">
+        <h4 class="center tt-blue-text">Alterar Senha</h4>
+      </div>
+    </div>
+<div class="card-panel col m6 l6 s12 offset-l3 offset-m3" style="padding:20px;">
+    <form name="Partner.resetForm"
+      data-ng-submit="Partner.submitResetForm(Partner.data)">
+
+
+      <div class="form-group"
+        data-ng-class="{ 'card-panel' : Partner.resetForm.senha.$invalid
+          && Partner.resetForm.senha.$touched }">
+
+        <label>Nova Senha</label>
+        <input class="form-control validate"
+          data-ng-model="Partner.data.senha" id="senha"
+          type="password" placeholder="Senha" required name="senha"></input>
+
+        <!-- Validation messages -->
+        <div class="tt-error-text"
+          data-ng-show="Partner.resetForm.senha.$invalid && Partner.resetForm.senha.$touched"
+          data-ng-messages="Partner.resetForm.senha.$error">
+          <p class="help-block" data-ng-message="required">Campo obrigatório</p>
+        </div>
+      </div>
+
+      <div class="form-group"
+        data-ng-class="{ 'card-panel' : Partner.resetForm.confirmPassword.$invalid
+          && Partner.resetForm.confirmPassword.$touched }">
+
+        <label>Confirme sua Senha</label>
+        <input class="form-control validate"
+          data-ng-model="confirmPassword"
+          match-fields="senha"
+          type="password" placeholder="Confirme sua Senha" required name="confirmPassword"></input>
+
+        <!-- Validation messages -->
+        <div class="tt-error-text"
+          data-ng-show="Partner.resetForm.confirmPassword.$invalid
+            && Partner.resetForm.confirmPassword.$touched"
+          data-ng-messages="Partner.resetForm.confirmPassword.$error">
+          <p class="help-block" data-ng-message="required">Confirme sua senha</p>
+          <p class="help-block" data-ng-message="matchFields">As senhas não coincidem</p>
+        </div>
+      </div>
+
+      <div class="col s12  l12">
+        <div class="row">
+          <div class="input-field col s12">
+            <button class="btn green waves-effect waves-light col l4 s12
+              tt-blue-background" type="submit" name="action"
+              data-ng-disabled="Partner.resetForm.$invalid || Partner.errorMessage">
+              Alterar</button>
+
+            <button class="btn green waves-effect waves-light col offset-l4 col l4 s12
+              tt-blue-background" type="reset" name="reset"
+              data-ng-click="Partner.reset(Partner.resetForm)">Limpar</button>
+          </div>
+        </div>
+      </div>
+
+
+
+    </form>
+  </div>
+  </div>
+</div>
