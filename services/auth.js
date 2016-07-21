@@ -64,7 +64,7 @@ function authService($http, $cookies, $rootScope, $timeout, helperService) {
     function clearCredentials() {
       $rootScope.globals = {};
       $cookies.remove('globals');
-      $http.defaults.headers.common.Authorization = 'Basic';
+      //$http.defaults.headers.common.Authorization = 'Basic';
     }
 }
 

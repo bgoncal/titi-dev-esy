@@ -237,35 +237,16 @@ function PartnerManageController($http, $window, $location, $cookies, helperServ
 }
 function PartnerResetController($http, $window, $location, $cookies, helperService) {
 	var vm = this;
-	vm.states = helperService.UFOptions;
-		url = 'http://titi.net.br/_homolog/cadastro/usuario.php';
-		globals = $cookies.getObject('globals');
-		data = {"usuariosID": globals.currentUser.usuariosID};
-
 	vm.loading = false;
   vm.submitResetForm = submitResetForm;
-	vm.regexCEP = helperService.regex.CEP;
-	vm.regexPhone = helperService.regex.phone;
-	vm.regexYear = helperService.regex.year;
-
-	vm.orgaoEmissorOptions = helperService.orgaoEmissorOptions;
-	vm.atuacaoOptions = helperService.partnerOptions;
-	vm.periodoOptions = helperService.periodoOptions;
-	vm.perfilEspecialistaOptions = helperService.perfilEspecialistaOptions;
-	vm.habilidadeOptions = helperService.habilidadeOptions;
-	vm.estadoOptions = helperService.UFOptions;
-
   function submitResetForm(form) {
     // TODO: submit data to server
 		vm.loading = false;
-
 		var data = angular.copy(form);
-
 		data.perfilID = '2';
-		data.disponibilidade = data.disponibilidade ? '1' : '0';
 		globals = $cookies.getObject('globals');
 		data.usuariosID = globals.currentUser.usuariosID;
-		var url = 'http://titi.net.br/_homolog/cadastro/usuario_update.php';
+		var url = 'http://titi.net.br/_homolog/cadastro/reset_pass.php';
 
 		vm.loading = true;
 		$http.post(url, data)

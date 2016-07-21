@@ -169,5 +169,8 @@ body select {
   cursor: pointer;
 }
 .mouse-click:hover {
-    text-shadow: 1px 3px 4px gray;
+  text-shadow: 1px 3px 4px gray;
+}
+.wrap-all {
+  word-wrap: break-word;
 }
