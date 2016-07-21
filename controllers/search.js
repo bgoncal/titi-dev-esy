@@ -1,8 +1,6 @@
 angular
 	.module('titi')
-  .controller('SearchController', ['$cookies','$http', '$window', '$location', 'authService', SearchController])
-	.controller('SearchCepController', ['$cookies','$http', '$window', '$location', 'authService', SearchCepController])
-	.controller('SearchRedirectController', ['$cookies','$http', '$window', '$location', 'authService', SearchRedirectController])
+  .controller('SearchController', ['$cookies','$http', '$window', '$location', 'authService', 'helperService', SearchController])
   .config(['$routeProvider', routes]);
 
   function routes($routeProvider) {
@@ -11,25 +9,10 @@ angular
   	    templateUrl: 'views/search/index.html',
   	    controller: 'SearchController',
   	    controllerAs: 'Search'
-  	  })
-			.when('/redirect', {
-  	    templateUrl: 'views/search/redirect.html',
-  	    controller: 'SearchRedirectController',
-  	    controllerAs: 'Search'
-  	  })
-			.when('/search/:cep', {
-  	    templateUrl: 'views/search/index.html',
-  	    controller: 'SearchCepController',
-  	    controllerAs: 'Search'
   	  });
   }
-  function SearchController($cookies, $http, $window, $location, authService) {
+  function SearchController($cookies, $http, $window, $location, authService, helperService) {
     var vm = this;
+		vm.atuacaoOptions = helperService.partnerOptions;
 
   }
-	function SearchCepController($cookies, $http, $window, $location, authService) {
-
-	}
-	function SearchRedirectController($cookies, $http, $window, $location, authService) {
-
-	}
