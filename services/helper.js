@@ -210,7 +210,11 @@ function helperService() {
   ];
 
   helper.linkOptions = [
-    {
+		{
+			href: '#/search',
+			title: 'Buscar'
+		},
+	  {
       href: '#/users/login/partners',
       title: 'Profissionais'
     },
