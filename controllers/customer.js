@@ -22,7 +22,7 @@ function routes($routeProvider) {
 	    controllerAs: 'Customer'
 	  })
 		.when('/customers/reset', {
-	    templateUrl: 'views/customers/reset-pass.html',
+	    templateUrl: 'views/customers/change-pass.html',
 	    controller: 'CustomerResetController',
 	    controllerAs: 'Customer'
 	  })
@@ -183,28 +183,18 @@ function CustomerManageController($scope, $http, $window, $location, helperServi
 
 
 }
-
 function CustomerResetController($http, $window, $location,$cookies, helperService) {
 	var vm = this;
-
-	url = 'http://titi.net.br/_homolog/cadastro/usuario.php';
-	globals = $cookies.getObject('globals');
-	data = {"usuariosID": globals.currentUser.usuariosID};
-
 	vm.loading = false;
   vm.submitResetForm = submitResetForm;
-
-
   function submitResetForm(form) {
     // TODO: submit data to server
 		vm.loading = false;
-
 		var data = angular.copy(form);
-
 		data.perfilID = '3';
 		globals = $cookies.getObject('globals');
 		data.usuariosID = globals.currentUser.usuariosID;
-		var url = 'http://titi.net.br/_homolog/cadastro/usuario_update.php';
+		var url = 'http://titi.net.br/_homolog/cadastro/reset_pass.php';
 
 		vm.loading = true;
 		$http.post(url, data)
@@ -212,8 +202,6 @@ function CustomerResetController($http, $window, $location,$cookies, helperServi
 				console.log('succeess', res);
 	      vm.loading = false;
 				$window.alert('Senha alterada com sucesso.');
-				// Redirect to login
-				$location.path('/partners');
 	    }, function (err) {
 	      console.log('error', err);
 	      vm.errorMessage = err.statusText || 'Ocorreu um erro. Tente novamente.';

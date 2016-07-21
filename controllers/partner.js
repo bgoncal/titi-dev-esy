@@ -24,7 +24,7 @@ function routes($routeProvider) {
 	    controllerAs: 'Partner'
 	  })
 		.when('/partners/reset', {
-	    templateUrl: 'views/partners/reset-pass.html',
+	    templateUrl: 'views/partners/change-pass.html',
 	    controller: 'PartnerResetController',
 	    controllerAs: 'Partner'
 	  })
@@ -254,8 +254,6 @@ function PartnerResetController($http, $window, $location, $cookies, helperServi
 				console.log('succeess', res);
 	      vm.loading = false;
 				$window.alert('Senha alterada com sucesso.');
-				// Redirect to login
-				$location.path('/partners');
 	    }, function (err) {
 	      console.log('error', err);
 	      vm.errorMessage = err.statusText || 'Ocorreu um erro. Tente novamente.';
