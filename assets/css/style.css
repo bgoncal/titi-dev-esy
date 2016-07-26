@@ -174,3 +174,25 @@ body select {
 .wrap-all {
   word-wrap: break-word;
 }
+@media screen and (max-width:840px) {
+  a#logo-container img {
+      height: 46px;
+      width: auto;
+      /* position: absolute; */
+      /* bottom: -24px; */
+      /* left: 50%; */
+      margin-top: 18px;
+      margin-left: -26px;
+  }
+}
+@media screen and (max-width:600px) {
+  a#logo-container img {
+      height: 46px;
+      width: auto;
+      /* position: absolute; */
+      /* bottom: -24px; */
+      /* left: 50%; */
+      margin-top: 10px;
+      margin-left: -26px;
+  }
+}
