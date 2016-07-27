@@ -12,7 +12,9 @@ angular
   	  });
   }
   function SearchController($cookies, $http, $window, $location, authService, helperService) {
-    var vm = this;
+
+		var vm = this;
 		vm.atuacaoOptions = helperService.partnerOptions;
+
 
   }
