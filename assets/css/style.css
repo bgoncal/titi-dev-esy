@@ -140,12 +140,12 @@ p.tt-vertical-align {
 color: #1c2743 !important;
 }
 
-/*input[type="number"]:-moz-placeholder { /* Firefox 18- */*/
+/*input[type="number"]:-moz-placeholder { /* Firefox 18- */
 .tt-blue-placeholder:-moz-placeholder { /* Firefox 18- */
 color: #1c2743 !important;
 }
 
-/*input[type="number"]::-moz-placeholder {  /* Firefox 19+ */*/
+/*input[type="number"]::-moz-placeholder {  /* Firefox 19+ */
 .tt-blue-placeholder::-moz-placeholder {  /* Firefox 19+ */
 color: #1c2743 !important;
 }
