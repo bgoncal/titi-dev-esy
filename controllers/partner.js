@@ -7,7 +7,7 @@ angular
 	.controller('PartnerResetController', ['$http', '$window', '$location','$cookies', 'helperService',
 		PartnerResetController])
   .controller('PartnerSearchController', ['$routeParams', '$location', '$http',
-    'helperService', PartnerSearchController])
+    'helperService', 'currentSearch', '$window', PartnerSearchController])
   .controller('PartnerController', ['$cookies','$http', '$window', '$location', 'authService', PartnerController])
   .config(['$routeProvider', routes]);
 
@@ -81,7 +81,7 @@ function PartnerController($cookies, $http, $window, $location, authService) {
 	};
 }
 
-function PartnerSearchController($routeParams, $location, $http, helperService) {
+function PartnerSearchController($routeParams, $location, $http, helperService, currentSearch, $window) {
   var vm = this;
 
   vm.partners = [];
@@ -105,7 +105,13 @@ function PartnerSearchController($routeParams, $location, $http, helperService) 
   );
 
   function getPartnerContact() {
-    $location.path('/users/login/customers');
+		var sdata = { cep: $routeParams.cep,
+									atuacao: $routeParams.partner
+								}
+		currentSearch.set(sdata);
+    //$location.path('/users/login/customers/');
+		$window.location.href = "#/search?cep=" + sdata.cep + "&atuacao=" + sdata.atuacao + "&refresh=1"
+
   };
 
   function getStars(number) {

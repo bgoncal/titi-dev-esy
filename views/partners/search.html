@@ -1,67 +1,59 @@
-
 <div class="section card-panel tt-card-main">
-  <div class="row">
-    <div class="col offset-m2 m8 s12">
-      <h4>Pesquisa de profissionais</h4>
-      <hr />
+		<div class="row">
+				<div class="col offset-m2 m8 s12">
+						<h4>Pesquisa de profissionais</h4>
+						<hr />
 
-      <div data-ng-show="PartnerSearch.loading" class="center">
-        <br>
-        <br>
-        <br>
-				<div class="progress">
-			      <div class="indeterminate"></div>
-			  </div>
-      </div>
+						<div data-ng-show="PartnerSearch.loading" class="center">
+								<br>
+								<br>
+								<br>
+								<div class="progress">
+										<div class="indeterminate"></div>
+								</div>
+						</div>
 
-      <p data-ng-show="PartnerSearch.partners.length === 0 && !PartnerSearch.loading
-        && !PartnerSearch.errorMessage">
-        Nenhum profissional encontrado
-      </p>
+						<p data-ng-show="PartnerSearch.partners.length === 0 && !PartnerSearch.loading
+				&& !PartnerSearch.errorMessage">
+								Nenhum profissional encontrado
+						</p>
 
-      <p data-ng-show="PartnerSearch.errorMessage">
-        {{ PartnerSearch.errorMessage }}
-      </p>
+						<p data-ng-show="PartnerSearch.errorMessage">
+								{{ PartnerSearch.errorMessage }}
+						</p>
 
-      <button class="btn waves-effect waves-light col s12 tt-blue-background"
-        data-ng-show="PartnerSearch.partners.length > 0"
-        data-ng-click="PartnerSearch.getPartnerContact()"
-        type="button">Obtenha contato dos profissionais</button>
+						<button class="btn waves-effect waves-light col s12 tt-blue-background" data-ng-show="PartnerSearch.partners.length > 0" data-ng-click="PartnerSearch.getPartnerContact()" type="button">Obtenha contato dos profissionais</button>
 
-      <div class="card-panel tt-card-search col s12 "
-        data-ng-repeat="partner in PartnerSearch.partners">
+						<div class="card-panel tt-card-search col s12 " data-ng-repeat="partner in PartnerSearch.partners">
 
-        <div class="col l2 s4">
-          <img class="tt-img-size-search"
-            src="{{partner.foto || './assets/images/profile_default.png'}}" alt="Perfil" />
-        </div>
+								<div class="col l2 s4">
+										<img class="tt-img-size-search" src="{{partner.foto || './assets/images/profile_default.png'}}" alt="Perfil" />
+								</div>
 
-        <div class="col l4 s8">
-          <p class="tt-vertical-align">
-            {{ partner.nome}}
-          </p>
-        </div>
+								<div class="col l4 s8">
+										<p class="tt-vertical-align">
+												{{ partner.nome}}
+										</p>
+								</div>
 
-        <div class="col l3 s12">
-          <p class="tt-vertical-align">
-            {{partner.cargo}}
-          </p>
-        </div>
+								<div class="col l3 s12">
+										<p class="tt-vertical-align">
+												{{partner.cargo}}
+										</p>
+								</div>
 
-        <div class="col l3 s12">
-          <p class="tt-vertical-align">
-            <img src="assets/images/star_filled.png" alt="{{ partner.classificacao + 'estrelas' }}"
-              data-ng-repeat="n in PartnerSearch.getStars(partner.classificacao)" />
-            <img src="assets/images/star.png" alt="{{ partner.classificacao + 'estrelas' }}"
-              data-ng-repeat="n in PartnerSearch.getStars(5 - partner.classificacao)" />
-            <br>
-            <small data-ng-show="partner.classificacao === '0'">Nenhuma avaliação foi feita</small>
-          </p>
-        </div>
-      </div>
+								<div class="col l3 s12">
+										<p class="tt-vertical-align">
+												<img src="assets/images/star_filled.png" alt="{{ partner.classificacao + 'estrelas' }}" data-ng-repeat="n in PartnerSearch.getStars(partner.classificacao)" />
+												<img src="assets/images/star.png" alt="{{ partner.classificacao + 'estrelas' }}" data-ng-repeat="n in PartnerSearch.getStars(5 - partner.classificacao)" />
+												<br>
+												<small data-ng-show="partner.classificacao === '0'">Nenhuma avaliação foi feita</small>
+										</p>
+								</div>
+						</div>
 
-      <search-result></search-result>
+						<search-result></search-result>
 
-    </div>
-  </div>
+				</div>
+		</div>
 </div>

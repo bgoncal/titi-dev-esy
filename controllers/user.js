@@ -6,7 +6,7 @@ angular
 
 function routes($routeProvider) {
   $routeProvider
-	  .when('/users/login/:type', {
+	  .when('/users/login/:type/', {
 	    templateUrl: 'views/users/login.html',
 	    controller: 'UserLoginController',
 	    controllerAs: 'User'

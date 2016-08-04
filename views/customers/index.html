@@ -1,26 +1,55 @@
 <div class="section card-panel tt-card-main">
-  <div class="row">
-    <div class="col offset-m2 m8 s12">
-      <h4>Cliente logado</h4>
-      <hr />
-      <div class="col card-panel m6 s12">
-        <h5> {{ Customer.data.nome }}</h5>
-            <p>
-              Email: {{ Customer.username }}
-            </p>
-            <p>
-              Estado: {{ Customer.data.estado }}
-            </p>
-          </div>
-      <button class="btn gray waves-effect waves-light col offset-l1 col l4 s12"
-        type="button" name="manage"
-        data-ng-click="Customer.manage()" style="margin-top:5px; margin-bottom:5px;">Alterar Dados</button>
-        <button class="btn gray waves-effect waves-light col offset-l1 col l4 s12"
-          type="button" name="manage"
-          data-ng-click="Customer.resetpass()" style="margin-bottom:5px;">Alterar Senha</button>
-        <button class="btn gray waves-effect waves-light col offset-l1 col l4 s12"
-        type="button" name="reset"
-        data-ng-click="Customer.logout()">Logout</button>
+    <div class="row">
+        <div class="col offset-m2 m8 s12">
+            <h4>Cliente logado</h4>
+            <hr />
+            <div class="col card-panel m6 s12">
+                <h5> {{ Customer.data.nome }}</h5>
+                <p>
+                    Email: {{ Customer.username }}
+                </p>
+                <p>
+                    Estado: {{ Customer.data.estado }}
+                </p>
+            </div>
+            <button class="btn gray waves-effect waves-light col offset-l1 col l4 s12" type="button" name="manage" data-ng-click="Customer.manage()" style="margin-top:5px; margin-bottom:5px;">Alterar Dados</button>
+            <button class="btn gray waves-effect waves-light col offset-l1 col l4 s12" type="button" name="manage" data-ng-click="Customer.resetpass()" style="margin-bottom:5px;">Alterar Senha</button>
+            <button class="btn gray waves-effect waves-light col offset-l1 col l4 s12" type="button" name="reset" data-ng-click="Customer.logout()">Logout</button>
+        </div>
     </div>
-  </div>
+    <div class="row">
+      <div class="col s12 m12 l12" style="margin-top:25px;">
+          <div class="col offset-m2 offset-l2 m4 l4 s12 tt-pacientes-box  z-depth-2">
+              <h4 class="header center tt-blue-text">Pacientes e familiares</h4>
+              <p class="col s12 center tt-blue-text">
+                  Encontre cuidadores, enfermeiras, fisioterapeutas e outros profissionais para cuidar de quem você ama.
+              </p>
+
+              <div class="col s12 center">
+                  <form name="Customer.searchForm" data-ng-submit="Customer.submitForm(Customer.form)">
+                      <div class="col s12 center">
+                          <input class="center tt-blue-placeholder tt-search-box" data-ng-model="Customer.form.cep" required type="text" name="cep" mask="99999-999" placeholder="Digite seu CEP aqui" />
+                      </div>
+
+                      <div class="col s12 center">
+                        <select data-ng-model="Customer.form.selectedPartner" required
+                          data-ng-options="partner.name for partner in Customer.partners"
+                          class="tt-blue-background tt-white-text tt-select"
+                          >
+                          <option value="">Escolha o profissional</option>
+                        </select>
+                      </div>
+
+                      <div class="col s12 center">
+                          <button class="btn waves-effect waves-light col s12 tt-margin-top-button
+              tt-blue-background" type="submit" name="action">
+                              <i class="material-icons">search</i>Pesquise aqui
+                          </button>
+                      </div>
+                  </form>
+              </div>
+          </div>
+      </div>
+
+    </div>
 </div>

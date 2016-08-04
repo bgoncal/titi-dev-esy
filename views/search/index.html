@@ -1,128 +1,145 @@
 <div class="row">
-   <div class="col s12 z-depth-6 card-panel tt-card-main">
-      <div class="row">
-         <div class="input-field col s12 m12 l8 offset-l2">
-            <h4 class=" tt-blue-text">Buscar Profissional</h4>
-            <hr>
-         </div>
-      </div>
-      <div class="row">
-         <div class="col s12 m12 l8 offset-l2">
-            <div class="col s12 m7 l7 z-depth-6  search-results no-padding">
-               <div class="search">
-                  <div class="search-wrapper">
-                     <input id="search" class="col l4" placeholder="CEP: XXXXX-XXX">
-
-                     <select class="col l6 offset-l1"
-                       required name="atuacao" id="ddlAtuacao">
-           						<option value="">Selecione...</option>
-           						<option data-ng-repeat="atuacao in Search.atuacaoOptions"
-           							value="{{atuacao.id}}">{{atuacao.name}}</option>
-                     </select>
-
-
-                     <i id="btnSearch" class="material-icons mouse-click col l1 search-btn-icon" style="
-                        font-size: 35px;
-                        ">search</i>
-                  </div>
-               </div>
-
+    <div class="col s12 z-depth-6 card-panel tt-card-main">
+        <div class="row">
+            <div class="input-field col s12 m12 l8 offset-l2">
+                <h4 class=" tt-blue-text">Buscar Profissional</h4>
+                <hr>
             </div>
-            <div class="col s12 m5 l5" style="padding-right:0px;">
+        </div>
+        <div class="row">
+            <div class="col s12 m8 l8 offset-l2">
+                <div class="col s12 m5 l5 z-depth-6  search-results no-padding">
+                    <div class="search" ng-repeat="x in Search.result">
+                        <div ng-class="{'my-local-last':$last}"><a class='btn waves-effect waves-light col s12 tt-blue-background' type='button'>Obter contato</a>
+                            <div class='row'>
+                                <div class='card-panel tt-card-search col s12 ' style='padding:10px;'>
+                                    <div class='col m3 s4'>
+                                        <h3 class='valign'><img class='tt-img-size-search'alt='Perfil'>
+                                </h3>
+                                    </div>
+                                    <div class='col l9 s8 wrap-all'>
+                                        <h5 class='tt-vertical-align center'>{{ x.nome }}</h5><small class='col s12 center'>{{ x.cargo }}</small>
+                                        <p class='col s12 no-bottom'><b>Cel:</b> {{ x.cel }} </p>
+                                        <p class='col s12 no-bottom'><b>Período preferido:</b>--</p>
+                                        <p class='col s12 no-bottom'><b>Experiência:</b>--</p>
+                                    </div>
+                                    <div class="col s12 m12 l12 valign-wrapper">
+                                        <h5 class="col s6 m6 l6 h5-low valign">Minha Avaliação</h5>
+                                        <p class="tt-vertical-align col s6 m6 l6">
 
-              <script>
+                                            <img src="assets/images/star.png" alt="0.0estrelas" class="ng-scope">
+                                            <img src="assets/images/star.png" alt="0.0estrelas" class="ng-scope">
+                                            <img src="assets/images/star.png" alt="0.0estrelas" class="ng-scope">
+                                            <img src="assets/images/star.png" alt="0.0estrelas" class="ng-scope">
+                                            <img src="assets/images/star.png" alt="0.0estrelas" class="ng-scope">
 
-              $("#btnSearch").click(function() {
-                window.location.href = "#/search?cep=" + $("#search").val() + "&atuacao=" + $("#ddlAtuacao").val() + "&refresh=1";
-              });
+                                            <br>
+                                            <!--<small data-ng-show="partner.classificacao === '0'" class="ng-hide">Nenhuma avaliação foi feita</small>-->
+                                        </p>
+                                    </div>
+                                </div>
 
-              function getParameterByName(name, url) {
-                    if (!url) url = window.location.href;
-                    name = name.replace(/[\[\]]/g, "\\$&");
-                    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-                        results = regex.exec(url);
-                    if (!results) return null;
-                    if (!results[2]) return '';
-                    return decodeURIComponent(results[2].replace(/\+/g, " "));
-                }
-                $(window).on('hashchange', function(e){
-                  if(getParameterByName("refresh") == 1) {
-                      window.location.href = "#/search?cep=" + getParameterByName('cep') + "&atuacao=" + getParameterByName('atuacao') + "&refresh=0"
-                  }
-                  if(getParameterByName("refresh") == 0) {
-                      window.location.reload();
-                  }
-                });
-                $(window).load(function() {
-                  $("#search").val(getParameterByName('cep'));
-                  $("#ddlAtuacao").val(getParameterByName('atuacao'))
-                });
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s12 m7 l7" style="padding-right:0px;">
+                    <script>
+                        $.ajax({
+                            url: "http://titi.net.br/_homolog/relat/pesquisa_completa.php?cep=" + getParameterByName('cep') + "&atuacao=" + getParameterByName('atuacao'),
+                            context: document.body,
+                            async: false
+                        }).done(function(data) {
+                            console.log(data);
+                            var myHome = new google.maps.LatLng(data[data.length - 1].latitude, data[data.length - 1].longitude);
+                            var ArrArr = $.map(data, function(n, i) {
+                                return [
+                                    [n.nome, n.latitude, n.longitude]
+                                ];
+                            });
+                            //console.log(JSON.stringify(ArrArr));
+                            var locations = ArrArr;
 
-              $.ajax({
-                url: "http://titi.net.br/_homolog/relat/pesquisa_completa.php?cep="+ getParameterByName('cep') +"&atuacao=" + getParameterByName('atuacao'),
-                context: document.body,
-                async: false
-              }).done(function(data) {
-                console.log(data);
-                  var myHome=new google.maps.LatLng(data[data.length - 1].latitude, data[data.length - 1].longitude);
-                  var ArrArr = $.map(data, function(n,i){
-                     return [[ n.nome, n.latitude, n.longitude ]];
-                  });
-                  //console.log(JSON.stringify(ArrArr));
-                  var locations = ArrArr;
-                  function initialize() {
-                      var mapProp = {
-                          center: myHome,
-                          zoom: 12,
-                          mapTypeId: google.maps.MapTypeId.ROADMAP
-                      };
-                      var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+                            function initialize() {
+                                var mapProp = {
+                                    center: myHome,
+                                    zoom: 12,
+                                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                                };
+                                var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
 
-                      for (i = 0; i < locations.length; i++) {
-                          marker = new google.maps.Marker({
-                              position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-                              title: locations[i][0],
-                              map: map
-                          });
-                          var infowindow = new google.maps.InfoWindow({
-                              content: locations[i][0]
-                          });
-                          infowindow.open(map, marker);
-                      }
+                                for (i = 0; i < locations.length; i++) {
+                                    marker = new google.maps.Marker({
+                                        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+                                        title: locations[i][0],
+                                        map: map
+                                    });
+                                    var infowindow = new google.maps.InfoWindow({
+                                        content: locations[i][0]
+                                    });
+                                    infowindow.open(map, marker);
+                                }
 
-                      marker.setMap(map);
-                  }
-                    // Adds a marker to the map and push to the array.
-                    function addMarker(location) {
-                      var marker = new google.maps.Marker({
-                        position: location,
-                        map: map
-                      });
-                      markers.push(marker);
-                    }
-                  google.maps.event.addDomListener(window, 'load', initialize);
-                  for(i=0;i<data.length;i++) {
-                    if(i==data.length-1){
-                      return;
-                    }
-                    name = data[i].nome;
-                    role = data[i].cargo;
-                    cel = data[i].cel;
-                    email = data[i].email;
-                    $(".search-results").append("<div class='card-panel tt-card-search col s12 ' " +
-                    "style='padding:10px;'><div class='col l2 s4'><h3 class='valign'><img class='tt-img-size-search' " +
-                    "alt='Perfil'></h3></div><div class='col l7 s8 no-padding wrap-all'><p class='tt-vertical-align'>" + name +"</p><p>Cel: "+cel+"<p>Email: "+ email +"</div>" +
-                    "<div class='col l3 s12 no-padding  center'><h3 class='chip valign center'>" + role + "</h3></div></div>");
-                  }
-              });
+                                marker.setMap(map);
+                            }
+                            // Adds a marker to the map and push to the array.
+                            function addMarker(location) {
+                                var marker = new google.maps.Marker({
+                                    position: location,
+                                    map: map
+                                });
+                                markers.push(marker);
+                            }
+                            google.maps.event.addDomListener(window, 'load', initialize);
+                            for (i = 0; i < data.length; i++) {
+                                if (i == data.length - 1) {
+                                    return;
+                                }
 
-                </script>
+                            }
+                        });
+                    </script>
 
-                <div id="googleMap" style="width:100%;height:580px;"></div>
+                    <div id="googleMap" style="width:100%;height:580px;"></div>
 
 
+                </div>
+                <div class="col s12 m12 l12 no-padding" style="margin-top:25px;">
+                    <div class="col s12 m5 l5 tt-pacientes-box  z-depth-2">
+                        <h4 class="header center tt-blue-text">Pacientes e familiares</h4>
+                        <p class="col s12 center tt-blue-text">
+                            Encontre cuidadores, enfermeiras, fisioterapeutas e outros profissionais para cuidar de quem você ama.
+                        </p>
+
+                        <div class="col s12 center">
+                            <form name="Search.searchForm" data-ng-submit="Search.submitForm(Search.form)">
+                                <div class="col s12 center">
+                                    <input class="center tt-blue-placeholder tt-search-box" data-ng-model="Search.form.cep" required type="text" name="cep" mask="99999-999" placeholder="Digite seu CEP aqui" />
+                                </div>
+
+                                <div class="col s12 center">
+                                  <select data-ng-model="Search.form.selectedPartner" required
+                                    data-ng-options="partner.name for partner in Search.partners"
+                                    class="tt-blue-background tt-white-text tt-select"
+                                    >
+                                    <option value="">Escolha o profissional</option>
+                                  </select>
+                                </div>
+
+                                <div class="col s12 center">
+                                    <button class="btn waves-effect waves-light col s12 tt-margin-top-button
+                        tt-blue-background" type="submit" name="action">
+                                        <i class="material-icons">search</i>Pesquise aqui
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s12 m12 l12" style="margin-top:40px;">
+                  <div class="center"><a class="btn waves-effect waves-light tt-blue-background">Clique aqui para Pesquisas anteriores</a></div>
+                </div>
             </div>
-         </div>
-      </div>
-   </div>
+        </div>
+    </div>
 </div>
