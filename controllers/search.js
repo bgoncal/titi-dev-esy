@@ -31,8 +31,7 @@ function SearchController($cookies, $http, $window, $location, authService, help
             console.log(vm.result);
         }, function(err) {
             console.log('error', err);
-            vm.errorMessage = err.statusText || 'Ocorreu um erro. Tente novamente.';
-            vm.loading = false;
+            $window.location.reload();
         });
 
     vm.submitForm = submitForm;
