@@ -1,9 +1,9 @@
 <div class="section card-panel tt-card-main">
     <div class="row">
-        <div class="col offset-m2 m8 s12">
+        <div class="col offset-m2 m7 s12">
             <h4>Cliente logado</h4>
             <hr />
-            <div class="col card-panel m6 s12">
+            <div class="col card-panel m7 s12">
                 <h5> {{ Customer.data.nome }}</h5>
                 <p>
                     Email: {{ Customer.username }}
@@ -12,9 +12,9 @@
                     Estado: {{ Customer.data.estado }}
                 </p>
             </div>
-            <button class="btn gray waves-effect waves-light col offset-l1 col l4 s12" type="button" name="manage" data-ng-click="Customer.manage()" style="margin-top:5px; margin-bottom:5px;">Alterar Dados</button>
-            <button class="btn gray waves-effect waves-light col offset-l1 col l4 s12" type="button" name="manage" data-ng-click="Customer.resetpass()" style="margin-bottom:5px;">Alterar Senha</button>
-            <button class="btn gray waves-effect waves-light col offset-l1 col l4 s12" type="button" name="reset" data-ng-click="Customer.logout()">Logout</button>
+            <button class="btn gray waves-effect waves-light col offset-l1 col l4 s12 right" type="button" name="manage" data-ng-click="Customer.manage()" style="margin-top:5px; margin-bottom:5px;">Alterar Dados</button>
+            <button class="btn gray waves-effect waves-light col offset-l1 col l4 s12 right" type="button" name="manage" data-ng-click="Customer.resetpass()" style="margin-bottom:5px;">Alterar Senha</button>
+            <button class="btn gray waves-effect waves-light col offset-l1 col l4 s12 right" type="button" name="reset" data-ng-click="Customer.logout()">Logout</button>
         </div>
     </div>
     <div class="row">

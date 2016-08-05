@@ -78,14 +78,6 @@ function CustomerController($cookies, $http, $window, $location, authService, cu
         if (!results[2]) return '';
         return decodeURIComponent(results[2].replace(/\+/g, " "));
     }
-    var curs = currentSearch.get();
-    if (curs != null) {
-        if (getParameterByName("refresh") == 0) {
-
-        } else {
-            $window.location.href = "#/customers?cep=" + curs.cep + "&atuacao=" + curs.atuacao + "&refresh=1";
-        }
-    }
 
     vm.username = cookies.currentUser.username;
     vm.logout = logout;
