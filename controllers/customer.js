@@ -9,11 +9,11 @@ angular
     .controller('CustomerResetController', ['$http', '$window', '$location', '$cookies', 'helperService',
         CustomerResetController
     ])
-    .controller('CustomerRateController', ['$http', '$window', '$location', '$cookies', 'helperService',
+    .controller('CustomerRateController', ['$http', '$window', '$location', '$cookies', 'helperService','$scope',
         CustomerRateController
     ])
     .controller('CustomerController', ['$cookies', '$http', '$window', '$location', 'authService', 'currentSearch', 'helperService', CustomerController])
-    .config(['$routeProvider', routes]);
+    .config(['$routeProvider', routes])
 
 function routes($routeProvider) {
     $routeProvider
@@ -260,62 +260,34 @@ function CustomerResetController($http, $window, $location, $cookies, helperServ
 
 }
 
-function CustomerRateController($http, $window, $location, $cookies, helperService) {
+function CustomerRateController($http, $window, $location, $cookies, helperService, $scope) {
     var vm = this;
     vm.partners = [];
     //vm.getPartnerContact = getPartnerContact;
     vm.getStars = getStars;
     vm.openModal = openModal;
     vm.closeModal = closeModal;
+    vm.onRating = onRating;
+    vm.submitRateForm = submitRateForm;
+    vm.getReviews = getReviews;
+    vm.currentRate = "0";
     globals = $cookies.getObject('globals');
     var url = helperService.backendUrl + '/relat/pesquisa_historico.php';
     url = url + '?pacientesID=' + globals.currentUser.pacientesID;
-
-    vm.loading = true;
-   $http.get(url)
-        .then(function (res) {
-          vm.loading = false;
-          vm.partners = res.data || [];
-          console.log(res.data || []);
-        }, function (err) {
-          console.log('error', err);
-          vm.errorMessage = err.statusText || 'Ocorreu um erro. Tente novamente.';
-          vm.loading = false;
-        }
-      );
-    /*   finalData = [{
-        "nome": "Creusa Olímpia Ferreira",
-        "foto": "",
-        "tel": "(11) 3284-1430",
-        "cel": "(11) 99081-307",
-        "email": "creusa.olimpia@terra.com.br952",
-        "pacientesID": "1",
-        "especialistasID": "5",
-        "classificacao": "2.0",
-        "total": "0",
-        "cargo": "Enfermeiro",
-        "periodo": "Diurno",
-        "experiencia": "",
-        "myclass": "3.0",
-        "comentario": null
-    }, {
-        "nome": "Patricia Aparecida de Souza",
-        "foto": "",
-        "tel": "11930040666",
-        "cel": "",
-        "email": "patty_ic@hotmail.com",
-        "pacientesID": "1",
-        "especialistasID": "6",
-        "classificacao": "0.0",
-        "total": "0",
-        "cargo": "Enfermeiro",
-        "periodo": "Diurno",
-        "experiencia": "",
-        "myclass": "4.0",
-        "comentario": null
-    }];*/
-    //vm.partners = finalData || [];
-    //console.log(finalData || []);
+    getReviews();
+    function getReviews() {
+      vm.loading = true;
+      $http.get(url)
+          .then(function(res) {
+              vm.loading = false;
+              vm.partners = res.data || [];
+              console.log(res.data || []);
+          }, function(err) {
+              console.log('error', err);
+              vm.errorMessage = err.statusText || 'Ocorreu um erro. Tente novamente.';
+              vm.loading = false;
+          });
+    }
 
     function getStars(number) {
         var arr = [];
@@ -330,8 +302,41 @@ function CustomerRateController($http, $window, $location, $cookies, helperServi
         console.log(id);
     }
 
-    function closeModal(id) {
+    function closeModal(id, refresh) {
         angular.element("#modal-" + id).closeModal();
+        if(refresh===1) {
+          $window.location.reload();
+        }
         console.log(id);
     }
+    function onRating(rate) {
+      console.log(rate);
+      currentRate = rate;
+    }
+
+    function submitRateForm(form, especialistasID) {
+        console.log('Customer rating', form);
+        console.log(especialistasID);
+        var data = angular.copy(form);
+        data.myclass = currentRate;
+        data.pacientesID = globals.currentUser.pacientesID;
+        data.especialistasID = especialistasID;
+        url = helperService.backendUrl + "/cadastro/usuario_update.php";
+        $http.post(url, data)
+            .then(function(res) {
+                console.log('succeess', res);
+
+                $window.alert('Classificação Enviada');
+                // Redirect to login
+                closeModal(especialistasID,1);
+
+            }, function(err) {
+                console.log('error', err);
+                vm.errorMessage = err.statusText || 'Ocorreu um erro. Tente novamente.';
+
+            });
+        console.log(data);
+
+    }
+
 }

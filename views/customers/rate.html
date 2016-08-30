@@ -75,18 +75,22 @@
 						<a class="btn btn-rate" ng-click="Customer.openModal(partner.especialistasID)"><i class="col s2 small material-icons ">mode_edit</i>Avaliar Proffisional</a>
 					</p>
 					<div ng-attr-id="{{ 'modal-' + partner.especialistasID  }}" class="modal rate modal-fixed-footer">
+						<form name="Customer.rateForm"
+							data-ng-submit="Customer.submitRateForm(Customer.form, partner.especialistasID)">
 						<div class="modal-content">
-							<h4>Classifique</h4>
-							<textarea rows="10" placeholder="Diga a todos o que pensa sobre o App. Você o recomendaria? Por quê?"></textarea>
- <input-stars max="5" ng-model="YourCtrl.property"></input-stars>
 
- <jk-rating-stars max-rating="5" rating="ctrl.rating" read-only="ctrl.readOnly" on-rating="ctrl.onRating(rating)" >
- </jk-rating-stars>
+								<h4>Classifique</h4>
+								<textarea rows="10" data-ng-model="Customer.form.comentario" placeholder="Diga a todos o que pensa sobre o App. Você o recomendaria? Por quê?"></textarea>
+
+								<jk-rating-stars max-rating="5"  rating="Customer.rating" read-only="Customer.readOnly" on-rating="Customer.onRating(rating)">
+								</jk-rating-stars>
+							
 						</div>
 						<div class="modal-footer">
 							<a ng-click="Customer.closeModal()" class=" modal-action modal-close waves-effect waves-green btn-flat">Fechar</a>
-							<a class="btn btn-rate btn-rate-now" ng-click="Customer.openModal(partner.especialistasID)"><i class="col s2 small material-icons ">mode_edit</i>Avaliar Proffisional</a>
+							<button type="submit" name="action" class="btn btn-rate btn-rate-now" ><i class="col s2 small material-icons ">mode_edit</i>Avaliar</button>
 						</div>
+						</form>
 					</div>
 				</div>
 			</div>
