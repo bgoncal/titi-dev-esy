@@ -53,9 +53,9 @@ function UserLoginController($routeParams, $location, $cookies, authService) {
           password: data.password,
           perfilID: response.data[0].perfilID,
           usuariosID: response.data[0].usuariosID,
+					pacientesID: response.data[0].pacientesID,
           userType: vm.type
         };
-
         authService.setCredentials(credentialData);
         var redirectLink = '/' + vm.type;
 

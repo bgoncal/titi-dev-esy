@@ -9,6 +9,9 @@ angular
     .controller('CustomerResetController', ['$http', '$window', '$location', '$cookies', 'helperService',
         CustomerResetController
     ])
+    .controller('CustomerRateController', ['$http', '$window', '$location', '$cookies', 'helperService',
+        CustomerRateController
+    ])
     .controller('CustomerController', ['$cookies', '$http', '$window', '$location', 'authService', 'currentSearch', 'helperService', CustomerController])
     .config(['$routeProvider', routes]);
 
@@ -17,6 +20,11 @@ function routes($routeProvider) {
         .when('/customers', {
             templateUrl: 'views/customers/index.html',
             controller: 'CustomerController',
+            controllerAs: 'Customer'
+        })
+        .when('/customers/rate', {
+            templateUrl: 'views/customers/rate.html',
+            controller: 'CustomerRateController',
             controllerAs: 'Customer'
         })
         .when('/customers/signup', {
@@ -56,8 +64,9 @@ function CustomerController($cookies, $http, $window, $location, authService, cu
         });
 
     var loginLink = '/users/login/customers';
-    var managelink = '/customers/manage';
+    var manageLink = '/customers/manage';
     var resetPass = '/customers/reset';
+    var rateLink = '/customers/rate';
 
     if (!cookies) {
         $location.path(loginLink);
@@ -83,6 +92,7 @@ function CustomerController($cookies, $http, $window, $location, authService, cu
     vm.logout = logout;
     vm.manage = manage;
     vm.resetpass = resetpass;
+    vm.rate = rate;
 
     function logout() {
         authService.clearCredentials();
@@ -90,11 +100,15 @@ function CustomerController($cookies, $http, $window, $location, authService, cu
     };
 
     function manage() {
-        $location.path(managelink);
+        $location.path(manageLink);
     };
 
     function resetpass() {
         $location.path(resetPass);
+    };
+
+    function rate() {
+        $location.path(rateLink);
     };
 }
 
@@ -244,4 +258,80 @@ function CustomerResetController($http, $window, $location, $cookies, helperServ
         $scope.Partner.form = angular.copy($scope.master);
     };
 
+}
+
+function CustomerRateController($http, $window, $location, $cookies, helperService) {
+    var vm = this;
+    vm.partners = [];
+    //vm.getPartnerContact = getPartnerContact;
+    vm.getStars = getStars;
+    vm.openModal = openModal;
+    vm.closeModal = closeModal;
+    globals = $cookies.getObject('globals');
+    var url = helperService.backendUrl + '/relat/pesquisa_historico.php';
+    url = url + '?pacientesID=' + globals.currentUser.pacientesID;
+
+    vm.loading = true;
+   $http.get(url)
+        .then(function (res) {
+          vm.loading = false;
+          vm.partners = res.data || [];
+          console.log(res.data || []);
+        }, function (err) {
+          console.log('error', err);
+          vm.errorMessage = err.statusText || 'Ocorreu um erro. Tente novamente.';
+          vm.loading = false;
+        }
+      );
+    /*   finalData = [{
+        "nome": "Creusa Olímpia Ferreira",
+        "foto": "",
+        "tel": "(11) 3284-1430",
+        "cel": "(11) 99081-307",
+        "email": "creusa.olimpia@terra.com.br952",
+        "pacientesID": "1",
+        "especialistasID": "5",
+        "classificacao": "2.0",
+        "total": "0",
+        "cargo": "Enfermeiro",
+        "periodo": "Diurno",
+        "experiencia": "",
+        "myclass": "3.0",
+        "comentario": null
+    }, {
+        "nome": "Patricia Aparecida de Souza",
+        "foto": "",
+        "tel": "11930040666",
+        "cel": "",
+        "email": "patty_ic@hotmail.com",
+        "pacientesID": "1",
+        "especialistasID": "6",
+        "classificacao": "0.0",
+        "total": "0",
+        "cargo": "Enfermeiro",
+        "periodo": "Diurno",
+        "experiencia": "",
+        "myclass": "4.0",
+        "comentario": null
+    }];*/
+    //vm.partners = finalData || [];
+    //console.log(finalData || []);
+
+    function getStars(number) {
+        var arr = [];
+        for (var i = 0; i < number; i++) {
+            arr.push(i);
+        }
+        return arr;
+    }
+
+    function openModal(id) {
+        angular.element("#modal-" + id).openModal();
+        console.log(id);
+    }
+
+    function closeModal(id) {
+        angular.element("#modal-" + id).closeModal();
+        console.log(id);
+    }
 }

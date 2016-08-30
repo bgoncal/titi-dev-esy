@@ -1,4 +1,6 @@
 /* Custom Stylesheet */
+
+
 /**
  * Use this file to override Materialize files so you can update
  * the core Materialize files in the future
@@ -6,213 +8,240 @@
  * Made By MaterializeCSS.com
  */
 
- [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
-   display: none !important;
- }
-
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+    display: none !important;
+}
 .icon-block {
-  padding: 0 15px;
+    padding: 0 15px;
 }
 .icon-block .material-icons {
-	font-size: inherit;
+    font-size: inherit;
 }
 .tt-nav-bar {
-  background-color: #1c2743;
+    background-color: #1c2743;
 }
-
 .tt-blue-background {
-  background-color: #1c2743 !important;
+    background-color: #1c2743 !important;
 }
-
 .tt-search-box {
-  background-color: #8daf36 !important;
-  padding: -15px !important;
+    background-color: #8daf36 !important;
+    padding: -15px !important;
 }
-
 .tt-light-blue-background {
-  background-color: #5ba2e4;
+    background-color: #5ba2e4;
 }
-
 .tt-footer-background {
-  color: #f4ffff;
+    color: #f4ffff;
 }
-
 .tt-white-text {
-  color: white;
+    color: white;
 }
-
 .tt-blue-text {
-  color: #1c2743 !important
+    color: #1c2743 !important
 }
-
 .tt-error-text {
-  color: #e71e1e;
+    color: #e71e1e;
 }
-
 #terms-of-use {
-  background-color: white;
-  font-family: times;
+    background-color: white;
+    font-family: times;
 }
-
 .tt-text-justify {
-  text-align: justify;
+    text-align: justify;
 }
-
 .tt-card-main {
-  margin-top: 0;
-  min-height: 83vh;
+    margin-top: 0;
+    min-height: 83vh;
 }
-
 .tt-card-search {
-  margin-right: 15px;
-  margin-left: 15px;
+    margin-right: 15px;
+    margin-left: 15px;
 }
-
 .tt-img-size-search {
-  width: 75px;
-  height: 75px;
+    width: 75px;
+    height: 75px;
 }
-
+.tt-img-size-rate {
+    width: 105px;
+    height: 105px;
+}
 p.tt-vertical-align {
-  vertical-align: middle;
+    vertical-align: middle;
+}
+textarea {
+    min-height: 191px;
+}
+.modal.rate h4 {
+    background-color: #26a69a;
+    padding: 20px;
+    margin: -24px;
+    margin-bottom: 14px;
+    color: white;
+}
+.star-rating {
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+}
+.star-rating .star {
+  padding: 1px;
+  color: #ddd;
+  font-size: 20px;
+  text-shadow: .05em .05em #aaa;
+  list-style-type: none;
+  display: inline-block;
+  cursor: pointer;
+}
+.star-rating .star.filled {
+  color: #fd0;
+}
+.star-rating.readonly .star.filled {
+  color: #666;
 }
 
 @media (min-width: 768px) {
-  .tt-main-background {
-    background: url('../images/background-index.jpg');
-    background-size: cover;
-    position: relative;
-    min-height: 500px;
-  }
-  .tt-round-border {
-    border-radius: 0 70px 0 0;
-  }
+    .tt-main-background {
+        background: url('../images/background-index.jpg');
+        background-size: cover;
+        position: relative;
+        min-height: 500px;
+    }
+    .tt-round-border {
+        border-radius: 0 70px 0 0;
+    }
+    .modal.rate {
+        width: 38%;
+        height: 451px;
+    }
 }
-
 .tt-pacientes-box {
-  margin-top: -10px;
-  background-color:  #a2c841;
-  padding: 20px 0 20px 0 !important;
+    margin-top: -10px;
+    background-color: #a2c841;
+    padding: 20px 0 20px 0 !important;
 }
-
 .tt-margin-top-button {
-  margin-top: 10px;
+    margin-top: 10px;
 }
-
 .tt-select {
-  border: none;
-  text-align-last: center;
-  margin: 0 0 5px 0;
+    border: none;
+    text-align-last: center;
+    margin: 0 0 5px 0;
 }
-
 .tt-no-border {
-  border: none;
+    border: none;
 }
-
 .tt-logo {
-  width: 100%;
-  height: 100%;
+    width: 100%;
+    height: 100%;
 }
-
 .tt-margin-top {
-  margin-top: -15px;
+    margin-top: -15px;
 }
-
 .tt-title-bottom {
-  border-bottom: 1px solid #9e9e9e;
-  padding-bottom: 5px;
+    border-bottom: 1px solid #9e9e9e;
+    padding-bottom: 5px;
 }
-
 #support-frame {
-  min-height: 570px;
+    min-height: 570px;
 }
-
 @font-face {
     font-family: 'chaletlondonnineteenseventy';
-    src: url('../fonts/Chalet/chalet_london_nineteen_seventy-webfont.woff2') format('woff2'),
-         url('../fonts/Chalet/chalet_london_nineteen_seventy-webfont.woff') format('woff');
+    src: url('../fonts/Chalet/chalet_london_nineteen_seventy-webfont.woff2') format('woff2'), url('../fonts/Chalet/chalet_london_nineteen_seventy-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
 
 /*input[type="number"]::-webkit-input-placeholder {*/
+
 .tt-blue-placeholder::-webkit-input-placeholder {
-color: #1c2743 !important;
+    color: #1c2743 !important;
 }
 
 /*input[type="number"]:-moz-placeholder { /* Firefox 18- */
-.tt-blue-placeholder:-moz-placeholder { /* Firefox 18- */
-color: #1c2743 !important;
+
+.tt-blue-placeholder:-moz-placeholder {
+    /* Firefox 18- */
+    color: #1c2743 !important;
 }
 
 /*input[type="number"]::-moz-placeholder {  /* Firefox 19+ */
-.tt-blue-placeholder::-moz-placeholder {  /* Firefox 19+ */
-color: #1c2743 !important;
+
+.tt-blue-placeholder::-moz-placeholder {
+    /* Firefox 19+ */
+    color: #1c2743 !important;
 }
 
 /*input[type="number"]:-ms-input-placeholder {*/
+
 .tt-blue-placeholder:-ms-input-placeholder {
-color: #1c2743 !important;
+    color: #1c2743 !important;
 }
-
-body,
-body * {
-  /*background-color: #1c2743;*/
-  font-family: "chaletlondonnineteenseventy", "Roboto";
+body, body * {
+    /*background-color: #1c2743;*/
+    font-family: "chaletlondonnineteenseventy", "Roboto";
 }
-
 body select {
-  display: inline-block;
+    display: inline-block;
 }
-
 .mouse-click {
-  cursor: pointer;
+    cursor: pointer;
 }
 .mouse-click:hover {
-  text-shadow: 1px 3px 4px gray;
+    text-shadow: 1px 3px 4px gray;
 }
 .wrap-all {
-  word-wrap: break-word;
+    word-wrap: break-word;
 }
 .no-bottom {
-  margin-bottom: 0px;
+    margin-bottom: 0px;
 }
 .my-local-last {
-  display: none;
+    display: none;
 }
 .h5-low {
-  font-size: 1.5em;
+    font-size: 1.5em;
+}
+.btn-tall {
+    height: 62px;
+}
+.span-big {
+    font-size: 26px;
+}
+.modal.rate a.star-button i {
+  font-size: 40px;
+}
+.btn-rate-now {
+  width: 173px;
 }
 @media screen and (max-width:840px) {
-  a#logo-container img {
-      height: 46px;
-      width: auto;
-      /* position: absolute; */
-      /* bottom: -24px; */
-      /* left: 50%; */
-      margin-top: 18px;
-      margin-left: -26px;
-  }
-  i.search-btn-icon {
-    font-size: 35px;
-    height: 50px;
-    width: 100%;
-    background: #CCC;
-    line-height: 50px;
-    text-align: center;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    border-radius: 3px;
-    box-shadow: 2px 2px 10px -2px #a0a0a0;
-    color: #1c2743;
-  }
+    a#logo-container img {
+        height: 46px;
+        width: auto;
+        /* position: absolute; */
+        /* bottom: -24px; */
+        /* left: 50%; */
+        margin-top: 18px;
+        margin-left: -26px;
+    }
+    i.search-btn-icon {
+        font-size: 35px;
+        height: 50px;
+        width: 100%;
+        background: #CCC;
+        line-height: 50px;
+        text-align: center;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        border-radius: 3px;
+        box-shadow: 2px 2px 10px -2px #a0a0a0;
+        color: #1c2743;
+    }
 }
 @media screen and (max-width:600px) {
-  a#logo-container img {
-      height: 46px;
-      width: auto;
-      margin-top: 9px;
-      margin-left: 0px;
-  }
-
+    a#logo-container img {
+        height: 46px;
+        width: auto;
+        margin-top: 9px;
+        margin-left: 0px;
+    }
 }

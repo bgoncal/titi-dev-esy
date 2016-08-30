@@ -1,0 +1,99 @@
+<div class="section card-panel tt-card-main">
+	<div class="row">
+		<div class="col offset-m2 m8 s12">
+			<h4>Classificar Profissionais</h4>
+			<hr />
+
+			<div data-ng-show="Customer.loading" class="center">
+				<br>
+				<br>
+				<br>
+				<div class="progress">
+					<div class="indeterminate"></div>
+				</div>
+			</div>
+
+			<p data-ng-show="Customer.partners.length === 0 && !Customer.loading
+				&& !Customer.errorMessage">
+				Nenhum profissional encontrado
+			</p>
+
+			<p data-ng-show="Customer.errorMessage">
+				{{ Customer.errorMessage }}
+			</p>
+
+			<button class="btn waves-effect waves-light col s12 tt-blue-background" data-ng-show="Customer.partners.length > 0" type="button"></button>
+
+			<div class="card-panel tt-card-search col s12 " data-ng-repeat="partner in Customer.partners">
+
+				<div class="col l2 s4 valign-wrapper">
+					<img class="tt-img-size-rate center valign" src="{{partner.foto || './assets/images/profile_default.png'}}" alt="Perfil" />
+				</div>
+
+				<div class="col l4 s8">
+					<p class="tt-vertical-align">
+						<b>{{ partner.nome}}</b>
+					</p>
+					<p class="tt-vertical-align">
+						Cel: {{ partner.cel}}
+					</p>
+					<p class="tt-vertical-align">
+						e-mail: {{ partner.email}}
+					</p>
+					<p class="tt-vertical-align">
+						Período preferido: {{ partner.periodo}}
+					</p>
+					<p class="tt-vertical-align">
+						Experiência: {{ partner.experiencia}}
+					</p>
+				</div>
+
+				<div class="col l2 s12">
+					<p class="tt-vertical-align">
+						{{partner.cargo}}
+					</p>
+				</div>
+
+				<div class="col l4 s12">
+					<p class="tt-vertical-align">
+						Média de avaliações
+						<br>
+						<img src="assets/images/star_filled.png" alt="{{ partner.classificacao + 'estrelas' }}" data-ng-repeat="n in Customer.getStars(partner.classificacao)" />
+						<img src="assets/images/star.png" alt="{{ partner.classificacao + 'estrelas' }}" data-ng-repeat="n in Customer.getStars(5 - partner.classificacao)" />
+						<span class="span-big">{{partner.classificacao}}</span>
+						<br>
+						<small data-ng-show="partner.classificacao === '0.0'">Nenhuma avaliação foi feita</small>
+					</p>
+					<p class="tt-vertical-align">
+						Sua Avaliação
+						<br>
+						<img src="assets/images/star_filled.png" alt="{{ partner.classificacao + 'estrelas' }}" data-ng-repeat="n in Customer.getStars(partner.myclass)" />
+						<img src="assets/images/star.png" alt="{{ partner.classificacao + 'estrelas' }}" data-ng-repeat="n in Customer.getStars(5 - partner.myclass)" />
+						<br>
+						<small data-ng-show="partner.myclass === '0.0'">Você ainda não qualificou</small>
+						<br>
+						<a class="btn btn-rate" ng-click="Customer.openModal(partner.especialistasID)"><i class="col s2 small material-icons ">mode_edit</i>Avaliar Proffisional</a>
+					</p>
+					<div ng-attr-id="{{ 'modal-' + partner.especialistasID  }}" class="modal rate modal-fixed-footer">
+						<div class="modal-content">
+							<h4>Classifique</h4>
+							<textarea rows="10" placeholder="Diga a todos o que pensa sobre o App. Você o recomendaria? Por quê?"></textarea>
+ <input-stars max="5" ng-model="YourCtrl.property"></input-stars>
+
+ <jk-rating-stars max-rating="5" rating="ctrl.rating" read-only="ctrl.readOnly" on-rating="ctrl.onRating(rating)" >
+ </jk-rating-stars>
+						</div>
+						<div class="modal-footer">
+							<a ng-click="Customer.closeModal()" class=" modal-action modal-close waves-effect waves-green btn-flat">Fechar</a>
+							<a class="btn btn-rate btn-rate-now" ng-click="Customer.openModal(partner.especialistasID)"><i class="col s2 small material-icons ">mode_edit</i>Avaliar Proffisional</a>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<search-result></search-result>
+
+		</div>
+	</div>
+</div>
+<!-- Modal Structure -->

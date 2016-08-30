@@ -52,6 +52,7 @@ function authService($http, $cookies, $rootScope, $timeout, helperService) {
           username: data.username,
           perfilID: data.perfilID,
           usuariosID: data.usuariosID,
+					pacientesID: data.pacientesID,
           authData: authData,
           userType: data.userType
         }
