@@ -150,6 +150,12 @@ textarea {
     font-weight: normal;
     font-style: normal;
 }
+@font-face {
+    font-family: 'chaletlondonnineteensixty';
+    src: url('../fonts/Chalet/london/ChaletLondonNineteenSixty.otf') format('woff2'), url('../fonts/Chalet/london/ChaletLondonNineteenSixty.otf') format('otf');
+    font-weight: normal;
+    font-style: normal;
+}
 
 /*input[type="number"]::-webkit-input-placeholder {*/
 
@@ -179,6 +185,9 @@ textarea {
 body, body * {
     /*background-color: #1c2743;*/
     font-family: "chaletlondonnineteenseventy", "Roboto";
+}
+body p, body a, body h4 {
+  font-family: "chaletlondonnineteensixty", "Roboto";
 }
 body select {
     display: inline-block;
