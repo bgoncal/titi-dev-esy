@@ -2,6 +2,9 @@
     <div class="col s12 z-depth-6 card-panel tt-card-main">
         <div class="row">
             <div class="input-field col s12 m12 l8 offset-l2">
+
+                <a class="waves-effect waves-light btn modal-trigger right" ng-click="Search.openSearch()">Nova Busca</a>
+                <a class="btn waves-effect waves-light tt-blue-background right" style="margin-right:10px;">Clique aqui para Pesquisas anteriores</a>
                 <h4 class=" tt-blue-text">Buscar Profissional</h4>
                 <hr>
             </div>
@@ -24,7 +27,7 @@
                                         <p class='col s12 no-bottom'><b>Experiência:</b>--</p>
                                     </div>
                                     <div class="col s12 m12 l12 ">
-                                        <h5 class="col s12 m12 l12 h5-low center">Minha Avaliação</h5>
+                                        <h5 class="col s12 m12 l12 h5-low center">Avaliação Profissional</h5>
                                         <p class="tt-vertical-align col s12 m12 l12 center">
 
                                             <img src="assets/images/star.png" alt="0.0estrelas" class="ng-scope">
@@ -106,6 +109,9 @@
 
 
                 </div>
+                <!-- Modal Structure -->
+              <div id="modalSearch" class="modal  modal-fixed-footer">
+              <div class="modal-content">
                 <div class="col offset-m3 offset-l3 s12 m6 l6 tt-pacientes-box  z-depth-2" style="margin-top:25px;">
                     <h4 class="header center tt-blue-text">Pacientes e familiares</h4>
                     <p class="col s12 center tt-blue-text">
@@ -133,12 +139,15 @@
                         </form>
                     </div>
                 </div>
+              </div>
+              <div class="modal-footer">
+                <a class=" modal-action modal-close waves-effect waves-green btn-flat">Fechar</a>
+              </div>
+              </div>
                 <div class="col s12 m12 l12 no-padding" style="margin-top:25px;">
 
                 </div>
-                <div class="col s12 m12 l12" style="margin-top:40px;">
-                    <div class="center"><a class="btn waves-effect waves-light tt-blue-background">Clique aqui para Pesquisas anteriores</a></div>
-                </div>
+
             </div>
         </div>
     </div>

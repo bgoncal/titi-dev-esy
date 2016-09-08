@@ -14,7 +14,11 @@ function routes($routeProvider) {
 
 function SearchController($cookies, $http, $window, $location, authService, helperService) {
     var vm = this;
+    vm.openSearch = openSearch;
     vm.partners = helperService.partnerOptions;
+    function openSearch() {
+      angular.element("#modalSearch").openModal();
+    }
     if (getParameterByName("refresh") == 1) {
         $window.location.href = "#/search?cep=" + getParameterByName('cep') + "&atuacao=" + getParameterByName('atuacao') + "&refresh=0";
     }
