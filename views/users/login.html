@@ -1,54 +1,74 @@
 <div class="row">
-  <div class="col s12 z-depth-6 card-panel tt-card-main">
+    <div class="col s12 z-depth-6 card-panel tt-card-main">
 
-    <div class="row">
-      <div class="input-field col s12 center">
-        <h4 class="center tt-blue-text">{{User.title}}</h4>
-      </div>
-    </div>
-
-    <form class="login-form" name="User.loginForm"
-      data-ng-submit="User.submitLoginForm(User.form)">
-
-      <div class="row margin">
-        <div class="input-field col s12 offset-l4 l4">
-          <i class="col s2 small material-icons">perm_identity</i>
-          <input class="col s10 validate center" data-ng-model="User.form.email"
-            type="email" placeholder="Email" required>
+        <div class="row">
+            <div class="input-field col s12 center">
+                <h4 class="center tt-blue-text">{{User.title}}</h4>
+            </div>
         </div>
-      </div>
 
-      <div class="row margin">
-        <div class="col s12 offset-l4 l4">
-          <i class="col s2 small material-icons">lock_outline</i>
-          <input class="col s10 validate center" data-ng-model="User.form.password"
-            type="password" placeholder="Senha" required>
-        </div>
-      </div>
+        <form class="login-form" name="User.loginForm" data-ng-submit="User.submitLoginForm(User.form)">
 
-      <div class="row"
-        data-ng-show="User.invalidData">
-        <div class="col s12 offset-l4 l4">
-          <div class="card-panel tt-error-text">
-              <p class="help-block center">Dados inválidos. Tente novamente.</p>
-          </div>
-        </div>
-      </div>
+            <div class="row margin">
+                <div class="input-field col s12 offset-l4 l4">
+                    <i class="col s2 small material-icons">perm_identity</i>
+                    <input class="col s10 validate center" data-ng-model="User.form.email" type="email" placeholder="Email" required>
+                </div>
+            </div>
 
-      <div class="row">
-        <div class="input-field col s12 offset-l4 l4">
-          <button class="btn green waves-effect waves-light col s8
-            tt-blue-background" type="submit" name="action"
-            data-ng-disabled="User.loading">
+            <div class="row margin">
+                <div class="col s12 offset-l4 l4">
+                    <i class="col s2 small material-icons">lock_outline</i>
+                    <input class="col s10 validate center" data-ng-model="User.form.password" type="password" placeholder="Senha" required>
+                </div>
+            </div>
+
+            <div class="row" data-ng-show="User.invalidData">
+                <div class="col s12 offset-l4 l4">
+                    <div class="card-panel tt-error-text">
+                        <p class="help-block center">Dados inválidos. Tente novamente.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <p class="center"><a class="modal-trigger waves-effect waves-light center" ng-click="openResetModal()">Esqueci minha senha</a></p>
+            </div>
+            <div class="row">
+                <div class="input-field col s12 offset-l4 l4">
+                    <button class="btn green waves-effect waves-light col s8
+            tt-blue-background" type="submit" name="action" data-ng-disabled="User.loading">
             Login
           </button>
 
-          <p class="margin medium-small col s4"> ou <a href="{{User.signupLink}}">Cadastre-se</a></p>
-      </div>
-    </form>
+                    <p class="margin medium-small col s4"> ou <a href="{{User.signupLink}}">Cadastre-se</a></p>
+                </div>
+        </form>
 
-		<div class="progress" data-ng-show="User.loading">
-			<div class="indeterminate"></div>
-		</div>		
-  </div>
-</div>
+        <div class="progress" data-ng-show="User.loading">
+            <div class="indeterminate"></div>
+        </div>
+        </div>
+    </div>
+    <!-- Modal Structure -->
+    <div id="modalReset" class="modal modal-fixed-footer col s12 m4 offset-m4">
+        <form name="form"><div class="modal-content">
+            <h4>Esqueci minha senha</h4>
+            <p>Identifique-se para receber um e-mail com a nova senha</p>
+            <div class="row">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input  id="txtEmail" type="text" ng-model="txtEmailReset" class="validate" required>
+                        <label class="active" for="txtEmail">E-mail</label>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row">
+              <p class="center blue">{{answerReset}}</p>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <a  class="modal-action modal-close waves-effect waves-green btn-flat ">Fechar</a>
+            <a  class="modal-action waves-effect waves-green btn" ng-click="sendReset()" ng-disabled="form.$invalid">Enviar</a>
+        </div></form>
+    </div>

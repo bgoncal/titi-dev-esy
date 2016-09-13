@@ -1,7 +1,7 @@
 angular
 	.module('titi')
-  .controller('UserLoginController', ['$routeParams', '$location',
-    '$cookies', 'authService', UserLoginController])
+  .controller('UserLoginController', ['$scope','$routeParams', '$location',
+    '$cookies', 'authService','helperService','$http', UserLoginController])
   .config(['$routeProvider', routes]);
 
 function routes($routeProvider) {
@@ -13,7 +13,7 @@ function routes($routeProvider) {
 	  });
 }
 
-function UserLoginController($routeParams, $location, $cookies, authService) {
+function UserLoginController($scope, $routeParams, $location, $cookies, authService,helperService, $http) {
   var vm = this;
 
   vm.type = $routeParams.type;
@@ -67,5 +67,30 @@ function UserLoginController($routeParams, $location, $cookies, authService) {
     })
 
   }
+
+	$scope.openResetModal = openResetModal;
+	$scope.sendReset = sendReset;
+	$scope.txtEmailReset = "";
+	$scope.answerReset = "";
+	function openResetModal() {
+		angular.element("#modalReset").openModal();
+	}
+	function sendReset() {
+		var url = helperService.backendUrl + "/cadastro/ForgotPassword.php";
+		var data = $scope.txtEmailReset;
+		vm.loading = true;
+		$http.post(url, data)
+				.then(function(res) {
+						console.log('succeess', res);
+						vm.loading = false;
+						$scope.answerReset = res.data[0].mensagem;
+
+				}, function(err) {
+						console.log('error', err);
+
+						vm.loading = false;
+				});
+		console.log(data);
+	}
 
 }
