@@ -77,7 +77,7 @@ function UserLoginController($scope, $routeParams, $location, $cookies, authServ
 	}
 	function sendReset() {
 		var url = helperService.backendUrl + "/cadastro/ForgotPassword.php";
-		var data = $scope.txtEmailReset;
+		var data = [{email:$scope.txtEmailReset}];
 		vm.loading = true;
 		$http.post(url, data)
 				.then(function(res) {
@@ -87,7 +87,7 @@ function UserLoginController($scope, $routeParams, $location, $cookies, authServ
 
 				}, function(err) {
 						console.log('error', err);
-
+						$scope.answerReset = err.data[0].mensagem;
 						vm.loading = false;
 				});
 		console.log(data);
