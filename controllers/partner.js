@@ -7,7 +7,7 @@ angular
 	.controller('PartnerResetController', ['$http', '$window', '$location','$cookies', 'helperService',
 		PartnerResetController])
   .controller('PartnerSearchController', ['$routeParams', '$location', '$http',
-    'helperService', 'currentSearch', '$window', PartnerSearchController])
+    'helperService', 'currentSearch', '$window','$cookies', PartnerSearchController])
   .controller('PartnerController', ['$cookies','$http', '$window', '$location', 'authService', PartnerController])
   .config(['$routeProvider', routes]);
 
@@ -81,7 +81,7 @@ function PartnerController($cookies, $http, $window, $location, authService) {
 	};
 }
 
-function PartnerSearchController($routeParams, $location, $http, helperService, currentSearch, $window) {
+function PartnerSearchController($routeParams, $location, $http, helperService, currentSearch, $window, $cookies) {
   var vm = this;
 
   vm.partners = [];
@@ -91,6 +91,10 @@ function PartnerSearchController($routeParams, $location, $http, helperService, 
   var url = helperService.backendUrl + '/relat/pesquisa_resumo.php';
   url = url + '?cep=' + $routeParams.cep;
   url = url + '&atuacao=' + $routeParams.partner;
+	var cookies = $cookies.getObject('globals');
+  if (cookies) {
+		$window.location.href = "#/search?cep=" + $routeParams.cep + "&atuacao=" + $routeParams.partner + "&pacientesID=" + cookies.currentUser.pacientesID;
+	}
 
   vm.loading = true;
   $http.get(url)

@@ -7,7 +7,8 @@ angular
 		'ngMask',
 		'ngMessages',
 		'ngCpfCnpj',
-		'jkAngularRatingStars'
+		'jkAngularRatingStars',
+		'ngMap'
   ])
   .config(routesConfig)
   .config(['$httpProvider', resetHeaders]);

@@ -76,8 +76,8 @@ function UserLoginController($scope, $routeParams, $location, $cookies, authServ
 		angular.element("#modalReset").openModal();
 	}
 	function sendReset() {
-		var url = helperService.backendUrl + "/cadastro/ForgotPassword.php";
-		var data = [{email:$scope.txtEmailReset}];
+		var url = helperService.backendUrl + "/cadastro/ForgotPassword.php?email=" + $scope.txtEmailReset;
+		var data = "";
 		vm.loading = true;
 		$http.post(url, data)
 				.then(function(res) {

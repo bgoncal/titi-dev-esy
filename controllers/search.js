@@ -1,6 +1,6 @@
 angular
     .module('titi')
-    .controller('SearchController', ['$cookies', '$http', '$window', '$location', 'authService', 'helperService', SearchController])
+    .controller('SearchController', ['$cookies', '$http', '$window', '$location', 'authService', 'helperService', 'NgMap', SearchController])
     .config(['$routeProvider', routes]);
 
 function routes($routeProvider) {
@@ -12,36 +12,44 @@ function routes($routeProvider) {
         });
 }
 
-function SearchController($cookies, $http, $window, $location, authService, helperService) {
+function SearchController($cookies, $http, $window, $location, authService, NgMap, helperService) {
+
     var vm = this;
     vm.openSearch = openSearch;
     vm.partners = helperService.partnerOptions;
-    function openSearch() {
-      angular.element("#modalSearch").openModal();
+    var cookies = $cookies.getObject('globals');
+    if (cookies) {
     }
-    if (getParameterByName("refresh") == 1) {
-        $window.location.href = "#/search?cep=" + getParameterByName('cep') + "&atuacao=" + getParameterByName('atuacao') + "&refresh=0";
+    else {
+      $window.location.href ="#/users/login/customers/";
     }
-    if (getParameterByName("refresh") == 0) {
 
+
+    function openSearch() {
+        angular.element("#modalSearch").openModal();
     }
     vm.loading = true;
-    url = "http://titi.net.br/_homolog/relat/pesquisa_completa.php?cep=" + getParameterByName('cep') + "&atuacao=" + getParameterByName('atuacao');
+    var globals = $cookies.getObject('globals');
+    url = "http://titi.net.br/_homolog/relat/pesquisa_completa.php?cep=" + getParameterByName('cep') + "&atuacao=" + getParameterByName('atuacao') + "&pacientesID=" + globals.currentUser.pacientesID;
     $http.get(url)
         .then(function(res) {
             console.log('succeess', res);
             vm.loading = false;
             vm.result = res.data;
+            vm.location = res.data[vm.result.length -1];
+            console.log(vm.location);
             console.log(vm.result);
         }, function(err) {
             console.log('error', err);
             $window.location.reload();
         });
 
+
+
     vm.submitForm = submitForm;
 
     function submitForm(data) {
-        $window.location.href = "#/search?cep=" + data.cep + "&atuacao=" + data.selectedPartner.id + "&refresh=0";
+        $window.location.href = "#/search?cep=" + data.cep + "&atuacao=" + data.selectedPartner.id + "&pacientesID=" + globals.currentUser.pacientesID;
     }
 
 }
