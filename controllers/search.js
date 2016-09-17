@@ -1,6 +1,6 @@
 angular
     .module('titi')
-    .controller('SearchController', ['$cookies', '$http', '$window', '$location', 'authService', 'helperService', 'NgMap', SearchController])
+    .controller('SearchController', ['$cookies', '$http', '$window', '$location', 'authService',  'NgMap','helperService', SearchController])
     .config(['$routeProvider', routes]);
 
 function routes($routeProvider) {
@@ -17,6 +17,7 @@ function SearchController($cookies, $http, $window, $location, authService, NgMa
     var vm = this;
     vm.openSearch = openSearch;
     vm.partners = helperService.partnerOptions;
+
     var cookies = $cookies.getObject('globals');
     if (cookies) {
     }
