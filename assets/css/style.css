@@ -12,6 +12,19 @@
     display: none !important;
 }
 
+.font-titi-1 {
+  font-family: 'Kaushan Script', cursive;
+
+}
+.font-titi-2 {
+  font-family: 'Oleo Script', cursive;
+}
+.small-sub-brand {
+  font-size: 12px;
+}
+.no-margin {
+  margin: 0px;
+}
 .icon-block {
     padding: 0 15px;
 }
@@ -34,7 +47,7 @@
 }
 
 .tt-light-blue-background {
-    background-color: #5ba2e4;
+    background-color: #1abc9c;
 }
 
 .tt-footer-background {
@@ -65,6 +78,7 @@
 .tt-card-main {
     margin-top: 0;
     min-height: 83vh;
+    background-color: #1c2743;
 }
 
 .tt-card-search {
@@ -124,10 +138,14 @@ textarea {
 
 @media (min-width: 768px) {
     .tt-main-background {
-        background: url('../images/background-index.jpg');
         background-size: cover;
         position: relative;
         min-height: 500px;
+        background-color: #1c2743;
+        background-image: url(../images/background-index-2.jpg);
+        background-size: auto 100%;
+    background-position: left center;
+
     }
     .tt-round-border {
         border-radius: 0 70px 0 0;
@@ -140,8 +158,9 @@ textarea {
 
 .tt-pacientes-box {
     margin-top: -10px;
-    background-color: #a2c841;
+    background-color: #27ae60;
     padding: 20px 0 20px 0 !important;
+    color: white;
 }
 
 .tt-margin-top-button {
