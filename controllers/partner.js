@@ -114,7 +114,7 @@ function PartnerSearchController($routeParams, $location, $http, helperService, 
 								}
 		currentSearch.set(sdata);
     //$location.path('/users/login/customers/');
-		$window.location.href = "#/search?cep=" + sdata.cep + "&atuacao=" + sdata.atuacao + "&refresh=1"
+		$window.location.href = "#/search?cep=" + sdata.cep + "&atuacao=" + sdata.atuacao + "&pacientesID=" + cookies.currentUser.pacientesID;
 
   };
 

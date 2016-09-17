@@ -75,7 +75,7 @@ function CustomerController($cookies, $http, $window, $location, authService, cu
     vm.submitForm = submitForm;
 
     function submitForm(data) {
-        $window.location.href = "#/search?cep=" + data.cep + "&atuacao=" + data.selectedPartner.id + "&refresh=0";
+        $window.location.href = "#/search?cep=" + data.cep + "&atuacao=" + data.selectedPartner.id  + "&pacientesID=" + cookies.currentUser.pacientesID;
     }
 
     function getParameterByName(name, url) {
