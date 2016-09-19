@@ -16,8 +16,9 @@ function SearchController($cookies, $http, $window, $location, authService, NgMa
 
     var vm = this;
     vm.openSearch = openSearch;
+    vm.getStars = getStars;
     vm.partners = helperService.partnerOptions;
-
+    vm.closeSearch = closeSearch;
     var cookies = $cookies.getObject('globals');
     if (cookies) {
     }
@@ -25,9 +26,19 @@ function SearchController($cookies, $http, $window, $location, authService, NgMa
       $window.location.href ="#/users/login/customers/";
     }
 
+    function getStars(number) {
+        var arr = [];
+        for (var i = 0; i < number; i++) {
+            arr.push(i);
+        }
+        return arr;
+    }
 
     function openSearch() {
         angular.element("#modalSearch").openModal();
+    }
+    function closeSearch() {
+        angular.element("#modalSearch").closeModal();
     }
     vm.loading = true;
     var globals = $cookies.getObject('globals');
@@ -50,6 +61,7 @@ function SearchController($cookies, $http, $window, $location, authService, NgMa
     vm.submitForm = submitForm;
 
     function submitForm(data) {
+      closeSearch();
         $window.location.href = "#/search?cep=" + data.cep + "&atuacao=" + data.selectedPartner.id + "&pacientesID=" + globals.currentUser.pacientesID;
     }
 

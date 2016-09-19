@@ -137,6 +137,7 @@ function CustomerSignupController($scope, $http, $window, $location, helperServi
             }, function(err) {
                 console.log('error', err);
                 vm.errorMessage = err.statusText || 'Ocorreu um erro. Tente novamente.';
+                $window.alert('Ops! Não foi possível efetuar seu cadastro');
                 vm.loading = false;
             });
         console.log(data);
