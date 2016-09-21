@@ -266,6 +266,7 @@ function CustomerRateController($http, $window, $location, $cookies, helperServi
     vm.partners = [];
     //vm.getPartnerContact = getPartnerContact;
     vm.getStars = getStars;
+    vm.getEmptyStars =getEmptyStars;
     vm.openModal = openModal;
     vm.closeModal = closeModal;
     vm.onRating = onRating;
@@ -291,13 +292,21 @@ function CustomerRateController($http, $window, $location, $cookies, helperServi
     }
 
     function getStars(number) {
+      number = Math.floor(number);
         var arr = [];
         for (var i = 0; i < number; i++) {
             arr.push(i);
         }
         return arr;
     }
-
+    function getEmptyStars(number) {
+			number = (5 - Math.floor(number));
+        var arr = [];
+        for (var i = 0; i < number; i++) {
+            arr.push(i);
+        }
+        return arr;
+		}
     function openModal(id) {
         angular.element("#modal-" + id).openModal();
         console.log(id);

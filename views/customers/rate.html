@@ -59,7 +59,7 @@
 						Média de avaliações
 						<br>
 						<img src="assets/images/star_filled.png" alt="{{ partner.classificacao + 'estrelas' }}" data-ng-repeat="n in Customer.getStars(partner.classificacao)" />
-						<img src="assets/images/star.png" alt="{{ partner.classificacao + 'estrelas' }}" data-ng-repeat="n in Customer.getStars(5 - partner.classificacao)" />
+						<img src="assets/images/star.png" alt="{{ partner.classificacao + 'estrelas' }}" data-ng-repeat="n in Customer.getEmptyStars(partner.classificacao)" />
 						<span class="span-big">{{partner.classificacao}}</span>
 						<br>
 						<small data-ng-show="partner.classificacao === '0.0'">Nenhuma avaliação foi feita</small>
@@ -68,7 +68,7 @@
 						Sua Avaliação
 						<br>
 						<img src="assets/images/star_filled.png" alt="{{ partner.classificacao + 'estrelas' }}" data-ng-repeat="n in Customer.getStars(partner.myclass)" />
-						<img src="assets/images/star.png" alt="{{ partner.classificacao + 'estrelas' }}" data-ng-repeat="n in Customer.getStars(5 - partner.myclass)" />
+						<img src="assets/images/star.png" alt="{{ partner.classificacao + 'estrelas' }}" data-ng-repeat="n in Customer.getEmptyStars(partner.myclass)" />
 						<br>
 						<small data-ng-show="partner.myclass === '0.0'">Você ainda não qualificou</small>
 						<br>
@@ -84,7 +84,7 @@
 
 								<jk-rating-stars max-rating="5"  rating="Customer.rating" read-only="Customer.readOnly" on-rating="Customer.onRating(rating)">
 								</jk-rating-stars>
-							
+
 						</div>
 						<div class="modal-footer">
 							<a ng-click="Customer.closeModal()" class=" modal-action modal-close waves-effect waves-green btn-flat">Fechar</a>
