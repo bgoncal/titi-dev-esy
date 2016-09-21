@@ -1,7 +1,7 @@
 angular
 	.module('titi')
   .controller('UserLoginController', ['$scope','$routeParams', '$location',
-    '$cookies', 'authService','helperService','$http', UserLoginController])
+    '$cookies', 'authService','helperService','$http','$window', UserLoginController])
   .config(['$routeProvider', routes]);
 
 function routes($routeProvider) {
@@ -13,7 +13,7 @@ function routes($routeProvider) {
 	  });
 }
 
-function UserLoginController($scope, $routeParams, $location, $cookies, authService,helperService, $http) {
+function UserLoginController($scope, $routeParams, $location, $cookies, authService,helperService, $http, $window) {
   var vm = this;
 
   vm.type = $routeParams.type;
@@ -57,6 +57,10 @@ function UserLoginController($scope, $routeParams, $location, $cookies, authServ
           userType: vm.type
         };
         authService.setCredentials(credentialData);
+				if(getParameterByName('cep') != null) {
+					var cookies = $cookies.getObject('globals');
+					  $window.location.href ="#/search?cep=" + getParameterByName('cep') + "&atuacao=" + getParameterByName('atuacao') + "&pacientesID=" + cookies.currentUser.pacientesID;
+				}
         var redirectLink = '/' + vm.type;
 
         $location.path(redirectLink);

@@ -80,7 +80,7 @@
                                                 <p class="tt-vertical-align col s12 m12 l12 center">
 
                                                   <img src="assets/images/star_filled.png" alt="{{ x.classificacao + 'estrelas' }}" data-ng-repeat="n in Search.getStars(x.classificacao)" />
-                                      						<img src="assets/images/star.png" alt="{{ x.classificacao + 'estrelas' }}" data-ng-repeat="n in Search.getStars(5 - x.classificacao)" />
+                                      						<img src="assets/images/star.png" alt="{{ x.classificacao + 'estrelas' }}" data-ng-repeat="n in Search.getEmptyStars(x.classificacao)" />
 
                                                     <br>
                                                     <!--<small data-ng-show="partner.classificacao === '0'" class="ng-hide">Nenhuma avaliação foi feita</small>-->

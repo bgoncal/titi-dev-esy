@@ -17,22 +17,32 @@ function SearchController($cookies, $http, $window, $location, authService, NgMa
     var vm = this;
     vm.openSearch = openSearch;
     vm.getStars = getStars;
+    vm.getEmptyStars = getEmptyStars;
     vm.partners = helperService.partnerOptions;
     vm.closeSearch = closeSearch;
     var cookies = $cookies.getObject('globals');
     if (cookies) {
     }
     else {
-      $window.location.href ="#/users/login/customers/";
+      $window.location.href ="#/users/login/customers?cep=" + getParameterByName('cep') + "&atuacao=" + getParameterByName('atuacao');
     }
 
     function getStars(number) {
+      number = Math.floor(number);
         var arr = [];
         for (var i = 0; i < number; i++) {
             arr.push(i);
         }
         return arr;
     }
+    function getEmptyStars(number) {
+			number = (5 - Math.floor(number));
+        var arr = [];
+        for (var i = 0; i < number; i++) {
+            arr.push(i);
+        }
+        return arr;
+		}
 
     function openSearch() {
         angular.element("#modalSearch").openModal();
