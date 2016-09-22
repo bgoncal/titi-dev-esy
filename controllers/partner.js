@@ -12,7 +12,7 @@ angular
     .controller('PartnerSearchController', ['$routeParams', '$location', '$http',
         'helperService', 'currentSearch', '$window', '$cookies', PartnerSearchController
     ])
-    .controller('PartnerController', ['$cookies', '$http', '$window', '$location', 'authService', PartnerController])
+    .controller('PartnerController', ['$cookies', '$http', '$window', '$location', 'authService', 'helperService', PartnerController])
     .config(['$routeProvider', routes]);
 
 function routes($routeProvider) {
@@ -44,7 +44,7 @@ function routes($routeProvider) {
         });
 }
 
-function PartnerController($cookies, $http, $window, $location, authService) {
+function PartnerController($cookies, $http, $window, $location, authService, helperService) {
     var vm = this;
 
     vm.logout = logout;
@@ -53,7 +53,7 @@ function PartnerController($cookies, $http, $window, $location, authService) {
 
     var cookies = $cookies.getObject('globals');
     vm.username = cookies.currentUser.username;
-    url = 'http://titi.net.br/_homolog/cadastro/usuario.php';
+    url = helperService.backendUrl + '/cadastro/usuario.php';
     data = {
         "usuariosID": cookies.currentUser.usuariosID
     };
@@ -174,7 +174,7 @@ function PartnerSignupController($http, $window, $location, helperService) {
         data.perfilID = '2';
         data.disponibilidade = data.disponibilidade ? '1' : '0';
 
-        var url = 'http://titi.net.br/_homolog/cadastro/usuario_update.php';
+        var url = helperService.backendUrl + '/cadastro/usuario_update.php';
 
         vm.loading = true;
         $http.post(url, data)
@@ -205,7 +205,7 @@ function PartnerSignupController($http, $window, $location, helperService) {
 function PartnerManageController($http, $window, $location, $cookies, helperService) {
     var vm = this;
     vm.states = helperService.UFOptions;
-    url = 'http://titi.net.br/_homolog/cadastro/usuario.php';
+    url = helperService.backendUrl + '/cadastro/usuario.php';
     globals = $cookies.getObject('globals');
     data = {
         "usuariosID": globals.currentUser.usuariosID
@@ -242,7 +242,7 @@ function PartnerManageController($http, $window, $location, $cookies, helperServ
         data.disponibilidade = data.disponibilidade ? '1' : '0';
         globals = $cookies.getObject('globals');
         data.usuariosID = globals.currentUser.usuariosID;
-        var url = 'http://titi.net.br/_homolog/cadastro/usuario_update.php';
+        var url = helperService.backendUrl + '/cadastro/usuario_update.php';
 
         vm.loading = true;
         $http.post(url, data)
@@ -281,7 +281,7 @@ function PartnerResetController($http, $window, $location, $cookies, helperServi
         data.perfilID = '2';
         globals = $cookies.getObject('globals');
         data.usuariosID = globals.currentUser.usuariosID;
-        var url = 'http://titi.net.br/_homolog/cadastro/reset_pass.php';
+        var url = helperService.backendUrl + '/cadastro/reset_pass.php';
 
         vm.loading = true;
         $http.post(url, data)

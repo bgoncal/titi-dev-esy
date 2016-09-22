@@ -50,7 +50,7 @@ function CustomerController($cookies, $http, $window, $location, authService, cu
     vm.partners = helperService.partnerOptions;
     var cookies = $cookies.getObject('globals');
     vm.username = cookies.currentUser.username;
-    url = 'http://titi.net.br/_homolog/cadastro/usuario.php';
+    url = helperService.backendUrl + '/cadastro/usuario.php';
     data = {
         "usuariosID": cookies.currentUser.usuariosID
     };
@@ -124,7 +124,7 @@ function CustomerSignupController($scope, $http, $window, $location, helperServi
         var data = angular.copy(form);
 
         data.perfilID = '3';
-        var url = 'http://titi.net.br/_homolog/cadastro/paciente_update.php';
+        var url = helperService.backendUrl + '/cadastro/paciente_update.php';
 
         vm.loading = true;
         $http.post(url, data)
@@ -162,7 +162,7 @@ function CustomerSignupController($scope, $http, $window, $location, helperServi
 
 function CustomerManageController($scope, $http, $window, $location, helperService, $cookies) {
     var vm = this;
-    url = 'http://titi.net.br/_homolog/cadastro/usuario.php';
+    url = helperService.backendUrl + '/cadastro/usuario.php';
     globals = $cookies.getObject('globals');
     data = {
         "usuariosID": globals.currentUser.usuariosID
@@ -187,7 +187,7 @@ function CustomerManageController($scope, $http, $window, $location, helperServi
         data.perfilID = '3';
         globals = $cookies.getObject('globals');
         data.usuariosID = globals.currentUser.usuariosID;
-        var url = 'http://titi.net.br/_homolog/cadastro/paciente_update.php';
+        var url = helperService.backendUrl + '/cadastro/paciente_update.php';
 
         vm.loading = true;
         $http.post(url, data)
@@ -235,7 +235,7 @@ function CustomerResetController($http, $window, $location, $cookies, helperServ
         data.perfilID = '3';
         globals = $cookies.getObject('globals');
         data.usuariosID = globals.currentUser.usuariosID;
-        var url = 'http://titi.net.br/_homolog/cadastro/reset_pass.php';
+        var url = helperService.backendUrl + '/cadastro/reset_pass.php';
 
         vm.loading = true;
         $http.post(url, data)

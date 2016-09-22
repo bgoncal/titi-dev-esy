@@ -52,7 +52,7 @@ function SearchController($cookies, $http, $window, $location, authService, NgMa
     }
     vm.loading = true;
     var globals = $cookies.getObject('globals');
-    url = "http://titi.net.br/_homolog/relat/pesquisa_completa.php?cep=" + getParameterByName('cep') + "&atuacao=" + getParameterByName('atuacao') + "&pacientesID=" + globals.currentUser.pacientesID;
+    url = helperService.backendUrl + "/relat/pesquisa_completa.php?cep=" + getParameterByName('cep') + "&atuacao=" + getParameterByName('atuacao') + "&pacientesID=" + globals.currentUser.pacientesID;
     $http.get(url)
         .then(function(res) {
             console.log('succeess', res);
