@@ -4,7 +4,7 @@
             <div class="input-field col s12 m12 l8 offset-l2">
 
                 <a class="waves-effect waves-light btn modal-trigger right" ng-click="Search.openSearch()">Nova Busca</a>
-                <a class="btn waves-effect waves-light tt-blue-background right" style="margin-right:10px;">Clique aqui para Pesquisas anteriores</a>
+                <!--<a class="btn waves-effect waves-light tt-blue-background right" style="margin-right:10px;">Clique aqui para Pesquisas anteriores</a>-->
                 <h4 class=" tt-blue-text">Buscar Profissional</h4>
                 <hr>
             </div>
@@ -91,6 +91,7 @@
                                     </div>
                                 </div>
                             </div>
+                            <h5 ng-show="Search.result.length < 2">Não há profissionais próximos ao cep buscado. <a ng-click="Search.openSearch()">Clique aqui para buscar novamente</a></h5>
 
 
                         </div>

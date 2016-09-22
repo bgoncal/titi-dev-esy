@@ -93,6 +93,9 @@ function PartnerSearchController($routeParams, $location, $http, helperService, 
 
     vm.partners = [];
     vm.getPartnerContact = getPartnerContact;
+    vm.partners = helperService.partnerOptions;
+    vm.closeSearch = closeSearch;
+    vm.openSearch = openSearch;
     vm.getStars = getStars;
 		vm.getEmptyStars = getEmptyStars;
     var url = helperService.backendUrl + '/relat/pesquisa_resumo.php';
@@ -102,7 +105,18 @@ function PartnerSearchController($routeParams, $location, $http, helperService, 
     if (cookies) {
         $window.location.href = "#/search?cep=" + $routeParams.cep + "&atuacao=" + $routeParams.partner + "&pacientesID=" + cookies.currentUser.pacientesID;
     }
+    function openSearch() {
+        angular.element("#modalSearch").openModal();
+    }
+    function closeSearch() {
+        angular.element("#modalSearch").closeModal();
+    }
+    vm.submitForm = submitForm;
 
+    function submitForm(data) {
+        var redirectLink = '/search-partners/' + data.cep + '/' + data.selectedPartner.id;
+        $location.path(redirectLink);
+    }
     vm.loading = true;
     $http.get(url)
         .then(function(res) {
