@@ -53,10 +53,10 @@
     color: #e71e1e;
 }
 
-#terms-of-use {
+/*#terms-of-use {
     background-color: white;
     font-family: times;
-}
+}*/
 
 .tt-text-justify {
     text-align: justify;
@@ -177,15 +177,8 @@ textarea {
 }
 
 @font-face {
-    font-family: 'chaletlondonnineteenseventy';
-    src: url('../fonts/Chalet/chalet_london_nineteen_seventy-webfont.woff2') format('woff2'), url('../fonts/Chalet/chalet_london_nineteen_seventy-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
     font-family: 'chaletlondonnineteensixty';
-    src: url('../fonts/Chalet/london/ChaletLondonNineteenSixty.otf') format('woff2'), url('../fonts/Chalet/london/ChaletLondonNineteenSixty.otf') format('otf');
+    src: url('../font/Chalet/london/ChaletLondonNineteenSixty.otf');
     font-weight: normal;
     font-style: normal;
 }
@@ -222,10 +215,6 @@ textarea {
 
 body, body * {
     /*background-color: #1c2743;*/
-    font-family: "chaletlondonnineteenseventy", "Roboto";
-}
-
-body p, body a, body h4 {
     font-family: "chaletlondonnineteensixty", "Roboto";
 }
 
