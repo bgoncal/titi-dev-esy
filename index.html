@@ -27,7 +27,7 @@
                 </a>
 
                 <ul class="right hide-on-med-and-down">
-                    <li data-ng-repeat="link in Home.links"><a href="{{link.href}}">{{link.title}}</a></li>
+                    <li data-ng-repeat="link in Home.links" ng-show="Home.setLoggedMenu(link.type)"><a href="{{link.href}}">{{link.title}}</a></li>
                 </ul>
 
                 <ul id="nav-mobile" class="side-nav">

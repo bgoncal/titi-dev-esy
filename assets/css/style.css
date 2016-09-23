@@ -13,6 +13,11 @@ a {
 .m-auto {
   margin: 0 auto;
 }
+footer {
+  height: 200px;
+    background-color: #2b2b2b;
+    padding: 90px;
+}
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
     display: none !important;
 }
