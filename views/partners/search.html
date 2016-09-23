@@ -4,7 +4,7 @@
 						<h4>Pesquisa de profissionais</h4>
 						<hr />
 
-						<div data-ng-show="Partnerpartner.loading" class="center">
+						<div data-ng-show="PartnerSearch.loading" class="center">
 								<br>
 								<br>
 								<br>
@@ -13,18 +13,18 @@
 								</div>
 						</div>
 
-						<p data-ng-show="PartnerSearch.partners.length === 0 && !Partnerpartner.loading
-				&& !Partnerpartner.errorMessage">
+						<p data-ng-show="PartnerSearch.partners.length === 0 && !PartnerSearch.loading
+				&& !PartnerSearch.errorMessage">
 								Nenhum profissional encontrado, <a href="#/">clique aqui para pesquisar novamente</a>
 						</p>
 
-						<p data-ng-show="Partnerpartner.errorMessage">
-								{{ Partnerpartner.errorMessage }}
+						<p data-ng-show="PartnerSearch.errorMessage">
+								{{ PartnerSearch.errorMessage }}
 						</p>
 
-						<button class="btn waves-effect waves-light col s12 tt-blue-background" data-ng-show="Partnerpartner.partners.length > 0" data-ng-click="Partnerpartner.getPartnerContact()" type="button">Obtenha contato dos profissionais</button>
+						<button class="btn waves-effect waves-light col s12 tt-blue-background" data-ng-show="PartnerSearch.partners.length > 0" data-ng-click="PartnerSearch.getPartnerContact()" type="button">Obtenha contato dos profissionais</button>
 
-						<div class="card-panel tt-card-search col s12 " data-ng-repeat="partner in Partnerpartner.partners">
+						<div class="card-panel tt-card-search col s12 " data-ng-repeat="partner in PartnerSearch.partners">
 
 								<div class="col l2 s4">
 										<img class="tt-img-size-search" src="{{partner.foto || './assets/images/profile_default.png'}}" alt="Perfil" />
@@ -44,8 +44,8 @@
 
 								<div class="col l3 s12">
 										<p class="tt-vertical-align">
-												<img src="assets/images/star_filled.png" alt="{{ partner.classificacao + 'estrelas' }}" data-ng-repeat="n in Partnerpartner.getStars(partner.classificacao)" />
-												<img src="assets/images/star.png" alt="{{ partner.classificacao + 'estrelas' }}" data-ng-repeat="n in Partnerpartner.getEmptyStars(partner.classificacao)"  />
+												<img src="assets/images/star_filled.png" alt="{{ partner.classificacao + 'estrelas' }}" data-ng-repeat="n in PartnerSearch.getStars(partner.classificacao)" />
+												<img src="assets/images/star.png" alt="{{ partner.classificacao + 'estrelas' }}" data-ng-repeat="n in PartnerSearch.getEmptyStars(partner.classificacao)"  />
 												<br>
 												<small data-ng-show="partner.classificacao === '0'">Nenhuma avaliação foi feita</small>
 										</p>
