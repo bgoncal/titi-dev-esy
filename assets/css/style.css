@@ -7,34 +7,61 @@
  *
  * Made By MaterializeCSS.com
  */
+
 a {
-  cursor: pointer !important;
+    cursor: pointer !important;
 }
+
 .m-auto {
-  margin: 0 auto;
+    margin: 0 auto;
+}
+.bubbles-home {
+  width:292px;
+  height:397px;
+  background-image: url('../images/home-bubbles.png');
+  background-position: center center;
+  background-size: 100% 100%;
+}
+.home-intro {
+  background: rgba(0,0,0,0.6);
+    padding: 19px !important;
+    border-radius: 0px 0px 3px 3px;
+
 }
 footer {
-  height: 200px;
+    height: 200px;
     background-color: #2b2b2b;
     padding: 90px;
 }
+
+.panel-double-padding {
+    padding: 20px !important;
+}
+
+.form-all {
+    width: 54% !important;
+}
+
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
     display: none !important;
 }
 
 .font-titi-1 {
-  font-family: 'Kaushan Script', cursive;
+    font-family: 'Kaushan Script', cursive;
+}
 
-}
 .font-titi-2 {
-  font-family: 'Oleo Script', cursive;
+    font-family: 'Oleo Script', cursive;
 }
+
 .small-sub-brand {
-  font-size: 12px;
+    font-size: 12px;
 }
+
 .no-margin {
-  margin: 0px;
+    margin: 0px;
 }
+
 .icon-block {
     padding: 0 15px;
 }
@@ -44,11 +71,11 @@ footer {
 }
 
 .tt-nav-bar {
-    background-color: #1c2743;
+    background-color: #ffb04d;
 }
 
 .tt-blue-background {
-    background-color: #1c2743 !important;
+    background-color: #ffb04d !important;
 }
 
 .tt-search-box {
@@ -69,12 +96,13 @@ footer {
 }
 
 .tt-blue-text {
-    color: #1c2743 !important
+    color: #ffb04d !important
 }
 
 .tt-error-text {
     color: #e71e1e;
 }
+
 
 /*#terms-of-use {
     background-color: white;
@@ -84,11 +112,30 @@ footer {
 .tt-text-justify {
     text-align: justify;
 }
+.bubble-text {
+  width: auto;
+  padding: 10px !important;
+  border-radius: 29px !important;
+  line-height: 31px !important;
+  padding-bottom: 5px !important;
 
+}
+.bubble-border {
+  border: 2px solid white;
+}
+.card-content p.header {
+  background-color: #ffb04d;
+    color: white;
+    padding: 5px;
+    border-radius: 0px;
+    margin: -20px;
+    margin-bottom: 10px;
+    text-align: center;
+}
 .tt-card-main {
     margin-top: 0;
     min-height: 83vh;
-    background-color: #1c2743;
+    /*background-color: #ffb04d;*/
 }
 
 .tt-card-search {
@@ -151,11 +198,10 @@ textarea {
         background-size: cover;
         position: relative;
         min-height: 500px;
-        background-color: #1c2743;
-        background-image: url(../images/background-index-2.jpg);
-        background-size: auto 100%;
-    background-position: left center;
-
+        background-color: #ffb04d;
+        background-image: url(../images/test-bg.jpg);
+        /*background-size: auto 100%;*/
+        background-position: left center;
     }
     .tt-round-border {
         border-radius: 0 70px 0 0;
@@ -212,19 +258,32 @@ textarea {
     font-style: normal;
 }
 
-
+.tt-search-bar-home {
+  background-color: rgba(0,0,0,0.6);
+  padding-top:10px !important;
+  position: absolute;
+  bottom:0px;
+  left: 0px;
+}
+.tt-home-search {
+  margin: 0px;
+height: 45px;
+}
 /*input[type="number"]::-webkit-input-placeholder {*/
 
 .tt-blue-placeholder::-webkit-input-placeholder {
-    color: #1c2743 !important;
+    color: #ffb04d !important;
+    /*color: #1c2743 !important;*/
 }
-
+.tt-new-blue-bg {
+  background-color: #1c2743 !important;
+}
 
 /*input[type="number"]:-moz-placeholder { /* Firefox 18- */
 
 .tt-blue-placeholder:-moz-placeholder {
     /* Firefox 18- */
-    color: #1c2743 !important;
+    color: #ffb04d !important;
 }
 
 
@@ -232,18 +291,18 @@ textarea {
 
 .tt-blue-placeholder::-moz-placeholder {
     /* Firefox 19+ */
-    color: #1c2743 !important;
+    color: #ffb04d !important;
 }
 
 
 /*input[type="number"]:-ms-input-placeholder {*/
 
 .tt-blue-placeholder:-ms-input-placeholder {
-    color: #1c2743 !important;
+    color: #ffb04d !important;
 }
 
 body, body * {
-    /*background-color: #1c2743;*/
+    /*background-color: #ffb04d;*/
     font-family: "chaletlondonnineteensixty", "Roboto";
 }
 
@@ -323,7 +382,19 @@ body select {
         margin-bottom: 10px;
         border-radius: 3px;
         box-shadow: 2px 2px 10px -2px #a0a0a0;
-        color: #1c2743;
+        color: #ffb04d;
+    }
+    .tt-search-bar-home {
+      background-color: rgba(0,0,0,0.6);
+      padding-top:30px !important;
+      position: relative;
+      padding-bottom:30px !important;
+
+    }
+    .tt-home-search {
+      margin: 0px;
+      height: 35px;
+
     }
 }
 
@@ -333,5 +404,9 @@ body select {
         width: auto;
         margin-top: 9px;
         margin-left: 0px;
+    }
+    .form-all {
+        width: 98% !important;
+        margin: 0 auto;
     }
 }

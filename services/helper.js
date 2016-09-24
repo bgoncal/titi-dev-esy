@@ -230,11 +230,11 @@ function helperService() {
       title: 'Contato',
 			type: 0
     },
-    {
+    /*{
       href: '#/faq',
       title: 'Dúvidas frequentes',
 			type: 0
-    },
+    },*/
     {
       href: '#/terms-of-use',
       title: 'Termos de uso',

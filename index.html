@@ -18,14 +18,16 @@
     <!-- <base href="/src" /> -->
 </head>
 
-<body data-ng-controller="HomeController as Home" class="teal">
-    <div id="nav-bar" class="tt-blue-background" z-depth-1>
-        <nav class="tt-nav-bar" role="navigation">
+<body data-ng-controller="HomeController as Home" class="tt-new-blue-bg">
+    <div id="nav-bar" style="background-color:#1c2743" z-depth-1>
+        <nav class="tt-nav-bar" style="background-color:#1c2743" role="navigation">
             <div class="nav-wrapper">
 
                 <a id="logo-container" href="#/" class="brand-logo">
-                    <img class="left" width="50px" src="assets/images/logo-con.jpg"  style="margin-top:10px;margin-left:10px;"/><h1 class="font-titi-2 no-margin left" style="margin-left:10px;">titi </h1><small class="small-sub-brand right" style="margin-left:10px;margin-top:6px;"> Conectando pacientes e profissionais</small>
-                </a>
+                  <!--  <img class="left" width="50px" src="assets/images/logo-con.jpg"  style="margin-top:10px;margin-left:10px;"/><h1 class="font-titi-2 no-margin left" style="margin-left:10px;">titi </h1><small class="small-sub-brand right" style="margin-left:10px;margin-top:6px;"> Conectando pacientes e profissionais</small>
+                -->
+                <img class="left" width="90px" src="assets/images/titi-logo.png"  style="margin-top:8px;margin-left:10px;"/><small class="small-sub-brand right hide-on-med-and-down" style="margin-left:10px;margin-top:4px;">  Cuidadores cuidadosos</small>
+              </a>
 
                 <ul class="right hide-on-med-and-down">
                     <li data-ng-repeat="link in Home.links" ng-show="Home.setLoggedMenu(link.type)"><a href="{{link.href}}">{{link.title}}</a></li>
