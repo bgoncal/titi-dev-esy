@@ -5,7 +5,7 @@
             <div class="input-field col s12 m12  ">
 
                 <a class="waves-effect waves-light btn modal-trigger right" ng-click="Search.openSearch()">Nova Busca</a>
-                <a class="btn waves-effect waves-light tt-blue-background right" style="margin-right:10px;">Clique aqui para Pesquisas anteriores</a>
+                <!--<a class="btn waves-effect waves-light tt-blue-background right" style="margin-right:10px;">Clique aqui para Pesquisas anteriores</a>-->
                 <h4 class=" tt-blue-text">Buscar Profissional</h4>
                 <hr>
             </div>
@@ -62,7 +62,7 @@
 
                         </div>
                         <div class="col s12 m12 l12 z-depth-6  search-results no-padding">
-                            <div class="search col s12 m6" ng-repeat="x in Search.result">
+                            <div class="search col s12 m6 wow bounceIn" ng-repeat="x in Search.result">
                                 <div ng-class="{'my-local-last':$last}">
                                     <div class='row'>
                                         <div class='card-panel tt-card-search col s12 ' style='padding:10px;'>
@@ -80,11 +80,8 @@
                                                 <h5 class="col s12 m12 l12 h5-low center">Avaliação Profissional</h5>
                                                 <p class="tt-vertical-align col s12 m12 l12 center">
 
-                                                    <img src="assets/images/star.png" alt="0.0estrelas" class="ng-scope">
-                                                    <img src="assets/images/star.png" alt="0.0estrelas" class="ng-scope">
-                                                    <img src="assets/images/star.png" alt="0.0estrelas" class="ng-scope">
-                                                    <img src="assets/images/star.png" alt="0.0estrelas" class="ng-scope">
-                                                    <img src="assets/images/star.png" alt="0.0estrelas" class="ng-scope">
+                                                  <img src="assets/images/star_filled.png" alt="{{ x.classificacao + 'estrelas' }}" data-ng-repeat="n in Search.getStars(x.classificacao)" />
+                                      						<img src="assets/images/star.png" alt="{{ x.classificacao + 'estrelas' }}" data-ng-repeat="n in Search.getEmptyStars(x.classificacao)" />
 
                                                     <br>
                                                     <!--<small data-ng-show="partner.classificacao === '0'" class="ng-hide">Nenhuma avaliação foi feita</small>-->
@@ -95,6 +92,7 @@
                                     </div>
                                 </div>
                             </div>
+                            <h5 ng-show="Search.result.length < 2">Não há profissionais próximos ao cep buscado. <a ng-click="Search.openSearch()">Clique aqui para buscar novamente</a></h5>
 
 
                         </div>

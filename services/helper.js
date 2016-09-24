@@ -212,27 +212,33 @@ function helperService() {
   helper.linkOptions = [
 	  {
       href: '#/users/login/partners',
-      title: 'Profissionais'
+      title: 'Profissionais',
+			type: 2
     },
     {
       href: '#/users/login/customers',
-      title: 'Clientes'
+      title: 'Clientes',
+			type: 3
     },
     {
       href: '#/about',
-      title: 'Quem somos'
+      title: 'Quem somos',
+			type: 0
     },
     {
       href: '#/contact',
-      title: 'Contato'
+      title: 'Contato',
+			type: 0
     },
     {
       href: '#/faq',
-      title: 'Dúvidas frequentes'
+      title: 'Dúvidas frequentes',
+			type: 0
     },
     {
       href: '#/terms-of-use',
-      title: 'Termos de uso'
+      title: 'Termos de uso',
+			type: 0
     }
   ];
 
