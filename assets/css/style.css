@@ -11,7 +11,23 @@
 a {
     cursor: pointer !important;
 }
-
+nav ul li {
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+nav ul a:hover {
+    background-color: rgba(218, 218, 218, 0.11) !important;
+}
+.map-current-test {
+  height:80px;
+  background-color: white;
+  margin-top: -3px;
+}
+.map-current-test .map-current {
+  background-image: url('../images/flat-map.png');
+  background-position: center center;
+  background-size: 100% auto;
+  min-height: 80px;
+}
 .m-auto {
     margin: 0 auto;
 }
@@ -71,11 +87,11 @@ footer {
 }
 
 .tt-nav-bar {
-    background-color: #ffb04d;
+    background-color: #1C2743;
 }
 
 .tt-blue-background {
-    background-color: #ffb04d !important;
+    background-color: #1C2743 !important;
 }
 
 .tt-search-box {
@@ -96,7 +112,7 @@ footer {
 }
 
 .tt-blue-text {
-    color: #ffb04d !important
+    color: #1C2743 !important
 }
 
 .tt-error-text {
@@ -124,7 +140,7 @@ footer {
   border: 2px solid white;
 }
 .card-content p.header {
-  background-color: #ffb04d;
+  background-color: #1C2743;
     color: white;
     padding: 5px;
     border-radius: 0px;
@@ -135,7 +151,7 @@ footer {
 .tt-card-main {
     margin-top: 0;
     min-height: 83vh;
-    /*background-color: #ffb04d;*/
+    /*background-color: #1C2743;*/
 }
 
 .tt-card-search {
@@ -198,7 +214,7 @@ textarea {
         background-size: cover;
         position: relative;
         min-height: 500px;
-        background-color: #ffb04d;
+        background-color: #1C2743;
         background-image: url(../images/test-bg.jpg);
         /*background-size: auto 100%;*/
         background-position: left center;
@@ -272,7 +288,7 @@ height: 45px;
 /*input[type="number"]::-webkit-input-placeholder {*/
 
 .tt-blue-placeholder::-webkit-input-placeholder {
-    color: #ffb04d !important;
+    color: #1C2743 !important;
     /*color: #1c2743 !important;*/
 }
 .tt-new-blue-bg {
@@ -283,7 +299,7 @@ height: 45px;
 
 .tt-blue-placeholder:-moz-placeholder {
     /* Firefox 18- */
-    color: #ffb04d !important;
+    color: #1C2743 !important;
 }
 
 
@@ -291,18 +307,18 @@ height: 45px;
 
 .tt-blue-placeholder::-moz-placeholder {
     /* Firefox 19+ */
-    color: #ffb04d !important;
+    color: #1C2743 !important;
 }
 
 
 /*input[type="number"]:-ms-input-placeholder {*/
 
 .tt-blue-placeholder:-ms-input-placeholder {
-    color: #ffb04d !important;
+    color: #1C2743 !important;
 }
 
 body, body * {
-    /*background-color: #ffb04d;*/
+    /*background-color: #1C2743;*/
     font-family: "chaletlondonnineteensixty", "Roboto";
 }
 
@@ -382,7 +398,7 @@ body select {
         margin-bottom: 10px;
         border-radius: 3px;
         box-shadow: 2px 2px 10px -2px #a0a0a0;
-        color: #ffb04d;
+        color: #1C2743;
     }
     .tt-search-bar-home {
       background-color: rgba(0,0,0,0.6);

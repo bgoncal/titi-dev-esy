@@ -12,21 +12,20 @@
         </div>
 
         <div class="home-intro col s12 m5 offset-m1 white-text text-white">
-          <h4>Lorem Ipsum</h4>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam semper elit ac iaculis ullamcorper.
-            Quisque scelerisque arcu est, quis tempor erat lacinia nec. Nullam malesuada vel nisi eu accumsan. Proin imperdiet
-            ultrices pretium. Nunc laoreet tempus odio eget vestibulum. Sed sapien dolor, facilisis eu sodales sit amet, fermentum sit amet est. In at eros arcu.
-          </p>
+            <h4>Lorem Ipsum</h4>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam semper elit ac iaculis ullamcorper. Quisque scelerisque arcu est, quis tempor erat lacinia nec. Nullam malesuada vel nisi eu accumsan. Proin imperdiet ultrices pretium. Nunc laoreet tempus
+                odio eget vestibulum. Sed sapien dolor, facilisis eu sodales sit amet, fermentum sit amet est. In at eros arcu.
+            </p>
 
         </div>
 
-        <div class="bubbles-home right" style="margin-right:50px;">
+        <div class="bubbles-home right hide-on-med-and-down" style="margin-right:50px;">
         </div>
 
         <div id="pesquisar" class="col s12  wow slideInRight tt-search-bar-home">
             <!--<h4 class="header center ">Pacientes e familiares</h4> -->
-            <p class="no-margin col s12 m3 offset-m2 center " style="margin-top:5px;">
+            <p class="no-margin col s12 m3 offset-m2 center white-text text-white " style="margin-top:5px;">
                 Encontre cuidadores, enfermeiras, fisioterapeutas e outros profissionais para cuidar de quem você ama.
             </p>
 
@@ -37,14 +36,14 @@
                     </div>
 
                     <div class="col s12 m4 center">
-                        <select data-ng-model="Home.form.selectedPartner" required data-ng-options="partner.name for partner in Home.partners" class="tt-blue-background tt-white-text tt-select">
+                        <select data-ng-model="Home.form.selectedPartner" required data-ng-options="partner.name for partner in Home.partners" class="teal tt-white-text tt-select">
               <option value="">Escolha o profissional</option>
             </select>
                     </div>
 
                     <div class="col s12 m2 center">
                         <button class="btn waves-effect waves-light col s12 tt-margin-top-button
-              tt-blue-background tt-home-search" type="submit" name="action">
+              teal tt-home-search" type="submit" name="action">
               <i class="material-icons">search</i>
             </button>
                     </div>
@@ -53,7 +52,14 @@
         </div>
     </div>
 
-    <div class="section no-pad-bot tt-footer-background tt-margin-top tt-new-blue-bg no-padding">
+    <div class="section no-pad-bot tt-footer-background tt-margin-top tt-new-blue-bg no-padding row no-margin">
+      <div class="map-current-test col s12">
+        <div class="col s12 m4 map-current">
+        </div>
+        <div class="col s12 m8">
+          <h5 class="center" style="color:#1C2743;margin-top: 29px;font-size:20px;">Em fase de testes na zona oeste de São Paulo - SP</h5>
+        </div>
+      </div>
         <div class="row">
             <div class="col s12 l12">
                 <br class="hide-on-med-and-down">
@@ -64,14 +70,14 @@
                 <br class="hide-on-med-and-up">
 
                 <div class="col s12 center" style="margin-bottom:20px;">
-                <h5 class="col s10 offset-s1 m4 offset-m4 center bubble-text   center m-auto wow pulse animated" data-wow-duration="2s" data-wow-iteration="infinite">
+                    <h5 class="col s10 offset-s1 m4 offset-m4 center bubble-text   center m-auto wow pulse animated" data-wow-duration="2s" data-wow-iteration="infinite">
           Como Funciona ??
         </h5>
-</div>
+                </div>
 
-<br>
-<br>
-<div class="col s12 m4 center ">
+                <br>
+                <br>
+                <div class="col s12 m4 center ">
 
                     <div class="card horizontal">
                         <div class="card-image">
@@ -90,41 +96,39 @@
                 </div>
                 <div class="col s12 m4 center">
 
-                                    <div class="card horizontal">
-                                        <div class="card-image">
-                                            <img src="assets/images/step2.jpg">
-                                        </div>
-                                        <div class="card-stacked">
-                                            <div class="card-content text-black black-text tt-text-justify ">
-                                                <p ><b>Segundo passo:</b></p>
-                                                <p style="font-size:14px;">MAPA do Cuidador: você encontrará profissionais apaixonados pela vida e próximos de você.</p>
-                                            </div>
+                    <div class="card horizontal">
+                        <div class="card-image">
+                            <img src="assets/images/step2.jpg">
+                        </div>
+                        <div class="card-stacked">
+                            <div class="card-content text-black black-text tt-text-justify ">
+                                <p><b>Segundo passo:</b></p>
+                                <p style="font-size:14px;">MAPA do Cuidador: você encontrará profissionais apaixonados pela vida e próximos de você.</p>
+                            </div>
 
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col s12 m4 center">
+                        </div>
+                    </div>
+                </div>
+                <div class="col s12 m4 center">
 
-                                                    <div class="card horizontal">
-                                                        <div class="card-image">
-                                                            <img src="assets/images/step3.jpg">
-                                                        </div>
-                                                        <div class="card-stacked">
-                                                            <div class="card-content text-black black-text tt-text-justify ">
-                                                                <p ><b>Terceiro passo:</b></p>
-                                                                <p>Contrate e avalie os profissionais.</p>
-                                                            </div>
+                    <div class="card horizontal">
+                        <div class="card-image">
+                            <img src="assets/images/step3.jpg">
+                        </div>
+                        <div class="card-stacked">
+                            <div class="card-content text-black black-text tt-text-justify ">
+                                <p><b>Terceiro passo:</b></p>
+                                <p>Contrate e avalie os profissionais.</p>
+                            </div>
 
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-
+                        </div>
                     </div>
                 </div>
 
+
             </div>
         </div>
+
     </div>
-    <br>
-    <br>
+</div>
+</div>
