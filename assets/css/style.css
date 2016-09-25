@@ -11,39 +11,46 @@
 a {
     cursor: pointer !important;
 }
+
 nav ul li {
-  border-right: 1px solid rgba(255, 255, 255, 0.1);
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
 }
+
 nav ul a:hover {
     background-color: rgba(218, 218, 218, 0.11) !important;
 }
+
 .map-current-test {
-  height:80px;
-  background-color: white;
-  margin-top: -3px;
+    height: 80px;
+    background-color: white;
+    margin-top: -3px;
 }
+
 .map-current-test .map-current {
-  background-image: url('../images/flat-map.png');
-  background-position: center center;
-  background-size: 100% auto;
-  min-height: 80px;
+    background-image: url('../images/flat-map.png');
+    background-position: center center;
+    background-size: 100% auto;
+    min-height: 80px;
 }
+
 .m-auto {
     margin: 0 auto;
 }
+
 .bubbles-home {
-  width:292px;
-  height:397px;
-  background-image: url('../images/home-bubbles.png');
-  background-position: center center;
-  background-size: 100% 100%;
+    width: 292px;
+    height: 397px;
+    background-image: url('../images/home-bubbles.png');
+    background-position: center center;
+    background-size: 100% 100%;
 }
+
 .home-intro {
-  background: rgba(0,0,0,0.6);
+    background: rgba(0, 0, 0, 0.6);
     padding: 19px !important;
     border-radius: 0px 0px 3px 3px;
-
 }
+
 footer {
     height: 200px;
     background-color: #2b2b2b;
@@ -128,19 +135,21 @@ footer {
 .tt-text-justify {
     text-align: justify;
 }
-.bubble-text {
-  width: auto;
-  padding: 10px !important;
-  border-radius: 29px !important;
-  line-height: 31px !important;
-  padding-bottom: 5px !important;
 
+.bubble-text {
+    width: auto;
+    padding: 10px !important;
+    border-radius: 29px !important;
+    line-height: 31px !important;
+    padding-bottom: 5px !important;
 }
+
 .bubble-border {
-  border: 2px solid white;
+    border: 2px solid white;
 }
+
 .card-content p.header {
-  background-color: #1C2743;
+    background-color: #1C2743;
     color: white;
     padding: 5px;
     border-radius: 0px;
@@ -148,6 +157,7 @@ footer {
     margin-bottom: 10px;
     text-align: center;
 }
+
 .tt-card-main {
     margin-top: 0;
     min-height: 83vh;
@@ -226,6 +236,16 @@ textarea {
         width: 38%;
         height: 451px;
     }
+    #nav-bar {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        z-index: 10;
+        width: 100%;
+    }
+    .tt-principal {
+        height: 684px;
+    }
 }
 
 .tt-pacientes-box {
@@ -275,25 +295,34 @@ textarea {
 }
 
 .tt-search-bar-home {
-  background-color: rgba(0,0,0,0.6);
-  padding-top:10px !important;
-  position: absolute;
-  bottom:0px;
-  left: 0px;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding-top: 10px !important;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
 }
+
 .tt-home-search {
-  margin: 0px;
-height: 45px;
+    margin: 0px;
+    height: 45px;
 }
+
+
 /*input[type="number"]::-webkit-input-placeholder {*/
 
 .tt-blue-placeholder::-webkit-input-placeholder {
     color: #1C2743 !important;
     /*color: #1c2743 !important;*/
 }
+
 .tt-new-blue-bg {
-  background-color: #1c2743 !important;
+    background-color: rgba(0, 48, 169, 0.68) !important;
 }
+
+.tt-new-orange-bg {
+    background-color: #FDBE4D;
+}
+
 
 /*input[type="number"]:-moz-placeholder { /* Firefox 18- */
 
@@ -401,16 +430,14 @@ body select {
         color: #1C2743;
     }
     .tt-search-bar-home {
-      background-color: rgba(0,0,0,0.6);
-      padding-top:30px !important;
-      position: relative;
-      padding-bottom:30px !important;
-
+        background-color: rgba(0, 0, 0, 0.6);
+        padding-top: 30px !important;
+        position: relative;
+        padding-bottom: 30px !important;
     }
     .tt-home-search {
-      margin: 0px;
-      height: 35px;
-
+        margin: 0px;
+        height: 35px;
     }
 }
 
