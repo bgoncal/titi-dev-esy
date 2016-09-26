@@ -225,7 +225,7 @@ textarea {
         position: relative;
         min-height: 500px;
         background-color: #1C2743;
-        background-image: url(../images/test-bg.jpg);
+        background-image: url(../images/bg-test-2.jpg);
         /*background-size: auto 100%;*/
         background-position: left center;
     }
@@ -321,6 +321,12 @@ textarea {
 
 .tt-new-orange-bg {
     background-color: #FDBE4D;
+}
+.tt-new-brown-bg {
+  background-color: #938953;
+}
+.tt-new-brown-text {
+  color: #938953;
 }
 
 

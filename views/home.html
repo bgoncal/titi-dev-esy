@@ -11,55 +11,103 @@
             <br>
         </div>
 
-        <div class="home-intro col s12 m5 offset-m1 white-text text-white">
+        <!--<div class="home-intro col s12 m5 offset-m1 white-text text-white">
             <h4>Lorem Ipsum</h4>
             <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam semper elit ac iaculis ullamcorper. Quisque scelerisque arcu est, quis tempor erat lacinia nec. Nullam malesuada vel nisi eu accumsan. Proin imperdiet ultrices pretium. Nunc laoreet tempus
                 odio eget vestibulum. Sed sapien dolor, facilisis eu sodales sit amet, fermentum sit amet est. In at eros arcu.
             </p>
 
-        </div>
+        </div>-->
 
-        <div class="bubbles-home right hide-on-med-and-down" style="margin-right:50px;">
-        </div>
-
-        <div id="pesquisar" class="col s12  wow slideInRight tt-search-bar-home">
-            <!--<h4 class="header center ">Pacientes e familiares</h4> -->
-            <p class="no-margin col s12 m3 offset-m2 center white-text text-white " style="margin-top:5px;">
+        <!--<div class="bubbles-home right hide-on-med-and-down" style="margin-right:50px;">
+        </div>-->
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class="col s12 offset-l7 l4 tt-pacientes-box tt-round-border z-depth-2 tt-new-orange-bg">
+            <h4 class="header center ">Pacientes e familiares</h4>
+            <p class="col s12 center ">
                 Encontre cuidadores, enfermeiras, fisioterapeutas e outros profissionais para cuidar de quem você ama.
             </p>
 
-            <div class="col s12 m6 center ">
+            <div class="col s12 center">
                 <form name="Home.homeForm" data-ng-submit="Home.submitForm(Home.form)">
-                    <div class="col s12 m3 center">
+                    <div class="col s12 center">
                         <input class="center white" data-ng-model="Home.form.cep" required type="text" name="cep" mask="99999-999" placeholder="Digite seu CEP aqui" />
                     </div>
 
-                    <div class="col s12 m4 center">
-                        <select data-ng-model="Home.form.selectedPartner" required data-ng-options="partner.name for partner in Home.partners" class="teal tt-white-text tt-select">
-              <option value="">Escolha o profissional</option>
-            </select>
+                    <div class="col s12 center">
+                        <select data-ng-model="Home.form.selectedPartner" required data-ng-options="partner.name for partner in Home.partners" class="tt-blue-background tt-white-text tt-select">
+                  <option value="">Escolha o profissional</option>
+                </select>
                     </div>
 
-                    <div class="col s12 m2 center">
+                    <div class="col s12 center">
                         <button class="btn waves-effect waves-light col s12 tt-margin-top-button
-              teal tt-home-search" type="submit" name="action">
-              <i class="material-icons">search</i>
-            </button>
+                  tt-blue-background" type="submit" name="action">
+                  <i class="material-icons">search</i>Pesquise aqui
+                </button>
                     </div>
                 </form>
             </div>
+
+        </div>
+        <div class="map-current-test col s12 tt-new-orange-bg no-padding" style=" margin-top: 160px;
+">
+            <div class="col s12 m4 map-current no-padding">
+            </div>
+            <div class="col s12 m8">
+                <h5 class="center white-text" style="color:#1C2743;margin-top: 29px;font-size:20px;">IMPORTANTE: Começamos os testes na região oeste de SP – Capital</h5>
+            </div>
         </div>
     </div>
+    <div class="white col s12">
+        <h5 class="center tt-new-brown-text" style="    height: 130px;
+    line-height: 85px;
+    margin-bottom: -4px;">O que é TITI?</h5>
+    </div>
+    <section class="section tt-new-brown-bg no-margin panel-double-padding row col s12">
 
-    <div class="section no-pad-bot tt-footer-background tt-margin-top tt-new-blue-bg no-padding row no-margin">
-      <div class="map-current-test col s12">
-        <div class="col s12 m4 map-current">
+        <div class="col s12 m4 offset-m2 white-text" style="text-align:center;">
+
+            <p>TITI é uma startup que empodera Profissionais apaixonados por cuidar de quem a gente ama para que você possa encontrá-los.
+            </p>
+
+            <p>
+
+                Queremos facilitar a vida das famílias que buscam cuidados para idosos, crianças especiais e adultos com limitações de mobilidade.
+            </p>
+
+
+            <p>
+                Com o Mapa do Cuidador, você conhecerá profissionais apaixonados pela vida e próximos de você.
+            </p>
+
+            <p>
+
+                A inspiração é uma menina especial linda, que é filha de um dos fundadores, e ganhou o apelido de TITI da sua própria irmã, quando ainda era um bebê.
+            </p>
+
+
+            <p>
+                Bem-vindos ao TITI, tecnologia para unir pessoas apaixonadas por cuidar, à serviço da longevidade.
+            </p>
         </div>
-        <div class="col s12 m8">
-          <h5 class="center" style="color:#1C2743;margin-top: 29px;font-size:20px;">Em fase de testes na zona oeste de São Paulo - SP</h5>
+        <div class="col s12 m4 center " style="margin-bottom:25px;">
+            <br>
+            <h5 class="center white-text valign col s12">Mapa do Cuidador</h5><br>
+            <div class="col s12 valign">
+                <img src="assets/images/round-img-map.png" width="250px" class="center valign" />
+            </div>
+
         </div>
-      </div>
+
+    </section>
+    <div class="section no-pad-bot tt-footer-background tt-margin-top tt-new-brown-text white  no-padding row no-margin">
+
         <div class="row">
             <div class="col s12 l12">
                 <br class="hide-on-med-and-down">
@@ -77,53 +125,35 @@
 
                 <br>
                 <br>
-                <div class="col s12 m4 center ">
-
-                    <div class="card horizontal">
-                        <div class="card-image">
-                            <img src="assets/images/step1.jpg">
-                        </div>
-                        <div class="card-stacked">
-                            <div class="card-content text-black black-text tt-text-justify ">
-                                <p><b>Primeiro passo:</b></p>
-                                <p>Informe seu CEP e pesquise.</p>
-                            </div>
-                            <div class="card-action">
-                                <a href="#/users/login/customers">Pesquisar</a>
-                            </div>
-                        </div>
-                    </div>
+                <div class="col s12 m3 center ">
+                    <img class="responsive-img circle" src="assets/images/step1-round.jpg" width="170px" />
+                    <h5>1. Cadastre-se</h5>
                 </div>
-                <div class="col s12 m4 center">
-
-                    <div class="card horizontal">
-                        <div class="card-image">
-                            <img src="assets/images/step2.jpg">
-                        </div>
-                        <div class="card-stacked">
-                            <div class="card-content text-black black-text tt-text-justify ">
-                                <p><b>Segundo passo:</b></p>
-                                <p style="font-size:14px;">MAPA do Cuidador: você encontrará profissionais apaixonados pela vida e próximos de você.</p>
-                            </div>
-
-                        </div>
-                    </div>
+                <div class="col s12 m3 center ">
+                    <img class="responsive-img circle" src="assets/images/round-img-map.png" width="170px" />
+                    <h5>
+                      2. Informe seu
+CEP e o tipo
+de Cuidador
+                    </h5>
                 </div>
-                <div class="col s12 m4 center">
-
-                    <div class="card horizontal">
-                        <div class="card-image">
-                            <img src="assets/images/step3.jpg">
-                        </div>
-                        <div class="card-stacked">
-                            <div class="card-content text-black black-text tt-text-justify ">
-                                <p><b>Terceiro passo:</b></p>
-                                <p>Contrate e avalie os profissionais.</p>
-                            </div>
-
-                        </div>
-                    </div>
+                <div class="col s12 m3 center ">
+                    <img class="responsive-img circle" src="assets/images/step3-round.jpg" width="170px" />
+                    <h5>
+                      3. Fale com os
+Cuidadores e
+contrate o perfil
+mais adequado
+                    </h5>
                 </div>
+                <div class="col s12 m3 center ">
+                    <img class="responsive-img circle" src="assets/images/step4-round.jpg" width="170px" />
+                    <h5>
+                      4. Avalie o
+profissional
+                    </h5>
+                </div>
+
 
 
             </div>
