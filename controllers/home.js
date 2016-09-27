@@ -18,12 +18,16 @@ function HomeController($location, helperService, $cookies, $window) {
     vm.links = helperService.linkOptions;
     vm.setLoggedMenu = setLoggedMenu;
     vm.partners = helperService.partnerOptions;
+    vm.contactModal = contactModal;
 
     vm.submitForm = submitForm;
 
     function submitForm(data) {
         var redirectLink = '/search-partners/' + data.cep + '/' + data.selectedPartner.id;
         $location.path(redirectLink);
+    }
+    function contactModal() {
+      angular.element("#modalContact").openModal();
     }
     console.log($location.$$path);
     if ($location.$$path == '/') {

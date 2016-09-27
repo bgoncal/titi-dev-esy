@@ -221,25 +221,25 @@ function helperService() {
 			type: 3
     },
     {
-      href: '#/about',
-      title: 'Quem somos',
+      href: '#/#titi',
+      title: 'O que é TITI?',
 			type: 0
     },
-    {
+    /*{
       href: '#/contact',
       title: 'Contato',
 			type: 0
-    },
+    }*/
     /*{
       href: '#/faq',
       title: 'Dúvidas frequentes',
 			type: 0
-    },*/
+    },
     {
       href: '#/terms-of-use',
       title: 'Termos de uso',
 			type: 0
-    }
+    }*/
   ];
 
   return helper;
