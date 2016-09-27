@@ -1,6 +1,6 @@
 angular
     .module('titi')
-    .controller('HomeController', ['$location', 'helperService', '$cookies', '$window', HomeController])
+    .controller('HomeController', ['$location', 'helperService', '$cookies', '$window','$http', HomeController])
     .config(['$routeProvider', routes]);
 
 function routes($routeProvider) {
@@ -12,13 +12,14 @@ function routes($routeProvider) {
         });
 }
 
-function HomeController($location, helperService, $cookies, $window) {
+function HomeController($location, helperService, $cookies, $window,$http) {
     var vm = this;
 
     vm.links = helperService.linkOptions;
     vm.setLoggedMenu = setLoggedMenu;
     vm.partners = helperService.partnerOptions;
     vm.contactModal = contactModal;
+    vm.submitContactForm = submitContactForm;
 
     vm.submitForm = submitForm;
 
@@ -28,6 +29,27 @@ function HomeController($location, helperService, $cookies, $window) {
     }
     function contactModal() {
       angular.element("#modalContact").openModal();
+    }
+    function submitContactForm(form) {
+      var data = angular.copy(form);
+
+      var url = helperService.backendUrl + '/cadastro/contato.php';
+
+      vm.loading = true;
+      $http.post(url, data)
+          .then(function(res) {
+              console.log('succeess', res);
+              vm.loading = false;
+              $window.alert('Enviado');
+              // Redirect to login
+              $location.path('/users/login/customers');
+          }, function(err) {
+              console.log('error', err);
+              vm.errorMessage = err.statusText || 'Ops! Não foi possível enviar';
+              $window.alert('Ops! Não foi possível enviar');
+              vm.loading = false;
+          });
+      console.log(data);
     }
     console.log($location.$$path);
     if ($location.$$path == '/') {

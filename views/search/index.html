@@ -15,7 +15,7 @@
                 <div class="col s12 m12 l12" style="padding-right:0px;">
                     <ng-map zoom="12" center="{{ Search.location.latitude + ', ' + Search.location.longitude }}" style="height:400px">
                         <custom-marker  ng-repeat = " s in Search.result" position="{{s.latitude + ', ' + s.longitude}}">
-                            <div class="titi-marker">
+                            <div class="titi-marker" ng-class="{'first': $first, 'last': $last}">
                               <h4>{{s.nome}}</h4>
                             </div>
                         </custom-marker>
@@ -35,7 +35,7 @@
                                     <div class="col s12 center">
                                         <form name="Search.searchForm" data-ng-submit="Search.submitForm(Search.form)">
                                             <div class="col s12 center">
-                                                <input class="center " data-ng-model="Search.form.cep" required type="text" name="cep" mask="99999-999" placeholder="Digite seu CEP aqui" />
+                                                <input class="center white black-text" data-ng-model="Search.form.cep" required type="text" name="cep" mask="99999-999" placeholder="Digite seu CEP aqui" />
                                             </div>
 
                                             <div class="col s12 center">
