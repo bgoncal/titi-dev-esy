@@ -11,23 +11,7 @@
             <br>
         </div>
 
-        <!--<div class="home-intro col s12 m5 offset-m1 white-text text-white">
-            <h4>Lorem Ipsum</h4>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam semper elit ac iaculis ullamcorper. Quisque scelerisque arcu est, quis tempor erat lacinia nec. Nullam malesuada vel nisi eu accumsan. Proin imperdiet ultrices pretium. Nunc laoreet tempus
-                odio eget vestibulum. Sed sapien dolor, facilisis eu sodales sit amet, fermentum sit amet est. In at eros arcu.
-            </p>
-
-        </div>-->
-
-        <!--<div class="bubbles-home right hide-on-med-and-down" style="margin-right:50px;">
-        </div>-->
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <div class="col s12 offset-l7 l4 tt-pacientes-box tt-round-border z-depth-2 tt-new-orange-bg">
+        <div class="col s12 offset-l7 l4 tt-pacientes-box z-depth-2 tt-search-home tt-new-brown-bg ">
             <h4 class="header center ">Pacientes e familiares</h4>
             <p class="col s12 center ">
                 Encontre cuidadores, enfermeiras, fisioterapeutas e outros profissionais para cuidar de quem você ama.
@@ -36,129 +20,135 @@
             <div class="col s12 center">
                 <form name="Home.homeForm" data-ng-submit="Home.submitForm(Home.form)">
                     <div class="col s12 center">
-                        <input class="center white" data-ng-model="Home.form.cep" required type="text" name="cep" mask="99999-999" placeholder="Digite seu CEP aqui" />
+                        <input class="center white black-text" data-ng-model="Home.form.cep" required type="text" name="cep" mask="99999-999" placeholder="Digite seu CEP aqui" />
                     </div>
 
                     <div class="col s12 center">
-                        <select data-ng-model="Home.form.selectedPartner" required data-ng-options="partner.name for partner in Home.partners" class="tt-blue-background tt-white-text tt-select">
+                        <select data-ng-model="Home.form.selectedPartner" required data-ng-options="partner.name for partner in Home.partners" class="black-text">
                   <option value="">Escolha o profissional</option>
                 </select>
                     </div>
 
                     <div class="col s12 center">
-                        <button class="btn waves-effect waves-light col s12 tt-margin-top-button
-                  tt-blue-background" type="submit" name="action">
-                  <i class="material-icons">search</i>Pesquise aqui
+                        <button class="btn waves-effect waves-light col s12
+                   valign tt-new-blue-bg" type="submit" name="action" style="margin-top:15px;">
+                   Pesquise aqui
                 </button>
                     </div>
                 </form>
             </div>
 
         </div>
-        <div class="map-current-test col s12 tt-new-orange-bg no-padding" style=" margin-top: 160px;
-">
-            <div class="col s12 m4 map-current no-padding">
-            </div>
-            <div class="col s12 m8">
-                <h5 class="center white-text" style="color:#1C2743;margin-top: 29px;font-size:20px;">IMPORTANTE: Começamos os testes na região oeste de SP – Capital</h5>
-            </div>
-        </div>
-    </div>
-    <div class="white col s12">
-        <h5 class="center tt-new-brown-text" style="    height: 130px;
-    line-height: 85px;
-    margin-bottom: -4px;">O que é TITI?</h5>
-    </div>
-    <section class="section tt-new-brown-bg no-margin panel-double-padding row col s12">
-
-        <div class="col s12 m4 offset-m2 white-text" style="text-align:center;">
-
-            <p>TITI é uma startup que empodera Profissionais apaixonados por cuidar de quem a gente ama para que você possa encontrá-los.
-            </p>
-
-            <p>
-
-                Queremos facilitar a vida das famílias que buscam cuidados para idosos, crianças especiais e adultos com limitações de mobilidade.
-            </p>
-
-
-            <p>
-                Com o Mapa do Cuidador, você conhecerá profissionais apaixonados pela vida e próximos de você.
-            </p>
-
-            <p>
-
-                A inspiração é uma menina especial linda, que é filha de um dos fundadores, e ganhou o apelido de TITI da sua própria irmã, quando ainda era um bebê.
-            </p>
-
-
-            <p>
-                Bem-vindos ao TITI, tecnologia para unir pessoas apaixonadas por cuidar, à serviço da longevidade.
-            </p>
-        </div>
-        <div class="col s12 m4 center " style="margin-bottom:25px;">
-            <br>
-            <h5 class="center white-text valign col s12">Mapa do Cuidador</h5><br>
-            <div class="col s12 valign">
-                <img src="assets/images/round-img-map.png" width="250px" class="center valign" />
+      
+        <div class="row">
+            <div class="map-current-test col s12  no-padding" >
+                <div class="col s12 m4 offset-m4">
+                    <h6 class="center white-text tt-new-blue-bg bubble-text bubble-border">IMPORTANTE: Começamos os testes na região oeste de SP – Capital</h6>
+                </div>
             </div>
 
         </div>
-
-    </section>
-    <div class="section no-pad-bot tt-footer-background tt-margin-top tt-new-brown-text white  no-padding row no-margin">
+        <br>
 
         <div class="row">
-            <div class="col s12 l12">
-                <br class="hide-on-med-and-down">
+            <div class="white col s12">
+                <h5 class="center tt-new-brown-text tt-w-i-tt">O que é TITI?</h5>
+            </div>
+            <div class="section tt-new-brown-bg no-margin panel-double-padding row col s12">
+
+                <div class="col s12 m4 offset-m2 white-text" style="text-align:center;">
+
+                    <p>TITI é uma startup que empodera Profissionais apaixonados por cuidar de quem a gente ama para que você possa encontrá-los.
+                    </p>
+
+                    <p>
+
+                        Queremos facilitar a vida das famílias que buscam cuidados para idosos, crianças especiais e adultos com limitações de mobilidade.
+                    </p>
+
+
+                    <p>
+                        Com o Mapa do Cuidador, você conhecerá profissionais apaixonados pela vida e próximos de você.
+                    </p>
+
+                    <p>
+
+                        A inspiração é uma menina especial linda, que é filha de um dos fundadores, e ganhou o apelido de TITI da sua própria irmã, quando ainda era um bebê.
+                    </p>
+
+
+                    <p>
+                        Bem-vindos ao TITI, tecnologia para unir pessoas apaixonadas por cuidar, à serviço da longevidade.
+                    </p>
+                </div>
+                <div class="col s12 m4 center " style="margin-bottom:25px;">
+                    <br>
+                    <h5 class="center white-text valign col s12">Mapa do Cuidador</h5><br>
+                    <div class="col s12 valign">
+                        <img src="assets/images/round-img-map.png" width="250px" class="center valign" />
+                    </div>
+
+                </div>
 
             </div>
+            <div class="row">
+              <div class=" no-pad-bot tt-footer-background tt-margin-top tt-new-brown-text white  no-padding row no-margin">
 
-            <div class="col s12 m8 offset-m2  ">
-                <br class="hide-on-med-and-up">
+                <div class="row">
+                    <div class="col s12 l12">
+                        <br class="hide-on-med-and-down">
 
-                <div class="col s12 center" style="margin-bottom:20px;">
-                    <h5 class="col s10 offset-s1 m4 offset-m4 center bubble-text   center m-auto wow pulse animated" data-wow-duration="2s" data-wow-iteration="infinite">
+                    </div>
+
+                    <div class="col s12 m8 offset-m2  ">
+                        <br class="hide-on-med-and-up">
+
+                        <div class="col s12 center" style="margin-bottom:20px;">
+                            <h5 class="col s10 offset-s1 m4 offset-m4 center bubble-text   center m-auto wow pulse animated" data-wow-duration="2s" data-wow-iteration="infinite">
           Como Funciona ??
         </h5>
-                </div>
+                        </div>
 
-                <br>
-                <br>
-                <div class="col s12 m3 center ">
-                    <img class="responsive-img circle" src="assets/images/step1-round.jpg" width="170px" />
-                    <h5>1. Cadastre-se</h5>
-                </div>
-                <div class="col s12 m3 center ">
-                    <img class="responsive-img circle" src="assets/images/round-img-map.png" width="170px" />
-                    <h5>
+                        <br>
+                        <br>
+                        <div class="col s12 m3 center ">
+                            <img class="responsive-img circle" src="assets/images/step1-round.jpg" width="170px" />
+                            <h5>1. Cadastre-se</h5>
+                        </div>
+                        <div class="col s12 m3 center ">
+                            <img class="responsive-img circle" src="assets/images/round-img-map.png" width="170px" />
+                            <h5>
                       2. Informe seu
 CEP e o tipo
 de Cuidador
                     </h5>
-                </div>
-                <div class="col s12 m3 center ">
-                    <img class="responsive-img circle" src="assets/images/step3-round.jpg" width="170px" />
-                    <h5>
+                        </div>
+                        <div class="col s12 m3 center ">
+                            <img class="responsive-img circle" src="assets/images/step3-round.jpg" width="170px" />
+                            <h5>
                       3. Fale com os
 Cuidadores e
 contrate o perfil
 mais adequado
                     </h5>
-                </div>
-                <div class="col s12 m3 center ">
-                    <img class="responsive-img circle" src="assets/images/step4-round.jpg" width="170px" />
-                    <h5>
+                        </div>
+                        <div class="col s12 m3 center ">
+                            <img class="responsive-img circle" src="assets/images/step4-round.jpg" width="170px" />
+                            <h5>
                       4. Avalie o
 profissional
                     </h5>
+                        </div>
+
+
+
+                    </div>
                 </div>
 
-
-
             </div>
+          </div>
         </div>
-
     </div>
 </div>
+<div class="clearfix">
 </div>

@@ -22,8 +22,7 @@ nav ul a:hover {
 
 .map-current-test {
     height: 80px;
-    background-color: white;
-    margin-top: -3px;
+    margin-top: 50px;
 }
 
 .map-current-test .map-current {
@@ -237,7 +236,7 @@ textarea {
         height: 451px;
     }
     #nav-bar {
-        position: absolute;
+        position: relative;
         top: 0px;
         left: 0px;
         z-index: 10;
@@ -315,18 +314,35 @@ textarea {
     /*color: #1c2743 !important;*/
 }
 
-.tt-new-blue-bg {
-    background-color: rgba(0, 48, 169, 0.68) !important;
+.tt-new-blue-bg  {
+    background-color: #2F4C8D !important;
+
 }
 
+.tt-search-home {
+  background-color: rgba(0, 0, 0, 0.54);
+}
 .tt-new-orange-bg {
-    background-color: #FDBE4D;
+    background-color: #f3ba3c;
 }
 .tt-new-brown-bg {
   background-color: #938953;
 }
+.btn, .btn-large {
+  background-color: #938953;
+}
+.btn:hover, .btn-large:hover {
+  background-color: #938953;
+}
+.teal {
+  background-color: #938953 !important;
+}
 .tt-new-brown-text {
   color: #938953;
+}
+.tt-w-i-tt {
+  height: 49px;
+  padding: 10px;
 }
 
 
@@ -444,6 +460,31 @@ body select {
     .tt-home-search {
         margin: 0px;
         height: 35px;
+
+
+    }
+    .tt-search-home {
+      margin-top: -112px !important;
+    }
+    .map-current-test {
+      margin-top: 0px !important;
+    }
+    .tt-w-i-tt {
+      height: auto;
+
+    }
+    .tt-w-i {
+          margin-top: 135px;
+    }
+    .logo1 {
+      margin:0px !important;
+      margin-top:5px !important;
+      margin-right:10px !important;
+    }
+    .logo2 {
+      margin:0px !important;
+      margin-top:5px !important;
+
     }
 }
 
