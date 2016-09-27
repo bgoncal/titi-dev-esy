@@ -1,543 +1,417 @@
 <div class="row tt-card-main">
-  <div class="col s12 m8 offset-m2 z-depth-6 card-panel ">
+    <div class="col s12 m8 offset-m2 z-depth-6 card-panel ">
 
-    <div class="row">
-      <div class="input-field col s12 center">
-        <h4 class="center tt-blue-text">Cadastro de Profissionais</h4>
-      </div>
-    </div>
+        <div class="row">
+            <div class="input-field col s12 center">
+                <h4 class="center tt-blue-text">Cadastro de Profissionais</h4>
+            </div>
+        </div>
 
-    <form name="Partner.signupForm"
-      data-ng-submit="Partner.submitSignupForm(Partner.data)">
+        <form name="Partner.signupForm" data-ng-submit="Partner.submitSignupForm(Partner.data)">
 
-      <div class="row margin">
-        <div class="col s12 offset-l2 l8">
-          <h5 class="tt-title-bottom">Informações pessoais</h5>
+            <div class="row margin">
+                <div class="col s12 offset-l2 l8">
+                    <h5 class="tt-title-bottom">Informações pessoais</h5>
 
-          <br>
+                    <br>
 
-          <div class="form-group"
-            <label>Foto de perfil</label>
-            <input class="form-control validate"
-              data-ng-model="Partner.data.profilePicture"
-              type="file" name="profilePicture"></input>
-          </div>
+                    <div class="form-group" <label>Foto de perfil</label>
+                        <input class="form-control validate" data-ng-model="Partner.data.profilePicture" type="file" name="profilePicture"></input>
+                    </div>
 
-          <div class="form-group"
-            data-ng-class="{ 'card-panel' : Partner.signupForm.nome.$invalid
+                    <div class="form-group" data-ng-class="{ 'card-panel' : Partner.signupForm.nome.$invalid
 							&& Partner.signupForm.nome.$touched }">
 
-            <label>Nome completo</label>
-            <input class="form-control validate"
-              data-ng-model="Partner.data.nome"
-              type="text" name="nome" placeholder="Nome completo" required></input>
+                        <label>Nome completo</label>
+                        <input class="form-control validate" data-ng-model="Partner.data.nome" type="text" name="nome" placeholder="Nome completo" required></input>
 
-            <!-- Validation messages -->
-            <div class="tt-error-text"
-              data-ng-show="Partner.signupForm.nome.$invalid && Partner.signupForm.nome.$touched"
-              data-ng-messages="Partner.signupForm.nome.$error">
-              <p class="help-block" data-ng-message="required">Campo obrigatório</p>
-            </div>
-          </div>
+                        <!-- Validation messages -->
+                        <div class="tt-error-text" data-ng-show="Partner.signupForm.nome.$invalid && Partner.signupForm.nome.$touched" data-ng-messages="Partner.signupForm.nome.$error">
+                            <p class="help-block" data-ng-message="required">Campo obrigatório</p>
+                        </div>
+                    </div>
 
-          <div class="form-group"
-            data-ng-class="{ 'card-panel' : Partner.signupForm.nascimento.$invalid
+                    <div class="form-group" data-ng-class="{ 'card-panel' : Partner.signupForm.nascimento.$invalid
 							&& Partner.signupForm.nascimento.$touched }">
 
-            <label>Data de nascimento</label>
-            <input class="form-control validate"
-              data-ng-model="Partner.data.nascimento"
-              type="date" name="nascimento" required></input>
+                        <label>Data de nascimento</label>
+                        <input class="form-control validate" data-ng-model="Partner.data.nascimento" type="date" name="nascimento" required></input>
 
-            <!-- Validation messages -->
-            <div class="tt-error-text"
-              data-ng-show="Partner.signupForm.nascimento.$invalid && Partner.signupForm.nascimento.$touched"
-              data-ng-messages="Partner.signupForm.nascimento.$error">
-              <p class="help-block" data-ng-message="required">Campo obrigatório</p>
-            </div>
-          </div>
+                        <!-- Validation messages -->
+                        <div class="tt-error-text" data-ng-show="Partner.signupForm.nascimento.$invalid && Partner.signupForm.nascimento.$touched" data-ng-messages="Partner.signupForm.nascimento.$error">
+                            <p class="help-block" data-ng-message="required">Campo obrigatório</p>
+                        </div>
+                    </div>
 
-          <div class="form-group"
-            data-ng-class="{ 'card-panel' : Partner.signupForm.sexo.$invalid
+                    <div class="form-group" data-ng-class="{ 'card-panel' : Partner.signupForm.sexo.$invalid
 							&& Partner.signupForm.sexo.$touched }">
 
-            <label for="sexo" class="">Sexo</label>
-            <select data-ng-model="Partner.data.sexo" required
-              class="form-control tt-no-border validate" name="sexo">
+                        <label for="sexo" class="">Sexo</label>
+                        <select data-ng-model="Partner.data.sexo" required class="form-control tt-no-border validate" name="sexo">
               <option value="">Selecione...</option>
               <option value="F">Feminino</option>
               <option value="M">Masculino</option>
             </select>
 
-            <!-- Validation messages -->
-            <div class="tt-error-text"
-              data-ng-show="Partner.signupForm.sexo.$invalid && Partner.signupForm.sexo.$touched"
-              data-ng-messages="Partner.signupForm.sexo.$error">
-              <p class="help-block" data-ng-message="required">Selecione sexo</p>
-            </div>
-          </div>
+                        <!-- Validation messages -->
+                        <div class="tt-error-text" data-ng-show="Partner.signupForm.sexo.$invalid && Partner.signupForm.sexo.$touched" data-ng-messages="Partner.signupForm.sexo.$error">
+                            <p class="help-block" data-ng-message="required">Selecione sexo</p>
+                        </div>
+                    </div>
 
-          <div class="form-group">
+                    <div class="form-group">
 
-            <label>Telefone fixo</label>
-            <input class="form-control validate"
-              data-ng-model="Partner.data.tel" data-ng-pattern="Partner.regexPhone"
-              type="text" mask="(99) 9999-9999" placeholder="(99) 9999-9999"></input>
-          </div>
+                        <label>Telefone fixo</label>
+                        <input class="form-control validate" data-ng-model="Partner.data.tel" data-ng-pattern="Partner.regexPhone" type="text" mask="(99) 9999-9999" placeholder="(99) 9999-9999"></input>
+                    </div>
 
-          <div class="form-group"
-            data-ng-class="{ 'card-panel' : Partner.signupForm.cel.$invalid
+                    <div class="form-group" data-ng-class="{ 'card-panel' : Partner.signupForm.cel.$invalid
 							&& Partner.signupForm.cel.$touched }">
 
-            <label>Telefone celular</label>
-            <input class="form-control validate"
-              data-ng-model="Partner.data.cel" data-ng-pattern="Partner.regexPhone"
-              type="text" name="cel" mask="(99) 9?9999-9999"
-              placeholder="(99) 99999-9999" required></input>
+                        <label>Telefone celular</label>
+                        <input class="form-control validate" data-ng-model="Partner.data.cel" data-ng-pattern="Partner.regexPhone" type="text" name="cel" mask="(99) 9?9999-9999" placeholder="(99) 99999-9999" required></input>
 
-            <!-- Validation messages -->
-            <div class="tt-error-text"
-              data-ng-show="Partner.signupForm.cel.$invalid && Partner.signupForm.cel.$touched"
-              data-ng-messages="Partner.signupForm.cel.$error">
-              <p class="help-block" data-ng-message="required">Campo obrigatório</p>
-              <p class="help-block" data-ng-message="pattern">Celular inválido</p>
-            </div>
-          </div>
+                        <!-- Validation messages -->
+                        <div class="tt-error-text" data-ng-show="Partner.signupForm.cel.$invalid && Partner.signupForm.cel.$touched" data-ng-messages="Partner.signupForm.cel.$error">
+                            <p class="help-block" data-ng-message="required">Campo obrigatório</p>
+                            <p class="help-block" data-ng-message="pattern">Celular inválido</p>
+                        </div>
+                    </div>
 
-          <div class="form-group"
-            data-ng-class="{ 'card-panel' : Partner.signupForm.cpf_cnpj.$invalid
+                    <div class="form-group" data-ng-class="{ 'card-panel' : Partner.signupForm.cpf_cnpj.$invalid
 							&& Partner.signupForm.cpf_cnpj.$touched }">
 
-            <label>CPF</label>
-            <input class="form-control validate"
-              data-ng-model="Partner.data.cpf_cnpj" mask="999.999.999-99" ng-cpf
-              type="text" name="cpf_cnpj" placeholder="999.999.999-99" required ></input>
+                        <label>CPF</label>
+                        <input class="form-control validate" data-ng-model="Partner.data.cpf_cnpj" mask="999.999.999-99" ng-cpf type="text" name="cpf_cnpj" placeholder="999.999.999-99" required></input>
 
-            <!-- Validation messages -->
-            <div class="tt-error-text"
-              data-ng-show="Partner.signupForm.cpf_cnpj.$invalid && Partner.signupForm.cpf_cnpj.$touched"
-              data-ng-messages="Partner.signupForm.cpf_cnpj.$error">
-              <p data-ng-message="required">Campo obrigatório</p>
-              <p data-ng-message="cpf_cnpj">CPF inválido</p>
-            </div>
-          </div>
+                        <!-- Validation messages -->
+                        <div class="tt-error-text" data-ng-show="Partner.signupForm.cpf_cnpj.$invalid && Partner.signupForm.cpf_cnpj.$touched" data-ng-messages="Partner.signupForm.cpf_cnpj.$error">
+                            <p data-ng-message="required">Campo obrigatório</p>
+                            <p data-ng-message="cpf_cnpj">CPF inválido</p>
+                        </div>
+                    </div>
 
-          <div class="form-group"
-            data-ng-class="{ 'card-panel' : Partner.signupForm.rg.$invalid && Partner.signupForm.rg.$touched }">
+                    <div class="form-group" data-ng-class="{ 'card-panel' : Partner.signupForm.rg.$invalid && Partner.signupForm.rg.$touched }">
 
-            <label>RG</label>
-            <input class="form-control validate"
-              data-ng-model="Partner.data.rg"
-              type="text" name="rg" placeholder="RG" required></input>
+                        <label>RG</label>
+                        <input class="form-control validate" data-ng-model="Partner.data.rg" type="text" name="rg" placeholder="RG" required></input>
 
-            <!-- Validation messages -->
-            <div class="tt-error-text"
-              data-ng-show="Partner.signupForm.rg.$invalid && Partner.signupForm.rg.$touched"
-              data-ng-messages="Partner.signupForm.rg.$error">
-              <p class="help-block" data-ng-message="required">Campo obrigatório</p>
-            </div>
-          </div>
-        </div>
+                        <!-- Validation messages -->
+                        <div class="tt-error-text" data-ng-show="Partner.signupForm.rg.$invalid && Partner.signupForm.rg.$touched" data-ng-messages="Partner.signupForm.rg.$error">
+                            <p class="help-block" data-ng-message="required">Campo obrigatório</p>
+                        </div>
+                    </div>
+                </div>
 
 
-        <div class="col s12 offset-l2 l8">
-          <h5 class="tt-title-bottom">Informações residenciais</h5>
+                <div class="col s12 offset-l2 l8">
+                    <h5 class="tt-title-bottom">Informações residenciais</h5>
 
-          <br>
+                    <br>
 
-          <div class="form-group"
-            data-ng-class="{ 'card-panel' : Partner.signupForm.endereco.$invalid
+                    <div class="form-group" data-ng-class="{ 'card-panel' : Partner.signupForm.endereco.$invalid
 							&& Partner.signupForm.endereco.$touched }">
 
-            <label>Endereço completo</label>
-            <input class="form-control validate"
-              data-ng-model="Partner.data.endereco"
-              type="text" name="endereco" placeholder="Endereço completo" required></input>
+                        <label>Endereço completo</label>
+                        <input class="form-control validate" data-ng-model="Partner.data.endereco" type="text" name="endereco" placeholder="Endereço completo" required></input>
 
-            <!-- Validation messages -->
-            <div class="tt-error-text"
-              data-ng-show="Partner.signupForm.endereco.$invalid && Partner.signupForm.endereco.$touched"
-              data-ng-messages="Partner.signupForm.endereco.$error">
-              <p class="help-block" data-ng-message="required">Campo obrigatório</p>
-            </div>
-          </div>
+                        <!-- Validation messages -->
+                        <div class="tt-error-text" data-ng-show="Partner.signupForm.endereco.$invalid && Partner.signupForm.endereco.$touched" data-ng-messages="Partner.signupForm.endereco.$error">
+                            <p class="help-block" data-ng-message="required">Campo obrigatório</p>
+                        </div>
+                    </div>
 
-          <div class="form-group"
-            data-ng-class="{ 'card-panel' : Partner.signupForm.bairro.$invalid
+                    <div class="form-group" data-ng-class="{ 'card-panel' : Partner.signupForm.bairro.$invalid
 							&& Partner.signupForm.bairro.$touched }">
 
-            <label>Bairro</label>
+                        <label>Bairro</label>
 
-            <input class="form-control validate"
-              data-ng-model="Partner.data.bairro"
-              type="text" placeholder="Bairro" required name="bairro"></input>
+                        <input class="form-control validate" data-ng-model="Partner.data.bairro" type="text" placeholder="Bairro" required name="bairro"></input>
 
-            <!-- Validation messages -->
-            <div class="tt-error-text"
-              data-ng-show="Partner.signupForm.bairro.$invalid && Partner.signupForm.bairro.$touched"
-              data-ng-messages="Partner.signupForm.bairro.$error">
-              <p class="help-block" data-ng-message="required">Campo obrigatório</p>
-            </div>
-          </div>
+                        <!-- Validation messages -->
+                        <div class="tt-error-text" data-ng-show="Partner.signupForm.bairro.$invalid && Partner.signupForm.bairro.$touched" data-ng-messages="Partner.signupForm.bairro.$error">
+                            <p class="help-block" data-ng-message="required">Campo obrigatório</p>
+                        </div>
+                    </div>
 
-          <div class="form-group"
-            data-ng-class="{ 'card-panel' : Partner.signupForm.cep.$invalid
+                    <div class="form-group" data-ng-class="{ 'card-panel' : Partner.signupForm.cep.$invalid
 							&& Partner.signupForm.cep.$touched }">
 
-            <label>CEP</label>
-            <input class="form-control validate"
-              data-ng-model="Partner.data.cep" mask="99999-999"
-              data-ng-pattern="Partner.regexCEP"
-              type="text" placeholder="99999-999" required name="cep"></input>
+                        <label>CEP</label>
+                        <input class="form-control validate" data-ng-model="Partner.data.cep" mask="99999-999" data-ng-pattern="Partner.regexCEP" type="text" placeholder="99999-999" required name="cep"></input>
 
-            <!-- Validation messages -->
-            <div class="tt-error-text"
-              data-ng-show="Partner.signupForm.cep.$invalid && Partner.signupForm.cep.$touched"
-              data-ng-messages="Partner.signupForm.cep.$error">
-              <p data-ng-message="required">Campo obrigatório</p>
-              <p data-ng-message="pattern">CEP inválido</p>
-            </div>
-          </div>
+                        <!-- Validation messages -->
+                        <div class="tt-error-text" data-ng-show="Partner.signupForm.cep.$invalid && Partner.signupForm.cep.$touched" data-ng-messages="Partner.signupForm.cep.$error">
+                            <p data-ng-message="required">Campo obrigatório</p>
+                            <p data-ng-message="pattern">CEP inválido</p>
+                        </div>
+                    </div>
 
-          <div class="form-group"
-            data-ng-class="{ 'card-panel' : Partner.signupForm.cidade.$invalid
+                    <div class="form-group" data-ng-class="{ 'card-panel' : Partner.signupForm.cidade.$invalid
 							&& Partner.signupForm.cidade.$touched }">
 
-            <label>Cidade</label>
-            <input class="form-control validate"
-              data-ng-model="Partner.data.cidade"
-              type="text" placeholder="Cidade" required name="cidade"></input>
+                        <label>Cidade</label>
+                        <input class="form-control validate" data-ng-model="Partner.data.cidade" type="text" placeholder="Cidade" required name="cidade"></input>
 
-            <!-- Validation messages -->
-            <div class="tt-error-text"
-              data-ng-show="Partner.signupForm.cidade.$invalid && Partner.signupForm.cidade.$touched"
-              data-ng-messages="Partner.signupForm.cidade.$error">
-              <p class="help-block" data-ng-message="required">Campo obrigatório</p>
-            </div>
-          </div>
+                        <!-- Validation messages -->
+                        <div class="tt-error-text" data-ng-show="Partner.signupForm.cidade.$invalid && Partner.signupForm.cidade.$touched" data-ng-messages="Partner.signupForm.cidade.$error">
+                            <p class="help-block" data-ng-message="required">Campo obrigatório</p>
+                        </div>
+                    </div>
 
-          <div class="form-group"
-            data-ng-class="{ 'card-panel' : Partner.signupForm.estado.$invalid
+                    <div class="form-group" data-ng-class="{ 'card-panel' : Partner.signupForm.estado.$invalid
 							&& Partner.signupForm.estado.$touched }">
 
-            <label>Estado</label>
-            <select class="form-control tt-no-border"
-              data-ng-model="Partner.data.estado"
-							required name="estado" >
+                        <label>Estado</label>
+                        <select class="form-control tt-no-border" data-ng-model="Partner.data.estado" required name="estado">
 							<option value="">Selecione...</option>
 							<option data-ng-repeat="estado in Partner.estadoOptions"
 								value="{{estado.sigla}}">{{estado.name}}</option>
             </select>
 
-            <!-- Validation messages -->
-            <div class="tt-error-text"
-              data-ng-show="Partner.signupForm.estado.$invalid && Partner.signupForm.estado.$touched"
-              data-ng-messages="Partner.signupForm.city.$error">
-              <p class="help-block" data-ng-message="required">Campo obrigatório</p>
-            </div>
-          </div>
+                        <!-- Validation messages -->
+                        <div class="tt-error-text" data-ng-show="Partner.signupForm.estado.$invalid && Partner.signupForm.estado.$touched" data-ng-messages="Partner.signupForm.city.$error">
+                            <p class="help-block" data-ng-message="required">Campo obrigatório</p>
+                        </div>
+                    </div>
 
-        </div>
+                </div>
 
 
-        <div class="col s12 offset-l2 l8">
-          <h5 class="tt-title-bottom">Informações de login</h5>
+                <div class="col s12 offset-l2 l8">
+                    <h5 class="tt-title-bottom">Informações de login</h5>
 
-          <br>
+                    <br>
 
-          <div class="form-group"
-            data-ng-class="{ 'card-panel' : Partner.signupForm.email.$invalid
+                    <div class="form-group" data-ng-class="{ 'card-panel' : Partner.signupForm.email.$invalid
 							&& Partner.signupForm.email.$touched }">
 
-            <label>Email</label>
-            <input class="form-control validate"
-              data-ng-model="Partner.data.email" id="email"
-              type="email" placeholder="Email" required name="email"></input>
+                        <label>Email</label>
+                        <input class="form-control validate" data-ng-model="Partner.data.email" id="email" type="email" placeholder="Email" required name="email"></input>
 
-            <!-- Validation messages -->
-            <div class="tt-error-text"
-              data-ng-show="Partner.signupForm.email.$invalid && Partner.signupForm.email.$touched"
-              data-ng-messages="Partner.signupForm.email.$error">
-              <p class="help-block" data-ng-message="required">Campo obrigatório</p>
-              <p class="help-block" data-ng-message="email">Digite um e-mail válido</p>
-            </div>
-          </div>
+                        <!-- Validation messages -->
+                        <div class="tt-error-text" data-ng-show="Partner.signupForm.email.$invalid && Partner.signupForm.email.$touched" data-ng-messages="Partner.signupForm.email.$error">
+                            <p class="help-block" data-ng-message="required">Campo obrigatório</p>
+                            <p class="help-block" data-ng-message="email">Digite um e-mail válido</p>
+                        </div>
+                    </div>
 
-          <div class="form-group"
-            data-ng-class="{ 'card-panel' : Partner.signupForm.confirmEmail.$invalid
+                    <div class="form-group" data-ng-class="{ 'card-panel' : Partner.signupForm.confirmEmail.$invalid
 							&& Partner.signupForm.confirmEmail.$touched }">
 
-            <label>Confirme seu Email</label>
-            <input class="form-control validate"
-              data-ng-model="confirmEmail"
-              match-fields="email"
-              type="email" placeholder="Confirme seu Email" required name="confirmEmail"></input>
+                        <label>Confirme seu Email</label>
+                        <input class="form-control validate" data-ng-model="confirmEmail" match-fields="email" type="email" placeholder="Confirme seu Email" required name="confirmEmail"></input>
 
-            <!-- Validation messages -->
-            <div class="tt-error-text"
-              data-ng-show="Partner.signupForm.confirmEmail.$invalid
-								&& Partner.signupForm.confirmEmail.$touched"
-              data-ng-messages="Partner.signupForm.confirmEmail.$error">
-              <p class="help-block" data-ng-message="required">Confirme seu e-mail</p>
-              <p class="help-block" data-ng-message="email">Digite um e-mail válido</p>
-              <p class="help-block" data-ng-message="matchFields">Os e-mails não coincidem</p>
-            </div>
-          </div>
+                        <!-- Validation messages -->
+                        <div class="tt-error-text" data-ng-show="Partner.signupForm.confirmEmail.$invalid
+								&& Partner.signupForm.confirmEmail.$touched" data-ng-messages="Partner.signupForm.confirmEmail.$error">
+                            <p class="help-block" data-ng-message="required">Confirme seu e-mail</p>
+                            <p class="help-block" data-ng-message="email">Digite um e-mail válido</p>
+                            <p class="help-block" data-ng-message="matchFields">Os e-mails não coincidem</p>
+                        </div>
+                    </div>
 
-          <div class="form-group"
-            data-ng-class="{ 'card-panel' : Partner.signupForm.senha.$invalid
+                    <div class="form-group" data-ng-class="{ 'card-panel' : Partner.signupForm.senha.$invalid
 							&& Partner.signupForm.senha.$touched }">
 
-            <label>Senha</label>
-            <input class="form-control validate"
-              data-ng-model="Partner.data.senha" id="senha"
-              type="password" placeholder="Senha" required name="senha"></input>
+                        <label>Senha</label>
+                        <input class="form-control validate" data-ng-model="Partner.data.senha" id="senha" type="password" placeholder="Senha" required name="senha"></input>
 
-            <!-- Validation messages -->
-            <div class="tt-error-text"
-              data-ng-show="Partner.signupForm.senha.$invalid && Partner.signupForm.senha.$touched"
-              data-ng-messages="Partner.signupForm.senha.$error">
-              <p class="help-block" data-ng-message="required">Campo obrigatório</p>
-            </div>
-          </div>
+                        <!-- Validation messages -->
+                        <div class="tt-error-text" data-ng-show="Partner.signupForm.senha.$invalid && Partner.signupForm.senha.$touched" data-ng-messages="Partner.signupForm.senha.$error">
+                            <p class="help-block" data-ng-message="required">Campo obrigatório</p>
+                        </div>
+                    </div>
 
-          <div class="form-group"
-            data-ng-class="{ 'card-panel' : Partner.signupForm.confirmPassword.$invalid
+                    <div class="form-group" data-ng-class="{ 'card-panel' : Partner.signupForm.confirmPassword.$invalid
 							&& Partner.signupForm.confirmPassword.$touched }">
 
-            <label>Confirme sua Senha</label>
-            <input class="form-control validate"
-              data-ng-model="confirmPassword"
-              match-fields="senha"
-              type="password" placeholder="Confirme sua Senha" required name="confirmPassword"></input>
+                        <label>Confirme sua Senha</label>
+                        <input class="form-control validate" data-ng-model="confirmPassword" match-fields="senha" type="password" placeholder="Confirme sua Senha" required name="confirmPassword"></input>
 
-            <!-- Validation messages -->
-            <div class="tt-error-text"
-              data-ng-show="Partner.signupForm.confirmPassword.$invalid
-								&& Partner.signupForm.confirmPassword.$touched"
-              data-ng-messages="Partner.signupForm.confirmPassword.$error">
-              <p class="help-block" data-ng-message="required">Confirme sua senha</p>
-              <p class="help-block" data-ng-message="matchFields">As senhas não coincidem</p>
+                        <!-- Validation messages -->
+                        <div class="tt-error-text" data-ng-show="Partner.signupForm.confirmPassword.$invalid
+								&& Partner.signupForm.confirmPassword.$touched" data-ng-messages="Partner.signupForm.confirmPassword.$error">
+                            <p class="help-block" data-ng-message="required">Confirme sua senha</p>
+                            <p class="help-block" data-ng-message="matchFields">As senhas não coincidem</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-      </div>
 
-      <div class="col s12 offset-l2 l8">
-        <h5 class="tt-title-bottom">Experiência proffisional</h5>
+            <div class="col s12 offset-l2 l8">
+                <h5 class="tt-title-bottom">Experiência proffisional</h5>
 
-        <br>
+                <br>
 
-        <div class="form-group"
-          data-ng-class="{ 'card-panel' : Partner.signupForm.orgaoemissor.$invalid
+                <div class="form-group" data-ng-class="{ 'card-panel' : Partner.signupForm.orgaoemissor.$invalid
 						&& Partner.signupForm.orgaoemissor.$touched }">
 
-          <label>Órgão emissor</label>
-          <select class="form-control validate tt-no-border"
-            data-ng-model="Partner.data.orgaoemissor"
-            required name="orgaoemissor">
+                    <label>Órgão emissor</label>
+                    <select class="form-control validate tt-no-border" data-ng-model="Partner.data.orgaoemissor" required name="orgaoemissor">
 						<option value="">Selecione...</option>
             <option data-ng-repeat="orgaoemissor in Partner.orgaoEmissorOptions"
 							value="{{orgaoemissor.id}}">{{orgaoemissor.name}}</option>
           </select>
 
-          <!-- Validation messages -->
-          <div class="tt-error-text"
-            data-ng-show="Partner.signupForm.orgaoemissor.$invalid && Partner.signupForm.orgaoemissor.$touched"
-            data-ng-messages="Partner.signupForm.orgaoemissor.$error">
-            <p class="help-block" data-ng-message="required">Campo obrigatório</p>
-          </div>
-        </div>
+                    <!-- Validation messages -->
+                    <div class="tt-error-text" data-ng-show="Partner.signupForm.orgaoemissor.$invalid && Partner.signupForm.orgaoemissor.$touched" data-ng-messages="Partner.signupForm.orgaoemissor.$error">
+                        <p class="help-block" data-ng-message="required">Campo obrigatório</p>
+                    </div>
+                </div>
 
-        <div class="form-group"
-          data-ng-class="{ 'card-panel' : Partner.signupForm.registro.$invalid
+                <div class="form-group" data-ng-class="{ 'card-panel' : Partner.signupForm.registro.$invalid
 						&& Partner.signupForm.registro.$touched }">
 
-          <label for="registro" class="col s5">Ano de registro</label>
-          <input class="form-control validate"
-            data-ng-model="Partner.data.registro" mask="9999"
-            data-ng-pattern="Partner.regexYear"
-            type="text" placeholder="9999" name="registro"></input>
+                    <label for="registro" class="col s5">Ano de registro</label>
+                    <input class="form-control validate" data-ng-model="Partner.data.registro" mask="9999" data-ng-pattern="Partner.regexYear" type="text" placeholder="9999" name="registro"></input>
 
-          <!-- Validation messages -->
-          <div class="tt-error-text"
-            data-ng-show="Partner.signupForm.registro.$invalid && Partner.signupForm.registro.$touched"
-            data-ng-messages="Partner.signupForm.registro.$error">
-            <p class="help-block" data-ng-message="required">Campo obrigatório</p>
-            <p class="help-block" data-ng-message="pattern">Ano inválido</p>
-          </div>
-        </div>
+                    <!-- Validation messages -->
+                    <div class="tt-error-text" data-ng-show="Partner.signupForm.registro.$invalid && Partner.signupForm.registro.$touched" data-ng-messages="Partner.signupForm.registro.$error">
+                        <p class="help-block" data-ng-message="required">Campo obrigatório</p>
+                        <p class="help-block" data-ng-message="pattern">Ano inválido</p>
+                    </div>
+                </div>
 
-        <div class="form-group"
-          data-ng-class="{ 'card-panel' : Partner.signupForm.UF.$invalid
+                <div class="form-group" data-ng-class="{ 'card-panel' : Partner.signupForm.UF.$invalid
 						&& Partner.signupForm.UF.$touched }">
 
-          <label>Estado</label>
-          <select class="form-control validate tt-no-border"
-            data-ng-model="Partner.data.UF"
-            required name="UF">
+                    <label>Estado</label>
+                    <select class="form-control validate tt-no-border" data-ng-model="Partner.data.UF" required name="UF">
 						<option value="">Selecione...</option>
 						<option data-ng-repeat="estado in Partner.estadoOptions"
 							value="{{estado.sigla}}">{{estado.name}}</option>
           </select>
 
-          <!-- Validation messages -->
-          <div class="tt-error-text"
-            data-ng-show="Partner.signupForm.UF.$invalid && Partner.signupForm.UF.$touched"
-            data-ng-messages="Partner.signupForm.UF.$error">
-            <p class="help-block" data-ng-message="required">Selecione estado</p>
-          </div>
-        </div>
+                    <!-- Validation messages -->
+                    <div class="tt-error-text" data-ng-show="Partner.signupForm.UF.$invalid && Partner.signupForm.UF.$touched" data-ng-messages="Partner.signupForm.UF.$error">
+                        <p class="help-block" data-ng-message="required">Selecione estado</p>
+                    </div>
+                </div>
 
 
-        <div class="form-group"
-          data-ng-class="{ 'card-panel' : Partner.signupForm.nr_identificacao.$invalid
+                <div class="form-group" data-ng-class="{ 'card-panel' : Partner.signupForm.nr_identificacao.$invalid
 						&& Partner.signupForm.nr_identificacao.$touched }">
 
-          <label>Número do registro</label>
-          <input class="form-control validate"
-            data-ng-model="Partner.data.nr_identificacao"
-            type="text" placeholder="Número do registro" name="nr_identificacao"></input>
+                    <label>Número do registro</label>
+                    <input class="form-control validate" data-ng-model="Partner.data.nr_identificacao" type="text" placeholder="Número do registro" name="nr_identificacao"></input>
 
-          <!-- Validation messages -->
-          <div class="tt-error-text"
-            data-ng-show="Partner.signupForm.nr_identificacao.$invalid
-							&& Partner.signupForm.nr_identificacao.$touched"
-            data-ng-messages="Partner.signupForm.nr_identificacao.$error">
-            <p class="help-block" data-ng-message="required">Campo obrigatório</p>
-          </div>
-        </div>
+                    <!-- Validation messages -->
+                    <div class="tt-error-text" data-ng-show="Partner.signupForm.nr_identificacao.$invalid
+							&& Partner.signupForm.nr_identificacao.$touched" data-ng-messages="Partner.signupForm.nr_identificacao.$error">
+                        <p class="help-block" data-ng-message="required">Campo obrigatório</p>
+                    </div>
+                </div>
 
-        <div class="form-group"
-          data-ng-class="{ 'card-panel' : Partner.signupForm.atuacao.$invalid
+                <div class="form-group" data-ng-class="{ 'card-panel' : Partner.signupForm.atuacao.$invalid
 						&& Partner.signupForm.atuacao.$touched }">
 
-          <label>Área de atuação</label>
-          <select class="form-control validate tt-no-border"
-            data-ng-model="Partner.data.atuacao"
-            required name="atuacao">
+                    <label>Área de atuação</label>
+                    <select class="form-control validate tt-no-border" data-ng-model="Partner.data.atuacao" required name="atuacao">
 						<option value="">Selecione...</option>
 						<option data-ng-repeat="atuacao in Partner.atuacaoOptions"
 							value="{{atuacao.id}}">{{atuacao.name}}</option>
           </select>
 
-          <!-- Validation messages -->
-          <div class="tt-error-text"
-            data-ng-show="Partner.signupForm.atuacao.$invalid && Partner.signupForm.atuacao.$touched"
-            data-ng-messages="Partner.signupForm.atuacao.$error">
-            <p class="help-block" data-ng-message="required">Selecione área de atuação</p>
-          </div>
-        </div>
+                    <!-- Validation messages -->
+                    <div class="tt-error-text" data-ng-show="Partner.signupForm.atuacao.$invalid && Partner.signupForm.atuacao.$touched" data-ng-messages="Partner.signupForm.atuacao.$error">
+                        <p class="help-block" data-ng-message="required">Selecione área de atuação</p>
+                    </div>
+                </div>
 
 
-        <div class="form-group"
-          data-ng-class="{ 'card-panel' : Partner.signupForm.periodo.$invalid
+                <div class="form-group" data-ng-class="{ 'card-panel' : Partner.signupForm.periodo.$invalid
 						&& Partner.signupForm.periodo.$touched }">
 
-          <label>Período de preferência</label>
-          <select class="form-control validate tt-no-border"
-            data-ng-model="Partner.data.periodo"
-            required name="periodo">
+                    <label>Período de preferência</label>
+                    <select class="form-control validate tt-no-border" data-ng-model="Partner.data.periodo" required name="periodo">
 						<option value="">Selecione...</option>
 						<option data-ng-repeat="periodo in Partner.periodoOptions"
 							value="{{periodo.id}}">{{periodo.name}}</option>
           </select>
 
-          <!-- Validation messages -->
-          <div class="tt-error-text"
-            data-ng-show="Partner.signupForm.periodo.$invalid && Partner.signupForm.periodo.$touched"
-            data-ng-messages="Partner.signupForm.periodo.$error">
-            <p class="help-block" data-ng-message="required">Selecione período de preferência</p>
-          </div>
-        </div>
+                    <!-- Validation messages -->
+                    <div class="tt-error-text" data-ng-show="Partner.signupForm.periodo.$invalid && Partner.signupForm.periodo.$touched" data-ng-messages="Partner.signupForm.periodo.$error">
+                        <p class="help-block" data-ng-message="required">Selecione período de preferência</p>
+                    </div>
+                </div>
 
-        <div class="form-group"
-          data-ng-class="{ 'card-panel' : Partner.signupForm.perfilespecialista.$invalid
+                <div class="form-group" data-ng-class="{ 'card-panel' : Partner.signupForm.perfilespecialista.$invalid
 						&& Partner.signupForm.perfilespecialista.$touched }">
 
-          <label>Perfil preferido de pacientes</label>
-          <select class="form-control validate tt-no-border"
-            data-ng-model="Partner.data.perfilespecialista"
-            required name="perfilespecialista">
+                    <label>Perfil preferido de pacientes</label>
+                    <select class="form-control validate tt-no-border" data-ng-model="Partner.data.perfilespecialista" required name="perfilespecialista">
 						<option value="">Selecione...</option>
 						<option data-ng-repeat="perfilespecialista in Partner.perfilEspecialistaOptions"
 							value="{{perfilespecialista.id}}">{{perfilespecialista.name}}</option>
           </select>
 
-          <!-- Validation messages -->
-          <div class="tt-error-text"
-            data-ng-show="Partner.signupForm.perfilespecialista.$invalid && Partner.signupForm.perfilespecialista.$touched"
-            data-ng-messages="Partner.signupForm.perfilespecialista.$error">
-            <p class="help-block" data-ng-message="required">Selecione perfil de pacientes</p>
-          </div>
-        </div>
+                    <!-- Validation messages -->
+                    <div class="tt-error-text" data-ng-show="Partner.signupForm.perfilespecialista.$invalid && Partner.signupForm.perfilespecialista.$touched" data-ng-messages="Partner.signupForm.perfilespecialista.$error">
+                        <p class="help-block" data-ng-message="required">Selecione perfil de pacientes</p>
+                    </div>
+                </div>
 
-        <div class="form-group"
-          data-ng-class="{ 'card-panel' : Partner.signupForm.habilidade.$invalid
+                <div class="form-group" data-ng-class="{ 'card-panel' : Partner.signupForm.habilidade.$invalid
 						&& Partner.signupForm.habilidade.$touched }">
 
-          <label>Nível habilidade com pacientes</label>
-          <select class="form-control validate tt-no-border"
-            data-ng-model="Partner.data.habilidade"
-            required name="habilidade">
+                    <label>Nível habilidade com pacientes</label>
+                    <select class="form-control validate tt-no-border" data-ng-model="Partner.data.habilidade" required name="habilidade">
 						<option value="">Selecione...</option>
 						<option data-ng-repeat="habilidade in Partner.habilidadeOptions"
 							value="{{habilidade.id}}">{{habilidade.name}}</option>
           </select>
 
-          <!-- Validation messages -->
-          <div class="tt-error-text"
-            data-ng-show="Partner.signupForm.habilidade.$invalid && Partner.signupForm.habilidade.$touched"
-            data-ng-messages="Partner.signupForm.habilidade.$error">
-            <p class="help-block" data-ng-message="required">Selecione habilidade com pacientes</p>
-          </div>
-        </div>
+                    <!-- Validation messages -->
+                    <div class="tt-error-text" data-ng-show="Partner.signupForm.habilidade.$invalid && Partner.signupForm.habilidade.$touched" data-ng-messages="Partner.signupForm.habilidade.$error">
+                        <p class="help-block" data-ng-message="required">Selecione habilidade com pacientes</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="disponibilidade">Disponível para início imediato</label>
+                    <div class="switch">
+                        <label>
+     Não
+     <input type="checkbox" data-ng-model="Partner.data.disponibilidade" name="disponibilidade">
+     <span class="lever"></span>
+     Sim
+   </label>
+                    </div>
+                </div>
 
-        <div class="form-group">
-          <input class="form-control validate"
-            data-ng-model="Partner.data.disponibilidade"
-            type="checkbox" name="disponibilidade">
+            </div>
 
-            <label for="disponibilidade">Disponível para início imediato</label>
-          </input>
-        </div>
-      </div>
-
-      <div class="col s12 offset-l3 l6">
-        <div class="row card-panel"
-          data-ng-show="Partner.signupForm.$invalid">
-          <label>
+            <div class="col s12 offset-l3 l6">
+                <div class="row card-panel" data-ng-show="Partner.signupForm.$invalid">
+                    <label>
             Formulário inválido. Verifique o preenchimento dos campos.
           </label>
-        </div>
-      </div>
+                </div>
+            </div>
 
-      <div class="col s12 offset-l3 l6">
-        <div class="row">
-          <div class="input-field col s12">
-            <button class="btn green waves-effect waves-light col l4 s12
-              tt-blue-background" type="submit" name="action"
-							data-ng-disabled="Partner.signupForm.$invalid || Partner.errorMessage">
+            <div class="col s12 offset-l3 l6">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <button class="btn green waves-effect waves-light col l4 s12
+              tt-blue-background" type="submit" name="action" data-ng-disabled="Partner.signupForm.$invalid || Partner.errorMessage">
 							Cadastrar</button>
 
-            <button class="btn green waves-effect waves-light col offset-l4 col l4 s12
-              tt-blue-background" type="reset" name="reset"
-              data-ng-click="Partner.reset(Partner.signupForm)">Limpar</button>
-          </div>
-        </div>
-      </div>
+                        <button class="btn green waves-effect waves-light col offset-l4 col l4 s12
+              tt-blue-background" type="reset" name="reset" data-ng-click="Partner.reset(Partner.signupForm)">Limpar</button>
+                    </div>
+                </div>
+            </div>
 
-			<div class="progress" data-ng-show="Partner.loading">
-				<div class="indeterminate"></div>
-			</div>
+            <div class="progress" data-ng-show="Partner.loading">
+                <div class="indeterminate"></div>
+            </div>
 
-			<div class="col s12 offset-l3 l6 card-panel tt-error-text">
-				<p class="help-block"
-					data-ng-show="Partner.errorMessage">
-					{{ Partner.errorMessage }}
-				</p>
-			</div>
+            <div class="col s12 offset-l3 l6 card-panel tt-error-text">
+                <p class="help-block" data-ng-show="Partner.errorMessage">
+                    {{ Partner.errorMessage }}
+                </p>
+            </div>
 
-    </form>
-  </div>
+        </form>
+    </div>
 </div>
