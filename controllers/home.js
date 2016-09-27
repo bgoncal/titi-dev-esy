@@ -52,22 +52,7 @@ function HomeController($location, helperService, $cookies, $window,$http) {
       console.log(data);
     }
     console.log($location.$$path);
-    if ($location.$$path == '/') {
-        vm.type = 2;
-        // checks if user is logged in
-        var cookies = $cookies.getObject('globals');
-        if (cookies) {
-            if (cookies.currentUser.perfilID == vm.type) {
-                // redirects to index page according to the user type
-                //var redirectLoggedUser = '/search?refresh=1';
-                //$location.path(redirectLoggedUser);
-                $window.location.href = "#/search";
-                return;
-            } else {
-
-            }
-        }
-    }
+    
 
     function setLoggedMenu(userType) {
         var cookies = $cookies.getObject('globals');

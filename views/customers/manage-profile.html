@@ -40,7 +40,7 @@
             <label>Data de nascimento</label>
             <input class="form-control validate"
               data-ng-model="Customer.form.nascimento"
-               name="nascimento" required></input>
+               name="nascimento" ng-mask="##/##/#####" required></input>
 
             <!-- Validation messages -->
             <div class="tt-error-text"
