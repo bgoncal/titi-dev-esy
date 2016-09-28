@@ -274,8 +274,8 @@
 						&& Partner.submitManageForm.registro.$touched }">
 
           <label for="registro" class="col s5">Ano de registro</label>
-          <input class="form-control validate"
-            data-ng-model="Partner.data.registro" mask="9999" required
+          <input class="form-control "
+            data-ng-model="Partner.data.registro" mask="9999"
             data-ng-pattern="Partner.regexYear"
             type="text" placeholder="9999" name="registro"></input>
 
@@ -315,8 +315,8 @@
 						&& Partner.submitManageForm.nr_identificacao.$touched }">
 
           <label>Número do registro</label>
-          <input class="form-control validate"
-            data-ng-model="Partner.data.nr_identificacao" required
+          <input class="form-control "
+            data-ng-model="Partner.data.nr_identificacao"
             type="text" placeholder="Número do registro" name="nr_identificacao"></input>
 
           <!-- Validation messages -->
@@ -414,14 +414,17 @@
         </div>
 
         <div class="form-group">
-          <input class="form-control validate"
-            data-ng-model="Partner.data.disponibilidade"
-            type="checkbox" name="disponibilidade">
-
             <label for="disponibilidade">Disponível para início imediato</label>
-          </input>
-        </div>
-      </div>
+            <div class="switch">
+                <label>
+                Não
+                <input type="checkbox" data-ng-model="Partner.data.disponibilidade" name="disponibilidade">
+                <span class="lever"></span>
+                Sim
+                </label>
+            </div>
+          </div>
+      <div>
 
 
       <div class="col s12 offset-l3 l6">
