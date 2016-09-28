@@ -228,6 +228,7 @@ function PartnerManageController($http, $window, $location, $cookies, helperServ
         .then(function(res) {
             console.log(res);
             vm.data = res.data[0];
+            vm.data.nascimento = new Date(vm.data.nascimento);
         }, function(err) {
             console.log('error', err);
             $window.location.reload();

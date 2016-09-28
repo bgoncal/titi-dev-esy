@@ -8,7 +8,8 @@ angular
 		'ngMessages',
 		'ngCpfCnpj',
 		'jkAngularRatingStars',
-		'ngMap'
+		'ngMap',
+		'datePicker'
   ])
   .config(routesConfig)
   .config(['$httpProvider', resetHeaders]);

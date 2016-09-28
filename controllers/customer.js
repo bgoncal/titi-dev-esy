@@ -171,6 +171,7 @@ function CustomerManageController($scope, $http, $window, $location, helperServi
         .then(function(res) {
             console.log(res);
             vm.form = res.data[0];
+            vm.form.nascimento = new Date(vm.form.nascimento);
         }, function(err) {
             console.log('error', err);
             $window.location.reload();

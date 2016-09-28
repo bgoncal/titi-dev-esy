@@ -38,9 +38,10 @@
 							&& Customer.ManageForm.nascimento.$touched }">
 
             <label>Data de nascimento</label>
-            <input class="form-control validate"
+            <input class="form-control validate datepicker"
               data-ng-model="Customer.form.nascimento"
-               name="nascimento" ng-mask="##/##/#####" required></input>
+               name="nascimento" type="date" required></input>
+
 
             <!-- Validation messages -->
             <div class="tt-error-text"

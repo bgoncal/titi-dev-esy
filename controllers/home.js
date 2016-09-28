@@ -14,7 +14,6 @@ function routes($routeProvider) {
 
 function HomeController($location, helperService, $cookies, $window,$http) {
     var vm = this;
-
     vm.links = helperService.linkOptions;
     vm.setLoggedMenu = setLoggedMenu;
     vm.partners = helperService.partnerOptions;
@@ -52,7 +51,7 @@ function HomeController($location, helperService, $cookies, $window,$http) {
       console.log(data);
     }
     console.log($location.$$path);
-    
+
 
     function setLoggedMenu(userType) {
         var cookies = $cookies.getObject('globals');
