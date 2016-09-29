@@ -161,11 +161,11 @@ function helperService() {
     {
       id: '4',
       name: 'Fisioterapeuta'
-    },
+    }/*,
     {
       id: '5',
       name: 'Fonoaudiólogo'
-    }
+    }*/
   ];
 
   helper.periodoOptions = [
