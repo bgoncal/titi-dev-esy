@@ -449,6 +449,8 @@ body select {
 }
 
 @media screen and (max-width:840px) {
+
+
     a#logo-container img {
         height: 46px;
         width: auto;
@@ -496,9 +498,21 @@ body select {
     .tt-w-i {
           margin-top: 135px;
     }
-    .logo1 {
+    .tt-lo {
       margin:0px !important;
-      margin-top:5px !important;
+      font-size: 12px !important;
+    }
+    h4.tt-lo {
+      margin-top:23px !important;
+    }
+    #logo-container {
+      width: 68%;
+      float: right;
+    }
+    .logo1 {
+      width: 35px !important;
+      height: 35px !important;
+      margin-top:10px !important;
       margin-right:10px !important;
     }
     .logo2 {
@@ -506,6 +520,8 @@ body select {
       margin-top:5px !important;
 
     }
+
+
 }
 
 @media screen and (max-width:600px) {
