@@ -229,6 +229,13 @@ function PartnerManageController($http, $window, $location, $cookies, helperServ
             console.log(res);
             vm.data = res.data[0];
             vm.data.nascimento = new Date(vm.data.nascimento);
+            if(vm.data.disponibilidade == 1) {
+                vm.data.disponibilidade = true;
+            }
+            else {
+                vm.data.disponibilidade = false;
+            }
+            $scope.apply();
         }, function(err) {
             console.log('error', err);
             $window.location.reload();
