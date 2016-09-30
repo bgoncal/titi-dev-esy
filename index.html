@@ -46,7 +46,7 @@
                 </ul>
 
                 <ul id="nav-mobile" class="side-nav">
-                    <li data-ng-repeat="link in Home.links"><a href="{{link.href}}" onclick=" $('#sidenav-overlay').trigger('click');">{{link.title}}</a></li>
+                    <li data-ng-repeat="link in Home.links" ng-show="Home.setLoggedMenu(link.type)"><a href="{{link.href}}" onclick=" $('#sidenav-overlay').trigger('click');">{{link.title}}</a></li>
                 </ul>
 
                 <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
