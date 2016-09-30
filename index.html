@@ -16,138 +16,138 @@
     <link rel="stylesheet" href="assets/css/angular-datepicker.css">
     <link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Oleo+Script:400,700&subset=latin-ext" rel="stylesheet">
     <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-      ga('create', 'UA-84850577-1', 'auto');
-      ga('send', 'pageview');
+        ga('create', 'UA-84850577-1', 'auto');
+        ga('send', 'pageview');
 
     </script>
     <!-- <base href="/src" /> -->
 </head>
 
 <body data-ng-controller="HomeController as Home" class="tt-new-brown-bg">
-    <div id="nav-bar" z-depth-1>
-        <nav class="tt-nav-bar tt-new-blue-bg" role="navigation">
-            <div class="nav-wrapper">
+<div id="nav-bar" z-depth-1>
+    <nav class="tt-nav-bar tt-new-blue-bg" role="navigation">
+        <div class="nav-wrapper">
 
-                <a id="logo-container" href="#/" class="brand-logo">
+            <a id="logo-container" href="#/" class="brand-logo">
 
 
-                    <img class="left logo1 tt-lo" width="47px" src="assets/images/new-logo-titi.png" style="margin-top:8px;margin-left:10px;" />
-                    <h4 class="small-sub-brand tt-lo left " style="margin-left: 10px;margin-top: 25px;font-size: 16px;">
-                      <b>TITI</b> - Cuidadores cuidadosos</h4>
-                </a>
+                <img class="left logo1 tt-lo" width="47px" src="assets/images/new-logo-titi.png" style="margin-top:8px;margin-left:10px;" />
+                <h4 class="small-sub-brand tt-lo left " style="margin-left: 10px;margin-top: 25px;font-size: 16px;">
+                    <b>TITI</b> - Cuidadores cuidadosos</h4>
+            </a>
 
-                <ul class="right hide-on-med-and-down">
-                    <li data-ng-repeat="link in Home.links" ng-show="Home.setLoggedMenu(link.type)"><a href="{{link.href}}">{{link.title}}</a></li>
-                </ul>
+            <ul class="right hide-on-med-and-down">
+                <li data-ng-repeat="link in Home.links" ng-show="Home.setLoggedMenu(link.type)"><a href="{{link.href}}">{{link.title}}</a></li>
+            </ul>
 
-                <ul id="nav-mobile" class="side-nav">
-                    <li data-ng-repeat="link in Home.links"><a href="{{link.href}}" onclick=" $('#sidenav-overlay').trigger('click');">{{link.title}}</a></li>
-                </ul>
+            <ul id="nav-mobile" class="side-nav">
+                <li data-ng-repeat="link in Home.links"><a href="{{link.href}}" onclick=" $('#sidenav-overlay').trigger('click');">{{link.title}}</a></li>
+            </ul>
 
-                <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
-            </div>
-        </nav>
-    </div>
-
-    <div data-ng-view></div>
-
-    <footer class="tt-footer-background">
-        <div class="footer-copyright">
-
-            <div class="center">
-                <a href="#/terms-of-use">Termos de uso</a> | <a ng-click="Home.contactModal()"> Contato</a> <br><br><br> Copyright © 2016 TITI - Todos os direitos reservados
-            </div>
+            <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
         </div>
-    </footer>
-    <!-- Modal Structure -->
-    <div id="modalContact" class="modal">
-        <form name="Home.contactForm" data-ng-submit="Home.submitContactForm(Home.contactForm)" class="col s12">
-            <div class="modal-content">
+    </nav>
+</div>
+
+<div data-ng-view></div>
+
+<footer class="tt-footer-background">
+    <div class="footer-copyright">
+
+        <div class="center">
+            <a href="#/terms-of-use">Termos de uso</a> | <a ng-click="Home.contactModal()"> Contato</a> <br><br><br> Copyright © 2016 TITI - Todos os direitos reservados
+        </div>
+    </div>
+</footer>
+<!-- Modal Structure -->
+<div id="modalContact" class="modal">
+    <form name="Home.contactForm" data-ng-submit="Home.submitContactForm(Home.contactForm)" class="col s12">
+        <div class="modal-content">
             <h4>Fale Conosco</h4>
             <div class="row">
-              <div class="row">
-                  <div class="input-field col s12">
-                      <input id="name" data-ng-model="Home.contactForm.nome" type="text" class="validate" required="">
-                      <label for="name" >Nome</label>
-                  </div>
-              </div>
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <input id="email" data-ng-model="Home.contactForm.email" type="email" class="validate">
-                            <label for="email" data-error="Email incorreto" data-success="Email Válido">Email</label>
-                        </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="name" data-ng-model="Home.contactForm.nome" type="text" class="validate" required="">
+                        <label for="name" >Nome</label>
                     </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="email" data-ng-model="Home.contactForm.email" type="email" class="validate">
+                        <label for="email" data-error="Email incorreto" data-success="Email Válido">Email</label>
+                    </div>
+                </div>
 
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <textarea id="message" data-ng-model="Home.contactForm.mensagem"  class="validate materialize-textarea" rows="5" required></textarea>
-                            <label for="message">Mensagem</label>
-                        </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <textarea id="message" data-ng-model="Home.contactForm.mensagem"  class="validate materialize-textarea" rows="5" required></textarea>
+                        <label for="message">Mensagem</label>
                     </div>
+                </div>
 
             </div>
         </div>
         <div class="modal-footer">
-          <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Fechar</a>
-          <button class="btn waves-effect waves-light col s12
+            <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Fechar</a>
+            <button class="btn waves-effect waves-light col s12
      valign tt-new-blue-bg" type="submit"  ng-disabled="form.$invalid" name="action" style="margin-right:15px;">
-     Enviar
-  </button>
+                Enviar
+            </button>
 
         </div>
-        </form>
-    </div>
+    </form>
+</div>
 
 
-    <!--  Scripts-->
-    <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script>
-        function getParameterByName(name, url) {
-            if (!url) url = window.location.href;
-            name = name.replace(/[\[\]]/g, "\\$&");
-            var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+<!--  Scripts-->
+<script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+<script>
+    function getParameterByName(name, url) {
+        if (!url) url = window.location.href;
+        name = name.replace(/[\[\]]/g, "\\$&");
+        var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
                 results = regex.exec(url);
-            if (!results) return null;
-            if (!results[2]) return '';
-            return decodeURIComponent(results[2].replace(/\+/g, " "));
-        }
-        $(document).ready(function() {
-            new WOW().init();
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, " "));
+    }
+    $(document).ready(function() {
+        new WOW().init();
 
-        });
-    </script>
-    <script src="assets/js/materialize.min.js"></script>
-    <script src="assets/js/init.js"></script>
-    <script src="//code.angularjs.org/1.5.5/angular.min.js?v=4"></script>
-    <script src="assets/js/ui-bootstrap-tpls-2.1.3.min.js?v=4"></script>
-    <script src="//code.angularjs.org/1.5.5/angular-route.min.js?v=4"></script>
-    <script src="//code.angularjs.org/1.5.5/angular-messages.min.js?v=4"></script>
-    <script src="//code.angularjs.org/1.5.5/angular-cookies.min.js?v=4"></script>
-    <script src="assets/js/ngMask.min.js?v=4"></script>
-    <script src="assets/js/wow.js?v=4"></script>
-    <script src="bower_components/cpf_cnpj/build/cpf.js?v=4"></script>
-    <script src="bower_components/cpf_cnpj/build/cnpj.js?v=4"></script>
-    <script src="bower_components/ng-cpf-cnpj/lib/ngCpfCnpj.js?v=4"></script>
-    <script src="bower_components/angular-jk-rating-stars/dist/jk-rating-stars.js?v=4"></script>
-    <script src="./app.js"></script>
-    <script src="./controllers/partner.js?v=4"></script>
-    <script src="./controllers/home.js?v=4"></script>
-    <script src="./controllers/util.js?v=4"></script>
-    <script src="./controllers/user.js?v=4"></script>
-    <script src="./controllers/customer.js?v=4"></script>
-    <script src="./controllers/search.js?v=4"></script>
-    <script src="./services/auth.js?v=4"></script>
-    <script src="./services/helper.js?v=4"></script>
-    <script src="./services/search.js?v=4"></script>
-    <script src="assets/js/angular-datepicker.js"></script>
-    <script src="bower_components/ngmap/build/scripts/ng-map.min.js"></script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAGM0iDaLpM7L5yVBicQX75H8Xz0WKbBpw&signed_in=true&callback=initMap"></script>
-    <!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAGM0iDaLpM7L5yVBicQX75H8Xz0WKbBpw&callback=initMap"></script>-->
+    });
+</script>
+<script src="assets/js/materialize.min.js"></script>
+<script src="assets/js/init.js"></script>
+<script src="//code.angularjs.org/1.5.5/angular.min.js?v=5"></script>
+<script src="assets/js/ui-bootstrap-tpls-2.1.3.min.js?v=5"></script>
+<script src="//code.angularjs.org/1.5.5/angular-route.min.js?v=5"></script>
+<script src="//code.angularjs.org/1.5.5/angular-messages.min.js?v=5"></script>
+<script src="//code.angularjs.org/1.5.5/angular-cookies.min.js?v=5"></script>
+<script src="assets/js/ngMask.min.js?v=5"></script>
+<script src="assets/js/wow.js?v=5"></script>
+<script src="bower_components/cpf_cnpj/build/cpf.js?v=5"></script>
+<script src="bower_components/cpf_cnpj/build/cnpj.js?v=5"></script>
+<script src="bower_components/ng-cpf-cnpj/lib/ngCpfCnpj.js?v=5"></script>
+<script src="bower_components/angular-jk-rating-stars/dist/jk-rating-stars.js?v=5"></script>
+<script src="./app.js"></script>
+<script src="./controllers/partner.js?v=5"></script>
+<script src="./controllers/home.js?v=5"></script>
+<script src="./controllers/util.js?v=5"></script>
+<script src="./controllers/user.js?v=5"></script>
+<script src="./controllers/customer.js?v=5"></script>
+<script src="./controllers/search.js?v=5"></script>
+<script src="./services/auth.js?v=5"></script>
+<script src="./services/helper.js?v=5"></script>
+<script src="./services/search.js?v=5"></script>
+<script src="assets/js/angular-datepicker.js"></script>
+<script src="bower_components/ngmap/build/scripts/ng-map.min.js"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAGM0iDaLpM7L5yVBicQX75H8Xz0WKbBpw&signed_in=true&callback=initMap"></script>
+<!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAGM0iDaLpM7L5yVBicQX75H8Xz0WKbBpw&callback=initMap"></script>-->
 
 </body>
 
