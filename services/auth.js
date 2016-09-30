@@ -14,7 +14,7 @@ function authService($http, $cookies, $rootScope, $timeout, helperService) {
 
     return service;
 
-    function login(username, password, userType, callback) {
+    function login(username, password, userType, pID, callback) {
 
     // hardcoded authentication for testing, uses $timeout to simulate api call
     // $timeout(function () {
@@ -30,7 +30,10 @@ function authService($http, $cookies, $rootScope, $timeout, helperService) {
     // }, 1000);
 
     // TODO: Use this for real api authentication
-    var data = { email: username, senha: password };
+
+    var data = { email: username,
+								 senha: password,
+						 		 perfilID: pID };
     console.log(data);
 
     var url = helperService.backendUrl + '/cadastro/login.php';

@@ -43,9 +43,17 @@ function UserLoginController($scope, $routeParams, $location, $cookies, authServ
     vm.invalidData = false;
 
     // TODO: login from server. Observe the vm.type to redirect to correct endpoint
-    console.log('Login data', vm.type, data);
+		var perfilId = 0;
+		if(vm.type == "partners") {
+			perfilID = 2;
+		}
+		else {
+			perfilID = 3;
+		}
+		data.perfilID = perfilID;
+		console.log('Login data', vm.type, data);
 
-    authService.login(data.email, data.password, vm.type, function(response) {
+    authService.login(data.email, data.password, vm.type, data.perfilID, function(response) {
       console.log('callback', response);
       if (response.status === 200) {
         var credentialData = {
