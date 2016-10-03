@@ -9,7 +9,8 @@ angular
 		'ngCpfCnpj',
 		'jkAngularRatingStars',
 		'ngMap',
-		'datePicker'
+		'datePicker',
+		'naif.base64'
   ])
   .config(routesConfig)
   .config(['$httpProvider', resetHeaders]);

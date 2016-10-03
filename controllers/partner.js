@@ -187,6 +187,7 @@ function PartnerSignupController($http, $window, $location, helperService) {
 
         data.perfilID = '2';
         data.disponibilidade = data.disponibilidade ? '1' : '0';
+        data.profilePicture = data.profilePicture.base64;
 
         var url = helperService.backendUrl + '/cadastro/usuario_update.php';
 
