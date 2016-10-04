@@ -122,6 +122,9 @@ function PartnerSearchController($routeParams, $location, $http, helperService, 
         .then(function(res) {
             vm.loading = false;
             vm.partners = res.data || [];
+            if(vm.partners.foto != "") {
+              vm.partners.foto = "data:image/png;base64," + vm.partners.foto;
+            }
         }, function(err) {
             console.log('error', err);
             vm.errorMessage = err.statusText || 'Ocorreu um erro. Tente novamente.';
@@ -265,6 +268,9 @@ function PartnerManageController($http, $window, $location, $cookies, helperServ
         data.disponibilidade = data.disponibilidade ? '1' : '0';
         globals = $cookies.getObject('globals');
         data.usuariosID = globals.currentUser.usuariosID;
+        if(data.profilePicture) {
+          data.profilePicture = data.profilePicture.base64;
+        }
         var url = helperService.backendUrl + '/cadastro/usuario_update.php';
 
         vm.loading = true;
