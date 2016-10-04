@@ -122,9 +122,12 @@ function PartnerSearchController($routeParams, $location, $http, helperService, 
         .then(function(res) {
             vm.loading = false;
             vm.partners = res.data || [];
-            if(vm.partners.foto != "") {
-              vm.partners.foto = "data:image/png;base64," + vm.partners.foto;
+            for(var i=0;i<vm.partners.length;i++) {
+              if(vm.partners[i].foto != "") {
+                vm.partners[i].foto = 'data:image/png;base64,' + vm.partners[i].foto;
+              }
             }
+            console.log(vm.partners);
         }, function(err) {
             console.log('error', err);
             vm.errorMessage = err.statusText || 'Ocorreu um erro. Tente novamente.';

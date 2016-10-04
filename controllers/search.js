@@ -65,6 +65,11 @@ function SearchController($cookies, $http, $window, $location, authService, NgMa
                 vm.loading = false;
                 vm.result = res.data;
                 vm.location = res.data[vm.result.length - 1];
+                for(var i=0;i<vm.result.length;i++) {
+                  if(vm.result[i].foto != "") {
+                    vm.result[i].foto = "data:image/png;base64," + vm.result[i].foto;
+                  }
+                }
                 console.log(vm.location);
                 console.log(vm.result);
             }, function (err) {
