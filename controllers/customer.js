@@ -284,6 +284,11 @@ function CustomerRateController($http, $window, $location, $cookies, helperServi
           .then(function(res) {
               vm.loading = false;
               vm.partners = res.data || [];
+              for(var i=0;i<vm.partners.length;i++) {
+                if(vm.partners[i].foto != "") {
+                  vm.partners[i].foto = 'data:image/png;base64,' + vm.partners[i].foto;
+                }
+              }
               console.log(res.data || []);
           }, function(err) {
               console.log('error', err);
