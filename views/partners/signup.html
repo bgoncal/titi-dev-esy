@@ -16,7 +16,8 @@
                     <br>
 
                     <div class="form-group" <label>Foto de perfil</label>
-                        <input class="form-control validate" data-ng-model="Partner.data.profilePicture" type="file" name="profilePicture"></input>
+                        <input class="form-control validate" data-ng-model="Partner.data.profilePicture" type="file" name="profilePicture" base-sixty-four-input maxsize="3000" accept="image/*"></input>
+                        <span ng-show="Partner.data.profilePicture.$error.maxsize">O tamanho máximo da imagem é 2mb</span>
                     </div>
 
                     <div class="form-group" data-ng-class="{ 'card-panel' : Partner.signupForm.nome.$invalid
