@@ -225,8 +225,8 @@ textarea {
         min-height: 500px;
         background-color: #1C2743;
         background-image: url(../images/final-bg.jpg);
-        /*background-size: auto 100%;*/
-        background-position: left center;
+        background-size: 170% auto;
+        background-position: left -390px;
     }
     .tt-round-border {
         border-radius: 0 70px 0 0;
@@ -329,7 +329,7 @@ textarea {
   background-color: #938953;
 }
 .btn, .btn-large {
-  background-color: #938953;
+  background-color: #f3ba3c;
 }
 .btn:hover, .btn-large:hover {
   background-color: #938953;
