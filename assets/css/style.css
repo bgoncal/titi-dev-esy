@@ -10,6 +10,7 @@
 
 a {
     cursor: pointer !important;
+    color: inherit;
 }
 
 nav ul li {
@@ -18,6 +19,13 @@ nav ul li {
 
 nav ul a:hover {
     background-color: rgba(218, 218, 218, 0.11) !important;
+}
+.card-panel-tt-select {
+  padding: 10px !important;
+}
+.card-panel-tt-select:hover {
+  background-color: rgb(47, 76, 141);
+  color: white;
 }
 
 .map-current-test {
