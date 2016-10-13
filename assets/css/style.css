@@ -324,7 +324,12 @@ textarea {
 
 .tt-new-blue-bg  {
     background-color: #2F4C8D !important;
-
+}
+.tt-new-light-blue-bg {
+  background-color: #82a0e8;
+}
+.tt-new-light-orange-bg {
+  background-color: rgba(255, 176, 0, 0.42);
 }
 
 .tt-search-home {
