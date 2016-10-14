@@ -9,8 +9,11 @@ angular
     .controller('CustomerResetController', ['$http', '$window', '$location', '$cookies', 'helperService',
         CustomerResetController
     ])
-    .controller('CustomerRateController', ['$http', '$window', '$location', '$cookies', 'helperService','$scope',
+    .controller('CustomerRateController', ['$http', '$window', '$location', '$cookies', 'helperService', '$scope',
         CustomerRateController
+    ])
+    .controller('TermsConfirmationController', ['$http', '$window', '$location', '$cookies', 'helperService', '$scope', 'authService', '$rootScope',
+        TermsConfirmationController
     ])
     .controller('CustomerController', ['$cookies', '$http', '$window', '$location', 'authService', 'currentSearch', 'helperService', CustomerController])
     .config(['$routeProvider', routes])
@@ -37,6 +40,11 @@ function routes($routeProvider) {
             controller: 'CustomerResetController',
             controllerAs: 'Customer'
         })
+        .when('/termsconf', {
+            templateUrl: 'views/customers/terms.html',
+            controller: 'TermsConfirmationController',
+            controllerAs: 'Customer'
+        })
         .when('/customers/manage', {
             templateUrl: 'views/customers/manage-profile.html',
             controller: 'CustomerManageController',
@@ -49,6 +57,11 @@ function CustomerController($cookies, $http, $window, $location, authService, cu
     vm.atuacaoOptions = helperService.partnerOptions;
     vm.partners = helperService.partnerOptions;
     var cookies = $cookies.getObject('globals');
+    var termos = $cookies.getObject('termos');
+    if(termos != 1) {
+      var termsLink = '/termsconf';
+      $location.path(termsLink);
+    }
     vm.username = cookies.currentUser.username;
     url = helperService.backendUrl + '/cadastro/usuario.php';
     data = {
@@ -75,7 +88,7 @@ function CustomerController($cookies, $http, $window, $location, authService, cu
     vm.submitForm = submitForm;
 
     function submitForm(data) {
-        $window.location.href = "#/search?cep=" + data.cep + "&atuacao=" + data.selectedPartner.id  + "&pacientesID=" + cookies.currentUser.pacientesID;
+        $window.location.href = "#/search?cep=" + data.cep + "&atuacao=" + data.selectedPartner.id + "&pacientesID=" + cookies.currentUser.pacientesID;
     }
 
     function getParameterByName(name, url) {
@@ -267,7 +280,7 @@ function CustomerRateController($http, $window, $location, $cookies, helperServi
     vm.partners = [];
     //vm.getPartnerContact = getPartnerContact;
     vm.getStars = getStars;
-    vm.getEmptyStars =getEmptyStars;
+    vm.getEmptyStars = getEmptyStars;
     vm.openModal = openModal;
     vm.closeModal = closeModal;
     vm.onRating = onRating;
@@ -278,41 +291,44 @@ function CustomerRateController($http, $window, $location, $cookies, helperServi
     var url = helperService.backendUrl + '/relat/pesquisa_historico.php';
     url = url + '?pacientesID=' + globals.currentUser.pacientesID;
     getReviews();
+
     function getReviews() {
-      vm.loading = true;
-      $http.get(url)
-          .then(function(res) {
-              vm.loading = false;
-              vm.partners = res.data || [];
-              for(var i=0;i<vm.partners.length;i++) {
-                if(vm.partners[i].foto != "") {
-                  vm.partners[i].foto = 'data:image/png;base64,' + vm.partners[i].foto;
+        vm.loading = true;
+        $http.get(url)
+            .then(function(res) {
+                vm.loading = false;
+                vm.partners = res.data || [];
+                for (var i = 0; i < vm.partners.length; i++) {
+                    if (vm.partners[i].foto != "") {
+                        vm.partners[i].foto = 'data:image/png;base64,' + vm.partners[i].foto;
+                    }
                 }
-              }
-              console.log(res.data || []);
-          }, function(err) {
-              console.log('error', err);
-              vm.errorMessage = err.statusText || 'Ocorreu um erro. Tente novamente.';
-              vm.loading = false;
-          });
+                console.log(res.data || []);
+            }, function(err) {
+                console.log('error', err);
+                vm.errorMessage = err.statusText || 'Ocorreu um erro. Tente novamente.';
+                vm.loading = false;
+            });
     }
 
     function getStars(number) {
-      number = Math.floor(number);
+        number = Math.floor(number);
         var arr = [];
         for (var i = 0; i < number; i++) {
             arr.push(i);
         }
         return arr;
     }
+
     function getEmptyStars(number) {
-			number = (5 - Math.floor(number));
+        number = (5 - Math.floor(number));
         var arr = [];
         for (var i = 0; i < number; i++) {
             arr.push(i);
         }
         return arr;
-		}
+    }
+
     function openModal(id) {
         angular.element("#modal-" + id).openModal();
         console.log(id);
@@ -320,14 +336,15 @@ function CustomerRateController($http, $window, $location, $cookies, helperServi
 
     function closeModal(id, refresh) {
         angular.element("#modal-" + id).closeModal();
-        if(refresh===1) {
-          $window.location.reload();
+        if (refresh === 1) {
+            $window.location.reload();
         }
         console.log(id);
     }
+
     function onRating(rate) {
-      console.log(rate);
-      currentRate = rate;
+        console.log(rate);
+        currentRate = rate;
     }
 
     function submitRateForm(form, especialistasID) {
@@ -344,7 +361,7 @@ function CustomerRateController($http, $window, $location, $cookies, helperServi
 
                 $window.alert('Classificação Enviada');
                 // Redirect to login
-                closeModal(especialistasID,1);
+                closeModal(especialistasID, 1);
 
             }, function(err) {
                 console.log('error', err);
@@ -355,4 +372,37 @@ function CustomerRateController($http, $window, $location, $cookies, helperServi
 
     }
 
+}
+
+function TermsConfirmationController($http, $window, $location, $cookies, helperService, $scope, authService, $rootScope) {
+    var vm = this;
+    vm.logout = logout;
+    vm.changeTerms = changeTerms;
+    var loginLink = '/users/login/customers';
+    var customers = '/customers';
+
+    function logout() {
+        authService.clearCredentials();
+        $location.path(loginLink);
+    };
+
+    function changeTerms() {
+      var cookies = $cookies.getObject('globals');
+      var data = {
+          "usuariosID": cookies.currentUser.usuariosID,
+          "termos": "1"
+      };
+      url = helperService.backendUrl + '/cadastro/termos_update.php';
+      $http.post(url, data)
+          .then(function(res) {
+              //console.log(res);
+              //vm.data = res.data[0];
+              $cookies.put("termos", "1");
+              $location.path(customers);
+          }, function(err) {
+              console.log('error', err);
+              $cookies.put("termos", "1");
+              $location.path(customers);
+          });
+    }
 }

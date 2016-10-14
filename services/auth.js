@@ -57,12 +57,14 @@ function authService($http, $cookies, $rootScope, $timeout, helperService) {
           usuariosID: data.usuariosID,
 					pacientesID: data.pacientesID,
           authData: authData,
+					termos: data.termos,
           userType: data.userType
         }
       };
 
       $http.defaults.headers.common['Authorization'] = 'Basic ' + authData;
       $cookies.putObject('globals', $rootScope.globals);
+			$cookies.put("termos", data.termos);
     }
 
     function clearCredentials() {

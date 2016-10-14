@@ -62,9 +62,15 @@ function UserLoginController($scope, $routeParams, $location, $cookies, authServ
           perfilID: response.data[0].perfilID,
           usuariosID: response.data[0].usuariosID,
 					pacientesID: response.data[0].pacientesID,
+					termos: response.data[0].termos,
           userType: vm.type
         };
         authService.setCredentials(credentialData);
+				if(response.data[0].termos != "1") {
+					var termsLink = '/termsconf'
+					$location.path(termsLink);
+					return;
+				}
 				if(getParameterByName('cep') != null) {
 					var cookies = $cookies.getObject('globals');
 					  $window.location.href ="#/search?cep=" + getParameterByName('cep') + "&atuacao=" + getParameterByName('atuacao') + "&pacientesID=" + cookies.currentUser.pacientesID;
