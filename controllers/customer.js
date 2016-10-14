@@ -379,7 +379,7 @@ function TermsConfirmationController($http, $window, $location, $cookies, helper
     vm.logout = logout;
     vm.changeTerms = changeTerms;
     var loginLink = '/users/login/customers';
-    var customers = '/customers';
+    var home = '/';
 
     function logout() {
         authService.clearCredentials();
@@ -402,7 +402,7 @@ function TermsConfirmationController($http, $window, $location, $cookies, helper
           }, function(err) {
               console.log('error', err);
               $cookies.put("termos", "1");
-              $location.path(customers);
+              $location.path(home);
           });
     }
 }

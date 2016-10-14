@@ -50,7 +50,11 @@ function PartnerController($cookies, $http, $window, $location, authService, hel
     vm.logout = logout;
     vm.manage = manage;
     vm.resetpass = resetpass;
-
+    var termos = $cookies.getObject('termos');
+    if(termos != 1) {
+      var termsLink = '/termsconf';
+      $location.path(termsLink);
+    }
     var cookies = $cookies.getObject('globals');
     vm.username = cookies.currentUser.username;
     url = helperService.backendUrl + '/cadastro/usuario.php';

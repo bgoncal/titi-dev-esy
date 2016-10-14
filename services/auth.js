@@ -70,6 +70,7 @@ function authService($http, $cookies, $rootScope, $timeout, helperService) {
     function clearCredentials() {
       $rootScope.globals = {};
       $cookies.remove('globals');
+			$cookies.remove('termos');
       //$http.defaults.headers.common.Authorization = 'Basic';
     }
 }
