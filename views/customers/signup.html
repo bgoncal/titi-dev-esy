@@ -217,6 +217,15 @@
                             <p class="help-block" data-ng-message="matchFields">As senhas não coincidem</p>
                         </div>
                     </div>
+                    <div class="form-group">
+                        <p>
+                            <input type="checkbox" id="terms" data-ng-model="Customer.form.termos" class="required validate" required />
+                            <label for="terms">Aceito os <a target="_blank" href="#/terms-of-use" class="blue-text text-blue">Termos de uso</a></label>
+                        </p>
+                        <div class="tt-error-text" data-ng-show="Customer.signupForm.termos.$invalid" data-ng-messages="Customer.signupForm.termos.$error">
+                            <p class="help-block" data-ng-message="required">Campo obrigatório</p>
+                        </div>
+                    </div>
                 </div>
             </div>
 

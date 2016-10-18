@@ -22,9 +22,9 @@
 								{{ PartnerSearch.errorMessage }}
 						</p>
 
-						<button class="btn waves-effect waves-light col s12 tt-blue-background" data-ng-show="PartnerSearch.partners.length > 0" data-ng-click="PartnerSearch.getPartnerContact()" type="button">Obtenha contato dos profissionais</button>
-
-						<div class="card-panel tt-card-search col s12 " data-ng-repeat="partner in PartnerSearch.partners">
+						<!--<button class="btn waves-effect waves-light col s12 tt-blue-background" data-ng-show="PartnerSearch.partners.length > 0" data-ng-click="PartnerSearch.getPartnerContact()" type="button">Obtenha contato dos profissionais</button>
+-->
+						<a data-ng-click="PartnerSearch.getPartnerContact()" data-ng-repeat="partner in PartnerSearch.partners"><div class="card-panel tt-card-search col s12 card-panel-tt-select " >
 
 								<div class="col l2 s4">
 										<img class="tt-img-size-search" ng-src="{{ partner.foto || './assets/images/profile_default.png'}}" alt="Perfil" />
@@ -50,7 +50,7 @@
 												<small data-ng-show="partner.classificacao === '0'">Nenhuma avaliação foi feita</small>
 										</p>
 								</div>
-						</div>
+						</div></a>
 
 						<search-result></search-result>
 
