@@ -131,10 +131,17 @@ function CustomerSignupController($scope, $http, $window, $location, helperServi
     vm.submitSignupForm = submitSignupForm;
 
     function submitSignupForm(form) {
+
         // TODO: submit form to server
         console.log('Customer signup', form);
 
         var data = angular.copy(form);
+
+        if(data.termos == false) {
+          $window.alert('Por favor aceite os termos de uso.');
+          return;
+        }
+
 
         data.perfilID = '3';
         var url = helperService.backendUrl + '/cadastro/paciente_update.php';

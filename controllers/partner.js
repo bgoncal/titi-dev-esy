@@ -195,6 +195,11 @@ function PartnerSignupController($http, $window, $location, helperService) {
 
         var data = angular.copy(form);
 
+        if(data.termos == false) {
+          $window.alert('Por favor aceite os termos de uso.');
+          return;
+        }
+
         data.perfilID = '2';
         data.disponibilidade = data.disponibilidade ? '1' : '0';
         data.profilePicture = data.profilePicture.base64;
