@@ -195,7 +195,7 @@ function PartnerSignupController($http, $window, $location, helperService) {
 
         var data = angular.copy(form);
 
-        if(data.termos == false) {
+        if(data.termos == false || data.termos == null) {
           $window.alert('Por favor aceite os termos de uso.');
           return;
         }
