@@ -131,10 +131,17 @@ function CustomerSignupController($scope, $http, $window, $location, helperServi
     vm.submitSignupForm = submitSignupForm;
 
     function submitSignupForm(form) {
+
         // TODO: submit form to server
         console.log('Customer signup', form);
 
         var data = angular.copy(form);
+
+        if(data.termos == false) {
+          $window.alert('Por favor aceite os termos de uso.');
+          return;
+        }
+
 
         data.perfilID = '3';
         var url = helperService.backendUrl + '/cadastro/paciente_update.php';
@@ -398,7 +405,7 @@ function TermsConfirmationController($http, $window, $location, $cookies, helper
               //console.log(res);
               //vm.data = res.data[0];
               $cookies.put("termos", "1");
-              $location.path(customers);
+              $location.path(home);
           }, function(err) {
               console.log('error', err);
               $cookies.put("termos", "1");
