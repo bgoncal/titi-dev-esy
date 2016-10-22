@@ -405,7 +405,7 @@ function TermsConfirmationController($http, $window, $location, $cookies, helper
               //console.log(res);
               //vm.data = res.data[0];
               $cookies.put("termos", "1");
-              $location.path(customers);
+              $location.path(home);
           }, function(err) {
               console.log('error', err);
               $cookies.put("termos", "1");
