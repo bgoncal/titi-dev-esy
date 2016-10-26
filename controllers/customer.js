@@ -390,7 +390,7 @@ function TermsConfirmationController($http, $window, $location, $cookies, helper
 
     function logout() {
         authService.clearCredentials();
-        $location.path(loginLink);
+        $location.path(home);
     };
 
     function changeTerms() {
