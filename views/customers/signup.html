@@ -10,237 +10,279 @@
         <form name="Customer.signupForm" data-ng-submit="Customer.submitSignupForm(Customer.form)">
 
             <div class="row margin">
-                <div class="col s12 offset-l2 l8">
-                    <h5 class="tt-title-bottom">Informações pessoais</h5>
 
-                    <br>
 
-                    <div class="form-group" data-ng-class="{ 'card-panel' : Customer.signupForm.nome.$invalid
+
+
+
+                <div id="step1" ng-show="Customer.step == 1 || Customer.step == 5">
+                    <div class="col s12 offset-l2 l8">
+                        <h5 class="tt-title-bottom">Informações pessoais</h5>
+
+                        <br>
+
+                        <div class="form-group" data-ng-class="{ 'card-panel' : Customer.signupForm.nome.$invalid
 							&& Customer.signupForm.nome.$touched }">
 
-                        <label>Nome completo</label>
-                        <input class="form-control validate" data-ng-model="Customer.form.nome" type="text" name="nome" placeholder="Nome completo" required></input>
+                            <label>Nome completo</label>
+                            <input class="form-control validate" data-ng-model="Customer.form.nome" type="text" name="nome" placeholder="Nome completo" required></input>
 
-                        <!-- Validation messages -->
-                        <div class="tt-error-text" data-ng-show="Customer.signupForm.nome.$invalid && Customer.signupForm.nome.$touched" data-ng-messages="Customer.signupForm.nome.$error">
-                            <p class="help-block" data-ng-message="required">Campo obrigatório</p>
+                            <!-- Validation messages -->
+                            <div class="tt-error-text" data-ng-show="Customer.signupForm.nome.$invalid && Customer.signupForm.nome.$touched" data-ng-messages="Customer.signupForm.nome.$error">
+                                <p class="help-block" data-ng-message="required">Campo obrigatório</p>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="form-group" data-ng-class="{ 'card-panel' : Customer.signupForm.nascimento.$invalid
+                        <div class="form-group" data-ng-class="{ 'card-panel' : Customer.signupForm.nascimento.$invalid
 							&& Customer.signupForm.nascimento.$touched }">
 
-                        <label>Data de nascimento</label>
-                        <input class="form-control validate" data-ng-model="Customer.form.nascimento" type="date" name="nascimento" required></input>
+                            <label>Data de nascimento</label>
+                            <input class="form-control validate" data-ng-model="Customer.form.nascimento" type="date" name="nascimento" required></input>
 
-                        <!-- Validation messages -->
-                        <div class="tt-error-text" data-ng-show="Customer.signupForm.nascimento.$invalid && Customer.signupForm.nascimento.$touched" data-ng-messages="Customer.signupForm.nascimento.$error">
-                            <p class="help-block" data-ng-message="required">Campo obrigatório</p>
+                            <!-- Validation messages -->
+                            <div class="tt-error-text" data-ng-show="Customer.signupForm.nascimento.$invalid && Customer.signupForm.nascimento.$touched" data-ng-messages="Customer.signupForm.nascimento.$error">
+                                <p class="help-block" data-ng-message="required">Campo obrigatório</p>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="form-group" data-ng-class="{ 'card-panel' : Customer.signupForm.sexo.$invalid
+                        <div class="form-group" data-ng-class="{ 'card-panel' : Customer.signupForm.sexo.$invalid
 							&& Customer.signupForm.sexo.$touched }">
 
-                        <label for="sexo" class="">Sexo</label>
-                        <select data-ng-model="Customer.form.selectedGender" required class="form-control tt-no-border validate" name="sexo">
+                            <label for="sexo" class="">Sexo</label>
+                            <select data-ng-model="Customer.form.selectedGender" required class="form-control tt-no-border validate" name="sexo">
               <option value="">Selecione...</option>
               <option value="F">Feminino</option>
               <option value="M">Masculino</option>
             </select>
 
-                        <!-- Validation messages -->
-                        <div class="tt-error-text" data-ng-show="Customer.signupForm.sexo.$invalid && Customer.signupForm.sexo.$touched" data-ng-messages="Customer.signupForm.sexo.$error">
-                            <p class="help-block" data-ng-message="required">Selecione sexo</p>
+                            <!-- Validation messages -->
+                            <div class="tt-error-text" data-ng-show="Customer.signupForm.sexo.$invalid && Customer.signupForm.sexo.$touched" data-ng-messages="Customer.signupForm.sexo.$error">
+                                <p class="help-block" data-ng-message="required">Selecione sexo</p>
+                            </div>
+                        </div>
+
+                        <div class="form-group step-controls center">
+                            <a ng-show="Customer.step > 1 && Customer.step < 5" class="btn" ng-click="Customer.changeStep(-1)">Anterior</a>
+                            <a ng-show="Customer.step < 4" class="btn" ng-click="Customer.changeStep(1)">Próximo</a>
                         </div>
                     </div>
+                    <div class="clearfix"></div>
+                </div>
 
-                    <div class="form-group">
 
-                        <label>Telefone fixo</label>
-                        <input class="form-control validate" data-ng-model="Customer.form.tel" data-ng-pattern="Customer.regexPhone" type="text" mask="(99) 9999-9999" placeholder="(99) 9999-9999"></input>
-                    </div>
 
-                    <div class="form-group" <label>Telefone celular</label>
-                        <input class="form-control validate" data-ng-model="Customer.form.cel" data-ng-pattern="Customer.regexPhone" type="text" name="cel" mask="(99) 9?9999-9999" placeholder="(99) 99999-9999"></input>
-                    </div>
+                <div id="step2" ng-show="Customer.step == 2 || Customer.step == 5">
 
-                    <div class="form-group" data-ng-class="{ 'card-panel' : Customer.signupForm.cpf_cnpj.$invalid
+                    <div class="col s12 offset-l2 l8">
+                        <div class="form-group">
+
+                            <label>Telefone fixo</label>
+                            <input class="form-control validate" data-ng-model="Customer.form.tel" data-ng-pattern="Customer.regexPhone" type="text" mask="(99) 9999-9999" placeholder="(99) 9999-9999"></input>
+                        </div>
+
+                        <div class="form-group" <label>Telefone celular</label>
+                            <input class="form-control validate" data-ng-model="Customer.form.cel" data-ng-pattern="Customer.regexPhone" type="text" name="cel" mask="(99) 9?9999-9999" placeholder="(99) 99999-9999"></input>
+                        </div>
+
+                        <div class="form-group" data-ng-class="{ 'card-panel' : Customer.signupForm.cpf_cnpj.$invalid
 							&& Customer.signupForm.cpf_cnpj.$touched }">
 
-                        <label>CPF</label>
-                        <input class="form-control validate" data-ng-model="Customer.form.cpf_cnpj" mask="999.999.999-99" ng-cpf_cnpj type="text" name="cpf_cnpj" placeholder="999.999.999-99" required></input>
+                            <label>CPF</label>
+                            <input class="form-control validate" data-ng-model="Customer.form.cpf_cnpj" mask="999.999.999-99" ng-cpf_cnpj type="text" name="cpf_cnpj" placeholder="999.999.999-99" required></input>
 
-                        <!-- Validation messages -->
-                        <div class="tt-error-text" data-ng-show="Customer.signupForm.cpf_cnpj.$invalid && Customer.signupForm.cpf_cnpj.$touched" data-ng-messages="Customer.signupForm.cpf_cnpj.$error">
-                            <p data-ng-message="required">Campo obrigatório</p>
-                            <p data-ng-message="cpf_cnpj">CPF inválido</p>
+                            <!-- Validation messages -->
+                            <div class="tt-error-text" data-ng-show="Customer.signupForm.cpf_cnpj.$invalid && Customer.signupForm.cpf_cnpj.$touched" data-ng-messages="Customer.signupForm.cpf_cnpj.$error">
+                                <p data-ng-message="required">Campo obrigatório</p>
+                                <p data-ng-message="cpf_cnpj">CPF inválido</p>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="form-group" data-ng-class="{ 'card-panel' : Customer.signupForm.rg.$invalid
+                        <div class="form-group" data-ng-class="{ 'card-panel' : Customer.signupForm.rg.$invalid
 							&& Customer.signupForm.rg.$touched }">
 
-                        <label>RG</label>
-                        <input class="form-control validate" data-ng-model="Customer.form.rg" type="text" name="rg" placeholder="RG" required></input>
+                            <label>RG</label>
+                            <input class="form-control validate" data-ng-model="Customer.form.rg" type="text" name="rg" placeholder="RG" required></input>
 
-                        <!-- Validation messages -->
-                        <div class="tt-error-text" data-ng-show="Customer.signupForm.rg.$invalid && Customer.signupForm.rg.$touched" data-ng-messages="Customer.signupForm.rg.$error">
-                            <p class="help-block" data-ng-message="required">Campo obrigatório</p>
+                            <!-- Validation messages -->
+                            <div class="tt-error-text" data-ng-show="Customer.signupForm.rg.$invalid && Customer.signupForm.rg.$touched" data-ng-messages="Customer.signupForm.rg.$error">
+                                <p class="help-block" data-ng-message="required">Campo obrigatório</p>
+                            </div>
+                        </div>
+
+                        <div class="form-group step-controls center">
+                            <a ng-show="Customer.step > 1 && Customer.step < 5" class="btn" ng-click="Customer.changeStep(-1)">Anterior</a>
+                            <a ng-show="Customer.step < 4" class="btn" ng-click="Customer.changeStep(1)">Próximo</a>
                         </div>
                     </div>
                 </div>
+                <div id="step3" ng-show="Customer.step == 3 || Customer.step == 5">
+                    <div class="col s12 offset-l2 l8">
+                        <h5 class="tt-title-bottom">Informações residenciais</h5>
 
+                        <br>
+                        <div class="form-group" data-ng-class="{ 'card-panel' : Customer.signupForm.cep.$invalid && Customer.signupForm.cep.$touched }">
 
-                <div class="col s12 offset-l2 l8">
-                    <h5 class="tt-title-bottom">Informações residenciais</h5>
+                            <label>CEP</label>
+                            <input id="cep" class="form-control validate" via-cep="cep" data-ng-model="Customer.form.cep" mask="99999-999" data-ng-pattern="Customer.regexCEP" type="text" placeholder="99999-999" required name="cep"></input>
 
-                    <br>
+                            <!-- Validation messages -->
+                            <div class="tt-error-text" data-ng-show="Customer.signupForm.cep.$invalid && Customer.signupForm.cep.$touched" data-ng-messages="Customer.signupForm.cep.$error">
+                                <p data-ng-message="required">Campo obrigatório</p>
+                                <p data-ng-message="pattern">CEP inválido</p>
+                            </div>
+                        </div>
 
-                    <div class="form-group" data-ng-class="{ 'card-panel' : Customer.signupForm.endereco.$invalid
+                        <div class="clearfix"></div>
+                        <br><br>
+                        <div class="form-group" data-ng-class="{ 'card-panel' : Customer.signupForm.endereco.$invalid
 							&& Customer.signupForm.endereco.$touched }">
 
-                        <label>Endereço completo</label>
-                        <input class="form-control validate" data-ng-model="Customer.form.endereco" type="text" name="endereco" placeholder="Endereço completo" required></input>
+                            <label>Endereço completo</label>
+                            <input class="form-control validate" via-cep="logradouro" data-ng-model="Customer.form.endereco" type="text" name="endereco" placeholder="Endereço completo" required></input>
 
-                        <!-- Validation messages -->
-                        <div class="tt-error-text" data-ng-show="Customer.signupForm.endereco.$invalid && Customer.signupForm.endereco.$touched" data-ng-messages="Customer.signupForm.endereco.$error">
-                            <p class="help-block" data-ng-message="required">Campo obrigatório</p>
+                            <!-- Validation messages -->
+                            <div class="tt-error-text" data-ng-show="Customer.signupForm.endereco.$invalid && Customer.signupForm.endereco.$touched" data-ng-messages="Customer.signupForm.endereco.$error">
+                                <p class="help-block" data-ng-message="required">Campo obrigatório</p>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="form-group" data-ng-class="{ 'card-panel' : Customer.signupForm.bairro.$invalid
+                        <div class="form-group" data-ng-class="{ 'card-panel' : Customer.signupForm.bairro.$invalid
 							&& Customer.signupForm.bairro.$touched }">
 
-                        <label>Bairro</label>
+                            <label>Bairro</label>
 
-                        <input class="form-control validate" data-ng-model="Customer.form.bairro" type="text" placeholder="Bairro" required name="bairro"></input>
+                            <input class="form-control validate" via-cep="bairro" data-ng-model="Customer.form.bairro" type="text" placeholder="Bairro" required name="bairro"></input>
 
-                        <!-- Validation messages -->
-                        <div class="tt-error-text" data-ng-show="Customer.signupForm.bairro.$invalid && Customer.signupForm.bairro.$touched" data-ng-messages="Customer.signupForm.bairro.$error">
-                            <p class="help-block" data-ng-message="required">Campo obrigatório</p>
+                            <!-- Validation messages -->
+                            <div class="tt-error-text" data-ng-show="Customer.signupForm.bairro.$invalid && Customer.signupForm.bairro.$touched" data-ng-messages="Customer.signupForm.bairro.$error">
+                                <p class="help-block" data-ng-message="required">Campo obrigatório</p>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="form-group" data-ng-class="{ 'card-panel' : Customer.signupForm.cep.$invalid && Customer.signupForm.cep.$touched }">
 
-                        <label>CEP</label>
-                        <input class="form-control validate" data-ng-model="Customer.form.cep" mask="99999-999" data-ng-pattern="Customer.regexCEP" type="text" placeholder="99999-999" required name="cep"></input>
 
-                        <!-- Validation messages -->
-                        <div class="tt-error-text" data-ng-show="Customer.signupForm.cep.$invalid && Customer.signupForm.cep.$touched" data-ng-messages="Customer.signupForm.cep.$error">
-                            <p data-ng-message="required">Campo obrigatório</p>
-                            <p data-ng-message="pattern">CEP inválido</p>
-                        </div>
-                    </div>
-
-                    <div class="form-group" data-ng-class="{ 'card-panel' : Customer.signupForm.cidade.$invalid
+                        <div class="form-group" data-ng-class="{ 'card-panel' : Customer.signupForm.cidade.$invalid
 							&& Customer.signupForm.cidade.$touched }">
 
-                        <label>Cidade</label>
-                        <input class="form-control validate" data-ng-model="Customer.form.cidade" type="text" placeholder="Cidade" required name="cidade"></input>
+                            <label>Cidade</label>
+                            <input class="form-control validate" via-cep="localidade" data-ng-model="Customer.form.cidade" type="text" placeholder="Cidade" required name="cidade"></input>
 
-                        <!-- Validation messages -->
-                        <div class="tt-error-text" data-ng-show="Customer.signupForm.cidade.$invalid && Customer.signupForm.cidade.$touched" data-ng-messages="Customer.signupForm.cidade.$error">
-                            <p class="help-block" data-ng-message="required">Campo obrigatório</p>
+                            <!-- Validation messages -->
+                            <div class="tt-error-text" data-ng-show="Customer.signupForm.cidade.$invalid && Customer.signupForm.cidade.$touched" data-ng-messages="Customer.signupForm.cidade.$error">
+                                <p class="help-block" data-ng-message="required">Campo obrigatório</p>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="form-group" data-ng-class="{ 'card-panel' : Customer.signupForm.estado.$invalid
+                        <div class="form-group" data-ng-class="{ 'card-panel' : Customer.signupForm.estado.$invalid
 							&& Customer.signupForm.estado.$touched }">
 
-                        <label>Estado</label>
-                        <select class="form-control tt-no-border" data-ng-model="Customer.form.selectedState" data-ng-options="state.name for state in Customer.states" required name="estado">
+                            <label>Estado</label>
+                            <!--<select class="form-control tt-no-border" via-cep="uf" data-ng-model="Customer.form.selectedState" data-ng-options="state.name for state in Customer.states" required name="estado">
               <option value="">Selecione...</option>
-            </select>
+            </select>-->
+            <input class="form-control validate" disabled via-cep="uf" data-ng-model="Customer.form.selectedState" type="text" placeholder="Estado" required name="estado"></input>
 
-                        <!-- Validation messages -->
-                        <div class="tt-error-text" data-ng-show="Customer.signupForm.estado.$invalid && Customer.signupForm.estado.$touched" data-ng-messages="Customer.signupForm.city.$error">
-                            <p class="help-block" data-ng-message="required">Campo obrigatório</p>
+
+                            <!-- Validation messages -->
+                            <div class="tt-error-text" data-ng-show="Customer.signupForm.estado.$invalid && Customer.signupForm.estado.$touched" data-ng-messages="Customer.signupForm.city.$error">
+                                <p class="help-block" data-ng-message="required">Campo obrigatório</p>
+                            </div>
+                        </div>
+                        <div class="form-group step-controls center">
+                            <a ng-show="Customer.step > 1 && Customer.step < 5" class="btn" ng-click="Customer.changeStep(-1)">Anterior</a>
+                            <a ng-show="Customer.step < 4" class="btn" ng-click="Customer.changeStep(1)">Próximo</a>
                         </div>
                     </div>
 
                 </div>
 
+                <div id="step4" ng-show="Customer.step == 4 || Customer.step == 5">
+                    <div class="col s12 offset-l2 l8">
+                        <h5 class="tt-title-bottom">Informações de login</h5>
 
-                <div class="col s12 offset-l2 l8">
-                    <h5 class="tt-title-bottom">Informações de login</h5>
+                        <br>
 
-                    <br>
+                        <div class="form-group" data-ng-class="{ 'card-panel' : Customer.signupForm.email.$invalid && Customer.signupForm.email.$touched }">
 
-                    <div class="form-group" data-ng-class="{ 'card-panel' : Customer.signupForm.email.$invalid && Customer.signupForm.email.$touched }">
+                            <label>Email</label>
+                            <input class="form-control validate" data-ng-model="Customer.form.email" id="email" type="email" placeholder="Email" required name="email"></input>
 
-                        <label>Email</label>
-                        <input class="form-control validate" data-ng-model="Customer.form.email" id="email" type="email" placeholder="Email" required name="email"></input>
-
-                        <!-- Validation messages -->
-                        <div class="tt-error-text" data-ng-show="Customer.signupForm.email.$invalid && Customer.signupForm.email.$touched" data-ng-messages="Customer.signupForm.email.$error">
-                            <p class="help-block" data-ng-message="required">Campo obrigatório</p>
-                            <p class="help-block" data-ng-message="email">Digite um e-mail válido</p>
+                            <!-- Validation messages -->
+                            <div class="tt-error-text" data-ng-show="Customer.signupForm.email.$invalid && Customer.signupForm.email.$touched" data-ng-messages="Customer.signupForm.email.$error">
+                                <p class="help-block" data-ng-message="required">Campo obrigatório</p>
+                                <p class="help-block" data-ng-message="email">Digite um e-mail válido</p>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="form-group" data-ng-class="{ 'card-panel' : Customer.signupForm.confirmEmail.$invalid && Customer.signupForm.confirmEmail.$touched }">
+                        <div class="form-group" data-ng-class="{ 'card-panel' : Customer.signupForm.confirmEmail.$invalid && Customer.signupForm.confirmEmail.$touched }">
 
-                        <label>Confirme seu Email</label>
-                        <input class="form-control validate" data-ng-model="confirmEmail" match-fields="email" type="email" placeholder="Confirme seu Email" required name="confirmEmail"></input>
+                            <label>Confirme seu Email</label>
+                            <input class="form-control validate" data-ng-model="confirmEmail" match-fields="email" type="email" placeholder="Confirme seu Email" required name="confirmEmail"></input>
 
-                        <!-- Validation messages -->
-                        <div class="tt-error-text" data-ng-show="Customer.signupForm.confirmEmail.$invalid && Customer.signupForm.confirmEmail.$touched" data-ng-messages="Customer.signupForm.confirmEmail.$error">
-                            <p class="help-block" data-ng-message="required">Confirme seu e-mail</p>
-                            <p class="help-block" data-ng-message="email">Digite um e-mail válido</p>
-                            <p class="help-block" data-ng-message="matchFields">Os e-mails não coincidem</p>
+                            <!-- Validation messages -->
+                            <div class="tt-error-text" data-ng-show="Customer.signupForm.confirmEmail.$invalid && Customer.signupForm.confirmEmail.$touched" data-ng-messages="Customer.signupForm.confirmEmail.$error">
+                                <p class="help-block" data-ng-message="required">Confirme seu e-mail</p>
+                                <p class="help-block" data-ng-message="email">Digite um e-mail válido</p>
+                                <p class="help-block" data-ng-message="matchFields">Os e-mails não coincidem</p>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="form-group" data-ng-class="{ 'card-panel' : Customer.signupForm.senha.$invalid
+                        <div class="form-group" data-ng-class="{ 'card-panel' : Customer.signupForm.senha.$invalid
 							&& Customer.signupForm.senha.$touched }">
 
-                        <label>Senha</label>
-                        <input class="form-control validate" data-ng-model="Customer.form.senha" id="senha" type="password" placeholder="Senha" required name="senha"></input>
+                            <label>Senha</label>
+                            <input class="form-control validate" data-ng-model="Customer.form.senha" id="senha" type="password" placeholder="Senha" required name="senha"></input>
 
-                        <!-- Validation messages -->
-                        <div class="tt-error-text" data-ng-show="Customer.signupForm.senha.$invalid && Customer.signupForm.senha.$touched" data-ng-messages="Customer.signupForm.senha.$error">
-                            <p class="help-block" data-ng-message="required">Campo obrigatório</p>
+                            <!-- Validation messages -->
+                            <div class="tt-error-text" data-ng-show="Customer.signupForm.senha.$invalid && Customer.signupForm.senha.$touched" data-ng-messages="Customer.signupForm.senha.$error">
+                                <p class="help-block" data-ng-message="required">Campo obrigatório</p>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="form-group" data-ng-class="{ 'card-panel' : Customer.signupForm.confirmPassword.$invalid
+                        <div class="form-group" data-ng-class="{ 'card-panel' : Customer.signupForm.confirmPassword.$invalid
 							&& Customer.signupForm.confirmPassword.$touched }">
 
-                        <label>Confirme sua Senha</label>
-                        <input class="form-control validate" data-ng-model="confirmPassword" match-fields="senha" type="password" placeholder="Confirme sua Senha" required name="confirmPassword"></input>
+                            <label>Confirme sua Senha</label>
+                            <input class="form-control validate" data-ng-model="confirmPassword" match-fields="senha" type="password" placeholder="Confirme sua Senha" required name="confirmPassword"></input>
 
-                        <!-- Validation messages -->
-                        <div class="tt-error-text" data-ng-show="Customer.signupForm.confirmPassword.$invalid && Customer.signupForm.confirmPassword.$touched" data-ng-messages="Customer.signupForm.confirmPassword.$error">
-                            <p class="help-block" data-ng-message="required">Confirme sua senha</p>
-                            <p class="help-block" data-ng-message="matchFields">As senhas não coincidem</p>
+                            <!-- Validation messages -->
+                            <div class="tt-error-text" data-ng-show="Customer.signupForm.confirmPassword.$invalid && Customer.signupForm.confirmPassword.$touched" data-ng-messages="Customer.signupForm.confirmPassword.$error">
+                                <p class="help-block" data-ng-message="required">Confirme sua senha</p>
+                                <p class="help-block" data-ng-message="matchFields">As senhas não coincidem</p>
+                            </div>
+                        </div>
+                        <div class="form-group" data-ng-class="{ 'card-panel' : Customer.signupForm.termos.$invalid }">
+                            <p>
+                                <input type="checkbox" id="terms" data-ng-model="Customer.form.termos" />
+                                <label for="terms">Aceito os <a target="_blank" href="#/terms-of-use" class="blue-text text-blue">Termos de uso</a></label>
+                            </p>
+
+                        </div>
+                        <div class="form-group step-controls center">
+                            <a ng-show="Customer.step > 1 && Customer.step < 5" class="btn" ng-click="Customer.changeStep(-1)">Anterior</a>
+                            <a ng-show="Customer.step < 4" class="btn" ng-click="Customer.changeStep(1)">Próximo</a>
+                            <a ng-show="Customer.step == 4" class="btn" ng-click="Customer.changeStep(1)">Conferir</a>
                         </div>
                     </div>
-                    <div class="form-group" data-ng-class="{ 'card-panel' : Customer.signupForm.termos.$invalid }">
-                        <p>
-                            <input type="checkbox" id="terms" data-ng-model="Customer.form.termos"  />
-                            <label for="terms">Aceito os <a target="_blank" href="#/terms-of-use" class="blue-text text-blue">Termos de uso</a></label>
-                        </p>
+                    <div class="col s12 offset-l2 l8" ng-show="Customer.step == 5">
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <button class="btn green waves-effect waves-light col l4 s12
+                  tt-blue-background" type="submit" name="action">Cadastrar</button>
 
+                                <button class="btn green waves-effect waves-light col offset-l4 col l4 s12
+                  tt-blue-background" type="reset" name="reset" data-ng-click="Customer.reset(Customer.signupForm)">Limpar</button>
+
+                            </div>
+                        </div>
                     </div>
+
                 </div>
             </div>
 
 
 
-            <div class="col s12 offset-l2 l8">
-                <div class="row">
-                    <div class="input-field col s12">
-                        <button class="btn green waves-effect waves-light col l4 s12
-              tt-blue-background" type="submit" name="action">Cadastrar</button>
 
-                        <button class="btn green waves-effect waves-light col offset-l4 col l4 s12
-              tt-blue-background" type="reset" name="reset" data-ng-click="Customer.reset(Customer.signupForm)">Limpar</button>
-
-                    </div>
-                </div>
-            </div>
             <div class="row">
                 <div class="progress" data-ng-show="Customer.loading">
                     <div class="indeterminate"></div>

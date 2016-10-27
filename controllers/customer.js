@@ -1,7 +1,7 @@
 angular
     .module('titi')
     .controller('CustomerSignupController', ['$scope', '$http', '$window',
-        '$location', 'helperService', CustomerSignupController
+        '$location', 'helperService', 'Facebook', CustomerSignupController
     ])
     .controller('CustomerManageController', ['$scope', '$http', '$window',
         '$location', 'helperService', '$cookies', CustomerManageController
@@ -58,9 +58,9 @@ function CustomerController($cookies, $http, $window, $location, authService, cu
     vm.partners = helperService.partnerOptions;
     var cookies = $cookies.getObject('globals');
     var termos = $cookies.getObject('termos');
-    if(termos != 1) {
-      var termsLink = '/termsconf';
-      $location.path(termsLink);
+    if (termos != 1) {
+        var termsLink = '/termsconf';
+        $location.path(termsLink);
     }
     vm.username = cookies.currentUser.username;
     url = helperService.backendUrl + '/cadastro/usuario.php';
@@ -125,58 +125,149 @@ function CustomerController($cookies, $http, $window, $location, authService, cu
     };
 }
 
-function CustomerSignupController($scope, $http, $window, $location, helperService) {
-    var vm = this;
+function CustomerSignupController($scope, $http, $window, $location, helperService, Facebook) {
 
-    vm.submitSignupForm = submitSignupForm;
+    // Define user empty data :/
+    $scope.user = {};
 
-    function submitSignupForm(form) {
+    // Defining user logged status
+    $scope.logged = false;
 
-        // TODO: submit form to server
-        console.log('Customer signup', form);
+    // And some fancy flags to display messages upon user status change
+    $scope.byebye = false;
+    $scope.salutation = false;
 
-        var data = angular.copy(form);
-
-        if(data.termos == false || data.termos == null) {
-          $window.alert('Por favor aceite os termos de uso.');
-          return;
+    /**
+     * Watch for Facebook to be ready.
+     * There's also the event that could be used
+     */
+    $scope.$watch(
+        function() {
+            return Facebook.isReady();
+        },
+        function(newVal) {
+            if (newVal)
+                $scope.facebookReady = true;
         }
+    );
 
+    /**
+     * IntentLogin
+     */
+    $scope.IntentLogin = function() {
+        Facebook.getLoginStatus(function(response) {
+            if (response.status == 'connected') {
+                $scope.logged = true;
+                $scope.me();
+            } else
+                $scope.login();
+        });
+    };
 
-        data.perfilID = '3';
-        var url = helperService.backendUrl + '/cadastro/paciente_update.php';
+    /**
+     * Login
+     */
+    $scope.login = function() {
+        Facebook.login(function(response) {
+            if (response.status == 'connected') {
+                $scope.logged = true;
+                $scope.me();
+            }
 
-        vm.loading = true;
-        $http.post(url, data)
-            .then(function(res) {
-                console.log('succeess', res);
-                vm.loading = false;
-                $window.alert('Usuário cadastrado com sucesso. Faça login para continuar.');
-                // Redirect to login
-                $location.path('/users/login/customers');
-            }, function(err) {
-                console.log('error', err);
-                vm.errorMessage = err.statusText || 'Ocorreu um erro. Tente novamente.';
-                $window.alert('Ops! Não foi possível efetuar seu cadastro');
-                vm.loading = false;
+        });
+    };
+
+    /**
+     * me
+     */
+    $scope.me = function() {
+        Facebook.api('/me?fields=name,email,age_range,gender,locale',{fields: 'email,name,gender,locale,age_range'}, function(response) {
+            $scope.$apply(function() {
+                $scope.user = response;
+                console.log(response);
             });
-        console.log(data);
+        });
+    };
+
+
+    /**
+     * Taking approach of Events
+     */
+    $scope.$on('Facebook:statusChange', function(ev, data) {
+        console.log('Status: ', data);
+        if (data.status == 'connected') {
+            $scope.$apply(function() {
+              console.log("logou");
+              $scope.me();
+            });
+        } else {
+            $scope.$apply(function() {
+                console.log("Não Logou");
+            });
+        }
+    });
+
+
+//$scope.IntentLogin();
+
+
+$scope.getLoginStatus();
+var vm = this;
+vm.step = 1;
+vm.submitSignupForm = submitSignupForm;
+vm.changeStep = changeStep;
+
+function changeStep(stepNum) {
+    vm.step = vm.step + stepNum;
+}
+
+function submitSignupForm(form) {
+
+    // TODO: submit form to server
+    console.log('Customer signup', form);
+
+    var data = angular.copy(form);
+
+    if (data.termos == false || data.termos == null) {
+        $window.alert('Por favor aceite os termos de uso.');
+        return;
     }
 
-    vm.regexCEP = helperService.regex.CEP;
-    vm.regexPhone = helperService.regex.phone;
-    vm.regexYear = helperService.regex.year;
 
-    vm.states = helperService.UFOptions;
+    data.perfilID = '3';
+    var url = helperService.backendUrl + '/cadastro/paciente_update.php';
 
-    vm.reset = function(form) {
-        console.log('reset form');
-        if (form) {
-            form.$setPristine();
-            form.$setUntouched();
-        }
-        $scope.Customer.form = angular.copy($scope.master);
-    };
+    vm.loading = true;
+    $http.post(url, data)
+        .then(function(res) {
+            console.log('succeess', res);
+            vm.loading = false;
+            $window.alert('Usuário cadastrado com sucesso. Faça login para continuar.');
+            // Redirect to login
+            $location.path('/users/login/customers');
+        }, function(err) {
+            console.log('error', err);
+            vm.errorMessage = err.statusText || 'Ocorreu um erro. Tente novamente.';
+            $window.alert('Ops! Não foi possível efetuar seu cadastro');
+            vm.loading = false;
+        });
+    console.log(data);
+}
+
+vm.regexCEP = helperService.regex.CEP;
+vm.regexPhone = helperService.regex.phone;
+vm.regexYear = helperService.regex.year;
+
+vm.states = helperService.UFOptions;
+
+vm.reset = function(form) {
+    console.log('reset form');
+    if (form) {
+        form.$setPristine();
+        form.$setUntouched();
+    }
+    $scope.Customer.form = angular.copy($scope.master);
+};
 
 }
 
@@ -394,22 +485,22 @@ function TermsConfirmationController($http, $window, $location, $cookies, helper
     };
 
     function changeTerms() {
-      var cookies = $cookies.getObject('globals');
-      var data = {
-          "usuariosID": cookies.currentUser.usuariosID,
-          "termos": "1"
-      };
-      url = helperService.backendUrl + '/cadastro/termos_update.php';
-      $http.post(url, data)
-          .then(function(res) {
-              //console.log(res);
-              //vm.data = res.data[0];
-              $cookies.put("termos", "1");
-              $location.path(home);
-          }, function(err) {
-              console.log('error', err);
-              $cookies.put("termos", "1");
-              $location.path(home);
-          });
+        var cookies = $cookies.getObject('globals');
+        var data = {
+            "usuariosID": cookies.currentUser.usuariosID,
+            "termos": "1"
+        };
+        url = helperService.backendUrl + '/cadastro/termos_update.php';
+        $http.post(url, data)
+            .then(function(res) {
+                //console.log(res);
+                //vm.data = res.data[0];
+                $cookies.put("termos", "1");
+                $location.path(home);
+            }, function(err) {
+                console.log('error', err);
+                $cookies.put("termos", "1");
+                $location.path(home);
+            });
     }
 }
