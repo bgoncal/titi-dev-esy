@@ -210,8 +210,6 @@ function CustomerSignupController($scope, $http, $window, $location, helperServi
 
 //$scope.IntentLogin();
 
-
-$scope.getLoginStatus();
 var vm = this;
 vm.step = 1;
 vm.submitSignupForm = submitSignupForm;
