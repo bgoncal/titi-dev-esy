@@ -16,7 +16,7 @@
                     <br>
 
                     <div class="form-group" <label>Foto de perfil</label>
-                        <input class="form-control validate" data-ng-model="Partner.data.profilePicture" type="file" name="profilePicture" base-sixty-four-input maxsize="3000" accept="image/*"></input>
+                        <input required class="form-control validate" data-ng-model="Partner.data.profilePicture" type="file" name="profilePicture" base-sixty-four-input maxsize="3000" accept="image/*"></input>
                         <span ng-show="Partner.data.profilePicture.$error.maxsize">O tamanho máximo da imagem é 2mb</span>
                     </div>
 
@@ -371,29 +371,33 @@
 
 
 
-                <div class="form-group" data-ng-class="{ 'card-panel' : Partner.signupForm.experiencia.$invalid
-                && Partner.signupForm.experiencia.$touched }">
-                    <label>Experiência</label>
-                    <textarea class="form-control validate" style="min-height:0px;" data-ng-model="Partner.data.experiencia" type="text" placeholder="Experiência" required name="experiencia" maxlength="140"></textarea>
-                    <!-- Validation messages -->
-                    <div class="tt-error-text" data-ng-show="Partner.signupForm.experiencia.$invalid && Partner.signupForm.experiencia.$touched" data-ng-messages="Partner.signupForm.experiencia.$error">
-                        <p class="help-block" data-ng-message="required">Selecione habilidade com pacientes</p>
-                    </div>
-                </div>
+                                <div class="form-group" data-ng-class="{ 'card-panel' : Partner.signupForm.experiencia.$invalid
+                                && Partner.signupForm.experiencia.$touched }">
+                                    <label>Experiência</label>
+                                    <textarea class="form-control validate" style="min-height:0px;" data-ng-model="Partner.data.experiencia" type="text" placeholder="Experiência" required name="experiencia" maxlength="140"></textarea>
+                                    <!-- Validation messages -->
+                                    <div class="tt-error-text" data-ng-show="Partner.signupForm.experiencia.$invalid && Partner.signupForm.experiencia.$touched" data-ng-messages="Partner.signupForm.experiencia.$error">
+                                        <p class="help-block" data-ng-message="required">Selecione habilidade com pacientes</p>
+                                    </div>
+                                </div>
+
+
                 <div class="form-group">
                     <label for="disponibilidade">Disponível para início imediato</label>
                     <div class="switch">
                         <label>
-                           Não
-                           <input type="checkbox" data-ng-model="Partner.data.disponibilidade" name="disponibilidade">
-                           <span class="lever"></span>
-                           Sim
-                         </label>
+     Não
+     <input type="checkbox" data-ng-model="Partner.data.disponibilidade" name="disponibilidade">
+     <span class="lever"></span>
+     Sim
+   </label>
                     </div>
                 </div>
                 <div class="form-group">
-                        <input type="checkbox" id="termos" data-ng-model="Partner.data.termos" />
+                    <p>
+                        <input type="checkbox" id="terms" data-ng-model="Partner.data.termos"  />
                         <label for="terms">Aceito os <a target="_blank" href="#/terms-of-use" class="blue-text text-blue">Termos de uso</a></label>
+                    </p>
                     <div class="tt-error-text" data-ng-show="Partner.signupForm.termos.$invalid" data-ng-messages="Partner.signupForm.termos.$error">
                         <p class="help-block" data-ng-message="required">Campo obrigatório</p>
                     </div>
@@ -413,7 +417,7 @@
                 <div class="row">
                     <div class="input-field col s12">
                         <button class="btn green waves-effect waves-light col l4 s12
-              tt-blue-background" type="submit" name="action" data-ng-disabled="Partner.signupForm.$invalid || Partner.errorMessage">
+              tt-blue-background" type="submit" name="action">
 							Cadastrar</button>
 
                         <button class="btn green waves-effect waves-light col offset-l4 col l4 s12

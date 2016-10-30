@@ -175,7 +175,6 @@ function PartnerSearchController($routeParams, $location, $http, helperService, 
 
 function PartnerSignupController($http, $window, $location, helperService) {
     var vm = this;
-
     vm.loading = false;
     vm.submitSignupForm = submitSignupForm;
     vm.regexCEP = helperService.regex.CEP;
