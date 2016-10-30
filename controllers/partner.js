@@ -193,22 +193,22 @@ function PartnerSignupController($http, $window, $location, helperService) {
     function submitSignupForm(form) {
         // TODO: submit data to server
         vm.loading = false;
+         //vm.data = angular.copy(form);
+         form = angular.copy(form);
 
-        var data = angular.copy(form);
-
-        if(data.termos == false || data.termos == null) {
+        if(vm.form.termos == false || vm.form.termos == null) {
           $window.alert('Por favor aceite os termos de uso.');
           return;
         }
 
-        data.perfilID = '2';
-        data.disponibilidade = data.disponibilidade ? '1' : '0';
-        data.profilePicture = data.profilePicture.base64;
+        vm.form.perfilID = '2';
+        vm.form.disponibilidade = vm.form.disponibilidade ? '1' : '0';
+        vm.form.profilePicture = vm.form.profilePicture.base64;
 
         var url = helperService.backendUrl + '/cadastro/usuario_update.php';
 
         vm.loading = true;
-        $http.post(url, data)
+        $http.post(url, form)
             .then(function(res) {
                 console.log('succeess', res);
                 vm.loading = false;

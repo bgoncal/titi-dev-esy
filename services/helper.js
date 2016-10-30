@@ -161,7 +161,12 @@ function helperService() {
     {
       id: '4',
       name: 'Fisioterapeuta'
-    }/*,
+    },
+    {
+      id: '0',
+      name: 'Todos'
+    }
+		/*,
     {
       id: '5',
       name: 'Fonoaudiólogo'
