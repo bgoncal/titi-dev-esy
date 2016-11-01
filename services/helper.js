@@ -135,14 +135,18 @@ function helperService() {
       id: 'CREFITO',
       name: 'CREFITO'
     },
-    {
+    /*{
       id: 'CRM',
       name: 'CRM'
-    },
+    },*/
     {
       id: 'OUTRO',
       name: 'CUIDADOR'
-    }
+    },
+		{
+			id: 'CREF',
+			name: 'CREF'
+		}
   ];
 
   helper.partnerOptions = [
@@ -162,6 +166,10 @@ function helperService() {
       id: '4',
       name: 'Fisioterapeuta'
     },
+		{
+			id: '6',
+			name: 'Educador Físico'
+		},
     {
       id: '0',
       name: 'Todos'
