@@ -41,133 +41,148 @@
     <link rel="stylesheet" href="assets/css/angular-datepicker.css">
     <link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Oleo+Script:400,700&subset=latin-ext" rel="stylesheet">
     <script>
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        (function(i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function() {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
         ga('create', 'UA-84850577-1', 'auto');
         ga('send', 'pageview');
-
     </script>
     <!-- <base href="/src" /> -->
 </head>
 
 
 <body data-ng-controller="HomeController as Home" class="tt-new-light-orange-bg">
-  <div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.8&appId=275351985827970";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
+    <div id="fb-root"></div>
+    <script>
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "//connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.8&appId=275351985827970";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
     <div id="nav-bar" z-depth-1>
-        <nav class="tt-nav-bar tt-new-blue-bg" role="navigation">
+        <nav class="tt-nav-bar tt-new-blue-bg row" role="navigation">
             <div class="nav-wrapper">
 
-            <a id="logo-container" href="#/" class="brand-logo">
+                <a id="logo-container" href="#/" class="brand-logo">
 
 
-                <img class="left logo1 tt-lo" width="47px" src="assets/images/new-logo-titi.png" style="margin-top:8px;margin-left:10px;" />
-                <h4 class="small-sub-brand tt-lo left " style="margin-left: 10px;margin-top: 25px;font-size: 16px;">
+                    <img class="left logo1 tt-lo" width="47px" src="assets/images/new-logo-titi.png" style="margin-top:8px;margin-left:10px;" />
+                    <h4 class="small-sub-brand tt-lo left " style="margin-left: 10px;margin-top: 25px;font-size: 16px;">
                     <b>TITI</b> - Cuidadores cuidadosos</h4>
-            </a>
 
-            <ul class="right hide-on-med-and-down">
-              <li>
-<div class="fb-like white" data-href="https://www.facebook.com/TITICuidadores/" data-width="300" data-layout="standard" data-action="like" data-size="small" data-show-faces="false" data-share="true" style="padding: 5px;
+                    <div class="fb-like white" data-href="https://www.facebook.com/TITICuidadores/" data-width="300" data-layout="standard" data-action="like" data-size="small" data-show-faces="false" data-share="true" style="    padding: 5px;
     border-radius: 5px;
-    height: 50px;
-    display: flex;
-    padding-top: 16px;
+    height: 34px;
+    display: inline-flex;
+    padding-top: 7px;
     margin-top: 7px;
-    margin-right: 11px;"></div>
-              </li>
-                <li data-ng-repeat="link in Home.links" ng-show="Home.setLoggedMenu(link.type)"><a href="{{link.href}}">{{link.title}}</a></li>
-            </ul>
+    margin-left: 11px;"></div>
+                </a>
+
+                <ul class="right hide-on-med-and-down">
+                  <li class="white card" style="    width: 272px;
+    padding-left: 9px;
+    height: 53px;
+    margin-top: 5px;" ><input id="searchIconBtn" placeholder="Digite seu CEP" class="col s8" style="    margin-top: 6px;
+" />
+<a class="col s3 right orange-text" style="margin-top: -5px;"><i class="material-icons dp48">search</i></a>
+  </li>
+                    <li data-ng-repeat="link in Home.links" ng-show="Home.setLoggedMenu(link.type)"><a href="{{link.href}}">{{link.title}}</a></li>
+                </ul>
 
 
                 <ul id="nav-mobile" class="side-nav">
                     <li data-ng-repeat="link in Home.links" ng-show="Home.setLoggedMenu(link.type)"><a href="{{link.href}}" onclick=" $('#sidenav-overlay').trigger('click');">{{link.title}}</a></li>
                 </ul>
 
-            <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
-        </div>
-    </nav>
-</div>
-
-<div data-ng-view></div>
-
-<footer class="tt-footer-background">
-    <div class="footer-copyright">
-
-        <div class="center">
-            <a href="#/terms-of-use">Termos de uso</a> | <a ng-click="Home.contactModal()"> Contato</a> <br><br>
-<div class="fb-like white" data-href="https://www.facebook.com/TITICuidadores/" data-width="300" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true" style="padding:5px; border-radius: 5px;"></div>
-
-            <br>  <br> Copyright © 2016 TITI - Todos os direitos reservados
-        </div>
+                <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+            </div>
+        </nav>
     </div>
-</footer>
-<!-- Modal Structure -->
-<div id="modalContact" class="modal">
-    <form name="Home.contactForm" data-ng-submit="Home.submitContactForm(Home.contactForm)" class="col s12">
-        <div class="modal-content">
-            <h4>Fale Conosco</h4>
-            <div class="row">
-                <div class="row">
-                    <div class="input-field col s12">
-                        <input id="name" data-ng-model="Home.contactForm.nome" type="text" class="validate" required="">
-                        <label for="name" >Nome</label>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col s12">
-                        <input id="email" data-ng-model="Home.contactForm.email" type="email" class="validate">
-                        <label for="email" data-error="Email incorreto" data-success="Email Válido">Email</label>
-                    </div>
-                </div>
 
-                <div class="row">
-                    <div class="input-field col s12">
-                        <textarea id="message" data-ng-model="Home.contactForm.mensagem"  class="validate materialize-textarea" rows="5" required></textarea>
-                        <label for="message">Mensagem</label>
-                    </div>
-                </div>
+    <div data-ng-view></div>
 
+    <footer class="tt-footer-background">
+        <div class="footer-copyright">
+
+            <div class="center">
+                <a href="#/terms-of-use">Termos de uso</a> | <a ng-click="Home.contactModal()"> Contato</a> <br><br>
+                <div class="fb-like white" data-href="https://www.facebook.com/TITICuidadores/" data-width="300" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true" style="padding:5px; border-radius: 5px;"></div>
+
+                <br> <br> Copyright © 2016 TITI - Todos os direitos reservados
             </div>
         </div>
-        <div class="modal-footer">
-            <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Fechar</a>
-            <button class="btn waves-effect waves-light col s12
-     valign tt-new-blue-bg" type="submit"  ng-disabled="form.$invalid" name="action" style="margin-right:15px;">
+    </footer>
+    <!-- Modal Structure -->
+    <div id="modalContact" class="modal">
+        <form name="Home.contactForm" data-ng-submit="Home.submitContactForm(Home.contactForm)" class="col s12">
+            <div class="modal-content">
+                <h4>Fale Conosco</h4>
+                <div class="row">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="name" data-ng-model="Home.contactForm.nome" type="text" class="validate" required="">
+                            <label for="name">Nome</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="email" data-ng-model="Home.contactForm.email" type="email" class="validate">
+                            <label for="email" data-error="Email incorreto" data-success="Email Válido">Email</label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <textarea id="message" data-ng-model="Home.contactForm.mensagem" class="validate materialize-textarea" rows="5" required></textarea>
+                            <label for="message">Mensagem</label>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Fechar</a>
+                <button class="btn waves-effect waves-light col s12
+     valign tt-new-blue-bg" type="submit" ng-disabled="form.$invalid" name="action" style="margin-right:15px;">
                 Enviar
             </button>
 
-        </div>
-    </form>
-</div>
+            </div>
+        </form>
+    </div>
 
 
-<!--  Scripts-->
-<script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
-<script>
-      function getParameterByName(name, url) {
-          if (!url) url = window.location.href;
-          name = name.replace(/[\[\]]/g, "\\$&");
-          var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-              results = regex.exec(url);
-          if (!results) return null;
-          if (!results[2]) return '';
-          return decodeURIComponent(results[2].replace(/\+/g, " "));
-      }
-      $(document).ready(function() {
-          new WOW().init();
+    <!--  Scripts-->
+    <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script>
+        function getParameterByName(name, url) {
+            if (!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, "\\$&");
+            var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, " "));
+        }
+        $(document).ready(function() {
+            new WOW().init();
 
-      });
-</script>
+        });
+    </script>
     <script src="assets/js/materialize.min.js"></script>
     <script src="assets/js/init.js"></script>
     <script src="//code.angularjs.org/1.5.5/angular.min.js?v=4"></script>
