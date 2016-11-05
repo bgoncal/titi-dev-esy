@@ -61,16 +61,19 @@
 
 
 <body data-ng-controller="HomeController as Home">
-  <div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.8&appId=275351985827970";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
+    <div id="fb-root"></div>
+    <script>
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "//connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.8&appId=275351985827970";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
     <div id="nav-bar" z-depth-1>
-        <nav class="tt-nav-bar white tt-green-text" role="navigation">
+        <nav class="tt-nav-bar tt-new-light-green-bg row no-margin" role="navigation">
 
             <div class="nav-wrapper">
 
@@ -78,10 +81,10 @@
 
 
                     <img class="left logo1 tt-lo" width="47px" src="assets/images/new-logo-titi.png" style="margin-top:8px;margin-left:10px;" />
-                    <h4 class="small-sub-brand tt-lo left " style="margin-left: 10px;margin-top: 25px;font-size: 16px;">
-                    <b>TITI</b> - Cuidadores cuidadosos</h4>
+                    <h4 class="small-sub-brand tt-lo left " style="margin-left: 10px;margin-top: 25px;font-size: 19px;">
+                    <b>TITI</b> Cuidadores cuidadosos</h4>
 
-                    <div class="fb-like white" data-href="https://www.facebook.com/TITICuidadores/" data-width="300" data-layout="standard" data-action="like" data-size="small" data-show-faces="false" data-share="true" style="    padding: 5px;
+                    <div class="fb-like white hide-on-med-and-down" data-href="https://www.facebook.com/TITICuidadores/" data-width="300" data-layout="standard" data-action="like" data-size="small" data-show-faces="false" data-share="true" style="    padding: 5px;
     border-radius: 5px;
     height: 34px;
     display: inline-flex;
@@ -91,13 +94,13 @@
                 </a>
 
                 <ul class="right hide-on-med-and-down">
-                  <li class="white card" style="    width: 272px;
-    padding-left: 9px;
-    height: 53px;
-    margin-top: 5px;" ><input id="searchIconBtn" placeholder="Digite seu CEP" class="col s8" style="    margin-top: 6px;
-" />
-<a class="col s3 right orange-text" style="margin-top: -5px;"><i class="material-icons dp48">search</i></a>
-  </li>
+                  <li  ng-controller="SearchHomeController as sc" class="white card search-box-home" >
+                    <form data-ng-submit="sc.submitForm(sc.form)">
+                      <input id="searchIconBtn" placeholder="Digite seu CEP" class="col s8 tt-green-text" data-ng-model="sc.form.cep"  />
+                        <button class="col s3 right orange-text btn-search-box-home" style="margin-top: -5px;"><i class="material-icons dp48">search</i></button>
+                      </form>
+                    </li>
+
                     <li data-ng-repeat="link in Home.links" ng-show="Home.setLoggedMenu(link.type)"><a href="{{link.href}}">{{link.title}}</a></li>
                 </ul>
 

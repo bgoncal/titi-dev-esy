@@ -24,14 +24,14 @@
     <div class="row">
       <div class="col s12 m12 l12" style="margin-top:25px;">
 
-          <div class="col offset-m4 offset-l3 m6  s12 tt-pacientes-box  z-depth-2 tt-new-blue-bg  wow bounceInUp" data-wow-delay="1s">
+          <div class="col offset-m4 offset-l3 m6  s12 tt-pacientes-box  tt-search-home tt-new-green-bg   wow bounceInUp" data-wow-delay="1s">
               <h4 class="header center ">Pacientes e familiares</h4>
               <p class="col s12 center ">
                   Encontre cuidadores, enfermeiras, fisioterapeutas e outros profissionais para cuidar de quem você ama.
               </p>
 
               <div class="col s12 center">
-                  <form name="Customer.searchForm" data-ng-submit="Customer.submitForm(Customer.form)">
+                  <form name="Customer.searchForm" data-ng-submit="Customer.submitForm(Customer.form)" class="card" style="padding-top: 13px;padding-bottom: 13px;">
                       <div class="col s12 center">
                           <input class="center white black-text" data-ng-model="Customer.form.cep" required type="text" name="cep" mask="99999-999" placeholder="Digite seu CEP aqui" />
                       </div>
@@ -39,7 +39,7 @@
                       <div class="col s12 center">
                         <select data-ng-model="Customer.form.selectedPartner" required
                           data-ng-options="partner.name for partner in Customer.partners"
-                          class="tt-blue-background tt-white-text tt-select"
+                          class="black-text"
                           >
                           <option value="">Escolha o profissional</option>
                         </select>
@@ -48,9 +48,10 @@
                       <div class="col s12 center">
                           <button class="btn waves-effect waves-light col s12 tt-margin-top-button
               tt-orange-background" type="submit" name="action">
-                              <i class="material-icons">search</i>Pesquise aqui
+                            Pesquise aqui
                           </button>
                       </div>
+                      <div class="clearfix"></div>
                   </form>
               </div>
           </div>

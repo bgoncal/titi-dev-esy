@@ -1,6 +1,7 @@
 angular
     .module('titi')
     .controller('SearchController', ['$cookies', '$http', '$window', '$location', 'authService',  'NgMap','helperService', SearchController])
+    .controller('SearchHomeController', ['$cookies', '$http', '$window', '$location', 'authService',  'NgMap','helperService', SearchHomeController])
     .config(['$routeProvider', routes]);
 
 function routes($routeProvider) {
@@ -20,6 +21,7 @@ function SearchController($cookies, $http, $window, $location, authService, NgMa
     vm.getEmptyStars = getEmptyStars;
     vm.partners = helperService.partnerOptions;
     vm.closeSearch = closeSearch;
+    vm.loading = false;
     var cookies = $cookies.getObject('globals');
     if (cookies) {
     }
@@ -58,12 +60,13 @@ function SearchController($cookies, $http, $window, $location, authService, NgMa
 
     if (globals.currentUser.pacientesID != null) {
         url = helperService.backendUrl + "/relat/pesquisa_completa.php?cep=" + getParameterByName('cep') + "&atuacao=" + getParameterByName('atuacao') + "&pacientesID=" + globals.currentUser.pacientesID;
-
+        vm.loading = true;
         $http.get(url)
             .then(function (res) {
                 console.log('succeess', res);
                 vm.loading = false;
                 vm.result = res.data;
+                vm.loading = false;
                 vm.location = res.data[vm.result.length - 1];
                 for(var i=0;i<vm.result.length;i++) {
                   if(vm.result[i].foto != "") {
@@ -73,6 +76,7 @@ function SearchController($cookies, $http, $window, $location, authService, NgMa
                 console.log(vm.location);
                 console.log(vm.result);
             }, function (err) {
+              vm.loading = false;
                 console.log('error', err);
             });
     }
@@ -89,4 +93,20 @@ function SearchController($cookies, $http, $window, $location, authService, NgMa
         $window.location.href = "#/search?cep=" + data.cep + "&atuacao=" + data.selectedPartner.id + "&pacientesID=" + globals.currentUser.pacientesID;
     }
 
+}
+
+function SearchHomeController($cookies, $http, $window, $location, authService, NgMap, helperService) {
+  var vm = this;
+
+  vm.submitForm = submitForm;
+
+  function submitForm(form) {
+
+    var data = angular.copy(form);
+    console.log(data);
+    var redirectLink = '/search-partners/' + data.cep + '/0';
+    $location.path(redirectLink);
+  }
+
+  console.log("Hello World");
 }

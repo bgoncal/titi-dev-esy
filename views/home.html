@@ -1,4 +1,4 @@
-<div class="section no-pad-bot" id="home-banner">
+<div class="section no-padding" id="home-banner">
     <div class="row tt-blue-text tt-margin-top tt-main-background z-depth-1 tt-principal">
 
         <div class="hide-on-large-only">
@@ -18,7 +18,7 @@
             </p>
 
             <div class="col s12 center">
-                <form name="Home.homeForm" data-ng-submit="Home.submitForm(Home.form)">
+                <form name="Home.homeForm" data-ng-submit="Home.submitForm(Home.form)" class="card" style="padding-top: 13px;padding-bottom: 13px;">
                     <div class="col s12 center">
                         <input class="center white black-text" data-ng-model="Home.form.cep" required type="text" name="cep" mask="99999-999" placeholder="Digite seu CEP aqui" />
                     </div>
@@ -35,6 +35,7 @@
                    Pesquise aqui
                 </button>
                     </div>
+                    <div class="clearfix"></div>
                 </form>
             </div>
 
@@ -52,7 +53,7 @@
 
         <div class="row" id="titi">
             <div class="white col s12">
-                <h5 class="center tt-new-blue-text tt-w-i-tt">O que é TITI?</h5>
+                <h5 class="center  tt-green-text tt-w-i-tt">O que é TITI?</h5>
             </div>
             <div class="section tt-image-green  no-margin panel-double-padding row col s12">
 

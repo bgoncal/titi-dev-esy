@@ -16,26 +16,51 @@ a {
 nav ul li {
     border-right: 1px solid rgba(38, 166, 154, 0.15);
 }
+
 nav ul a:hover {
     background-color: rgba(218, 218, 218, 0.11) !important;
 }
 
-#searchIconBtn, #searchIconBtn:focus, #searchIconBtn:active {
-  border:none;
-  box-shadow: none;
+.search-box-home {
+    width: 272px;
+    padding-left: 9px;
+    height: 53px;
+    margin-top: 5px;
 }
 
+.search-box-home input{
+  margin-top: 6px;
+}
+
+.btn-search-box-home {
+  background: transparent !important;
+  border: none;
+}
+
+#searchIconBtn, #searchIconBtn:focus, #searchIconBtn:active {
+    border: none;
+    box-shadow: none;
+}
+
+.no-padding {
+    padding: 0px !important;
+}
+
+.no-margin {
+    margin: 0px !important;
+}
 
 .tt-img-size-rate {
-  border-radius:100%;
+    border-radius: 100%;
 }
 
 .card-panel-tt-select {
-  padding: 10px !important;
+    padding: 10px !important;
 }
+
 .card-panel-tt-select:hover {
-  background-color: rgb(47, 76, 141);
-  color: white;
+    background-color: rgb(47, 76, 141);
+    color: white;
 }
 
 .map-current-test {
@@ -205,7 +230,7 @@ textarea {
 }
 
 .modal.rate h4 {
-    background-color: #938953;
+    background-color: #01D7BC;
     padding: 20px;
     margin: -24px;
     margin-bottom: 14px;
@@ -268,7 +293,7 @@ textarea {
 .tt-pacientes-box {
     margin-top: -10px;
     background-color: #27ae60;
-    padding: 20px 0 20px 0 !important;
+    padding: 20px 0 0px 0 !important;
     color: white;
 }
 
@@ -332,50 +357,61 @@ textarea {
     /*color: #1c2743 !important;*/
 }
 
-.tt-green-text * {
-  color: #26a69a !important;
+.tt-green-text, .tt-green-text * {
+    color: #26a69a !important;
 }
 
-.tt-new-blue-bg  {
+.tt-new-blue-bg {
     background-color: #2F4C8D !important;
 }
+
 .tt-new-light-blue-bg {
-  background-color: #82a0e8;
+    background-color: #82a0e8;
 }
+
 .tt-new-light-orange-bg {
-  background-color: #ee905b;
+    background-color: #ee905b;
+}
+
+.tt-new-light-green-bg {
+    background-color: #01D7BC;
 }
 
 .tt-search-home {
-  background-color: rgba(0, 0, 0, 0.54);
+    background-color: rgba(0, 0, 0, 0.54);
 }
+
 .tt-new-orange-bg {
     background-color: #f3ba3c;
 }
+
 .tt-new-brown-bg {
-  background-color: #938953;
+    background-color: #938953;
 }
 
 .tt-new-green-bg {
-  background-color: #26a69a;
+    background-color: #26a69a;
 }
-
 
 .btn, .btn-large {
-  background-color: #f3ba3c;
+    background-color: #f3ba3c;
 }
+
 .btn:hover, .btn-large:hover {
-  background-color: #938953;
+    background-color: #938953;
 }
+
 .teal {
-  background-color: #938953 !important;
+    background-color: #938953 !important;
 }
+
 .tt-new-brown-text {
-  color: #938953;
+    color: #938953;
 }
+
 .tt-w-i-tt {
-  height: 49px;
-  padding: 10px;
+    height: 49px;
+    padding: 10px;
 }
 
 
@@ -407,17 +443,16 @@ body, body * {
 }
 
 body {
-  background-image:url('../images/bg-health.jpg');
+    background-image: url('../images/bg-health.jpg');
 }
 
 .tt-image-green {
-  background-image:url('../images/bg-health.jpg');
+    background-image: url('../images/bg-health.jpg');
 }
 
 body select {
     display: inline-block;
 }
-
 
 .mouse-click {
     cursor: pointer;
@@ -469,30 +504,30 @@ body select {
 .titi-marker * {
     font-size: 12px;
 }
+
 .custom-marker.titi-marker.last {
-  color: transparent;
-  background: transparent;
-  box-shadow: none;
-  padding: 0px;
-  border-radius: 0px;
-  background-image: url('../images/pin.png');
-  background-size: 100% auto;
-  height: 50px;
-  width: 30px;
-  background-position: center center;
-  background-repeat: no-repeat;
+    color: transparent;
+    background: transparent;
+    box-shadow: none;
+    padding: 0px;
+    border-radius: 0px;
+    background-image: url('../images/pin.png');
+    background-size: 100% auto;
+    height: 50px;
+    width: 30px;
+    background-position: center center;
+    background-repeat: no-repeat;
 }
+
 .titi-marker.last {
-  color: transparent;
-  background: transparent;
-  box-shadow: none;
-  padding: 0px;
-  border-radius: 0px;
+    color: transparent;
+    background: transparent;
+    box-shadow: none;
+    padding: 0px;
+    border-radius: 0px;
 }
 
 @media screen and (max-width:840px) {
-
-
     a#logo-container img {
         height: 46px;
         width: auto;
@@ -524,46 +559,40 @@ body select {
     .tt-home-search {
         margin: 0px;
         height: 35px;
-
-
     }
     .tt-search-home {
-      margin-top: -21px !important;
+        margin-top: -21px !important;
     }
     .map-current-test {
-      margin-top: 0px !important;
+        margin-top: 0px !important;
     }
     .tt-w-i-tt {
-      height: auto;
-
+        height: auto;
     }
     .tt-w-i {
-          margin-top: 135px;
+        margin-top: 135px;
     }
     .tt-lo {
-      margin:0px !important;
-      font-size: 12px !important;
+        margin: 0px !important;
+        font-size: 12px !important;
     }
     h4.tt-lo {
-      margin-top:23px !important;
+        margin-top: 23px !important;
     }
     #logo-container {
-      width: 68%;
-      float: right;
+        width: 68%;
+        float: right;
     }
     .logo1 {
-      width: 35px !important;
-      height: 35px !important;
-      margin-top:10px !important;
-      margin-right:10px !important;
+        width: 35px !important;
+        height: 35px !important;
+        margin-top: 10px !important;
+        margin-right: 10px !important;
     }
     .logo2 {
-      margin:0px !important;
-      margin-top:5px !important;
-
+        margin: 0px !important;
+        margin-top: 5px !important;
     }
-
-
 }
 
 @media screen and (max-width:600px) {
@@ -576,5 +605,8 @@ body select {
     .form-all {
         width: 98% !important;
         margin: 0 auto;
+    }
+    nav {
+        height: 71px;
     }
 }
